@@ -1,0 +1,580 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA1 Automation test suite'>
+
+    <parameter name='suiteExecuted' value='Regression' />
+    <parameter name='executionType' value='Sequential' />
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+    </listeners>
+    <test name="Android-Native" preserve-order='true'>
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="NA"></parameter>
+        <parameter name="platformNameMobile" value="Android"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="app" value="AAA.apk"></parameter>
+        <parameter name="appPackage" value="com.aaa.android.discounts"></parameter>
+        <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"></parameter>
+        <parameter name="platformVersion" value="6.1"></parameter>
+        <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"></parameter>
+        <parameter name="udid" value="02157df2d2788f19"></parameter>
+        <parameter name="deviceName" value="Samsung_Galaxy_S6"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <parameter name="autoStart" value="web"></parameter>
+        <classes>
+<<<<<<< .mine
+
+        <!-- <class name="com.aaa.web.script.TC_DITruckLoadCallViewing">
+||||||| .r2121
+
+         <class name="com.aaa.web.script.TC_DITruckLoadCallViewing">
+=======
+            <class name="com.aaa.web.script.TC_CRLoginScript">
+>>>>>>> .r1772
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+<<<<<<< .mine
+
+                &lt;!&ndash;<include name="verifyREstatusOnProfileActionRequired"/>
+                    <include name="verifySPstatusOnProfileActionRequired"/>
+                    <include name="verifyHSandHCCallStatusOnProfileActionRequired"/>
+                    <include name="verifyBDstatusOnProfileActionRequired"/>
+                      <include name="acknowledgeERstatusOnProfileActionRequired"/>
+                        <include name="ERstatusWithCommentsOnProfileActionRequired"/>&ndash;&gt;
+                    <include name="verifyTruckLoadCallViewing"/>
+
+                </methods>
+            </class>-->
+            <!--<class name="com.aaa.web.script.TC_DITruckLoadTruckStatusUpdates">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="verifyTruckStatusUpdateOnTruckLoad"/>
+
+                </methods>
+            </class>-->
+            <!--<class name="com.aaa.web.script.TC_DITruckLoadCallViewing">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="verifyTruckLoadCallViewing"/>
+
+                </methods>
+            </class>-->
+            <class name="com.aaa.web.script.TC_CRDuplicateCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="cancelDuplicateCall"/>
+                    <!--<include name="enterPacesetterCodeManuallyforKeyIssueScript"/>
+                    <include name="enterPacesetterCodeforTowManuallyforKeyIssueScript"/>
+                    <include name="createCallWithSpecialEntitlementLockoutHLOCK"/>-->
+                    <!--<include name="verifySPstatusOnProfileActionRequired"/>
+                    <include name="verifyHSandHCCallStatusOnProfileActionRequired"/>
+                    <include name="verifyBDstatusOnProfileActionRequired"/>
+                    <include name="acknowledgeERstatusOnProfileActionRequired"/>
+                    <include name="ERstatusWithCommentsOnProfileActionRequired"/>-->
+
+                </methods>
+            </class>
+       <!--<class name="com.aaa.web.script.TC_CRCashCallService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="cashCallService"/>
+                    <include name="cashCallServiceZeroEntitlements"/>
+                    <include name="cashCallServiceCanceledEntitlements"/>
+
+                </methods>
+            </class>-->
+            <!--<class name="com.aaa.web.script.TC_CRLoginScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+||||||| .r2121
+
+                <!--<include name="verifyREstatusOnProfileActionRequired"/>
+                    <include name="verifySPstatusOnProfileActionRequired"/>
+                    <include name="verifyHSandHCCallStatusOnProfileActionRequired"/>
+                    <include name="verifyBDstatusOnProfileActionRequired"/>
+                      <include name="acknowledgeERstatusOnProfileActionRequired"/>
+                        <include name="ERstatusWithCommentsOnProfileActionRequired"/>-->
+                    <include name="verifyTruckLoadCallViewing"/>
+
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DITruckLoadTruckStatusUpdates">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="verifyTruckStatusUpdateOnTruckLoad"/>
+
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DITruckLoadDriverComments">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="verifyDriverCommentsOnTruckLoad"/>
+
+                </methods>
+            </class>
+       <!--<class name="com.aaa.web.script.TC_CRCashCallService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+
+                    <include name="cashCallService"/>
+                    <include name="cashCallServiceZeroEntitlements"/>
+                    <include name="cashCallServiceCanceledEntitlements"/>
+
+                </methods>
+            </class>-->
+            <!--<class name="com.aaa.web.script.TC_CRLoginScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+=======
+>>>>>>> .r1772
+                    <include name="successLogin"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRERSBattery">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="ERSBatteryJumpStart"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLocations">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="33"></parameter>
+                    <include name="verifyLocationsTab"/>
+                </methods>
+            </class>
+       <!-- &lt;!&ndash; SPRINT1 &ndash;&gt;
+            <class name="com.aaa.web.script.TC_CRLoginScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="loginWithValidUserNameAndInvalidPassword"/>
+                    <include name="loginWithInactiveUser"/>
+                    <include name="successLogin"/>
+                    <include name="sessionTest"/>
+                    <include name="SelectRole"/>
+                    <include name="multiSessionValidation"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRWorkFlowScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="FieldValidation"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRMemberScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="membnumSearch"/>
+                    <include name="membemailSearch"/>
+                    <include name="memnamesearch"/>
+                    <include name="nineDigitMemberSearch"/>
+                    <include name="memnameaddressSearch"/>
+                    <include name="memphoneSearch"/>
+                    <include name="historySearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRKeylock">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="keyLockIssueRadioButton"/>
+                    <include name="enterPacesetterCodeManuallyforKeyIssueScript"/>
+                    <include name="enterPacesetterCodeforTowManuallyforKeyIssueScript"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRERSBattery">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="ERSBatteryJumpStart"/>
+                    <include name="ERSBatteryTruck"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRHistoryCallSaveScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="HistoryCallSave"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPhoneTypesScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="phoneTypeverification"/>
+                </methods>
+            </class>
+            &lt;!&ndash; SPRINT2 &ndash;&gt;
+            <class name="com.aaa.web.script.TC_SaveERSCallLightService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="basicMemberCallLightServiceForFuelTrouble"/>
+                    <include name="plusOrPremierMemberCallLightServiceForFuelTrouble"/>
+                    <include name="basicMemberCallLightServiceForFlatTireSpare"/>
+                    <include name="basicMemberCallLightServiceForKeyLocked"/>
+                    <include name="plusMemberCallLightServiceForKeyLocked"/>
+                    <include name="premierMemberCallLightServiceForKeyLocked"/>
+                </methods>
+            </class>
+           &lt;!&ndash; <class name="com.aaa.web.script.TC_CRSaveAppointmentCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crSaveAppointmentCall"/>
+                </methods>
+            </class>&ndash;&gt;
+            <class name="com.aaa.web.script.TC_CRManualEnterMembershipSave">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="memberFieldsSaveByManualEntry"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPhoneTempDelete">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="memberContactInfoSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRScratchPad">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="scratchPad"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTimeZone">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crTimeZone"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLeaveCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="leaveCall"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CREntitlements">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="entitlementsCallClear"/>
+                    <include name="entitlementsCallClearGOA"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="cdxMemberLookUp"/>
+                </methods>
+            </class>
+            &lt;!&ndash; SPRINT3 &ndash;&gt;
+             <class name="com.aaa.web.script.TC_CRLocations">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="membershipKnownLocations"/>
+                    <include name="verifyAddressWithLongitudeAndLatitude"/>
+                    <include name="verifyCityAlias"/>
+                    <include name="verifyFieldsWithCrossStreet"/>
+                    <include name="verifyLandMark"/>
+                    <include name="verifyLocationFields"/>
+                    <include name="verifyManualEntryAddressLookUp"/>
+                    <include name="verifyManualEntryCrossStreet"/>
+                    <include name="verifyManualEntryOfLandMark"/>
+                    <include name="verifyManualEntryOfSpecialCharactersOnAddress"/>
+                    <include name="verifyPointsOfInterest"/>
+                    <include name="verifySpecialCharactersOnAddress"/>
+                    <include name="verifyTheEmptyFields"/>
+                    <include name="verifyWildCardSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="CRVehicleSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLiveCallSearch">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="liveCallSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTriage">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="ValidateBatteryTriageQuestions"/>
+                    <include name="ValidateEngineTriageQuestions"/>
+                    <include name="ValidateFlatTireTriageQuestions"/>
+                    <include name="ValidateFuelTriageQuestions"/>
+                    <include name="ValidateKeyslTriageQuestions"/>
+                    <include name="ValidateShortCutslTriageQuestions"/>
+                    <include name="ValidateTowlTriageQuestions"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPacesetterAndTroubleCodeMapping">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crPacesetterAndTroubleCodeMapping"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRD3AutoSpotgrid">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="autoSpotGridForBattery"/>
+                    <include name="autoSpotGridForFullService"/>
+                    <include name="autoSpotGridForJumpStart"/>
+                    <include name="autoSpotGridForLightServiceFlatTyre"/>
+                    <include name="autoSpotGridForLightServicesFuel"/>
+                    <include name="autoSpotGridForLockOutServices"/>
+                    <include name="autoSpotGridForRVVehicle"/>
+                    <include name="autoSpotGridForSpecialEquipement"/>
+                </methods>
+            </class>
+            &lt;!&ndash; SPRINT4 &ndash;&gt;
+            <class name="com.aaa.web.script.TC_CRManualSpot">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="activeManualSpot"/>
+                    <include name="inActiveManualSpot"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveERSCallFullService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="saveERSCallFullService"/>
+                    <include name="saveERSCallForBasicMemberLessThan5Miles"/>
+                    <include name="saveERSCallForBasicMemberGreaterThan5Miles"/>
+                    <include name="saveERSCallFullServiceForPlusMemberApproximately50Miles"/>
+                    <include name="saveERSCallFullServiceForPlusMemberBetween80To100Miles"/>
+                    <include name="saveERSCallFullServiceForPlusRvMemberLessThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierMemberGreaterThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierMemBetween180To200Miles"/>
+                    <include name="saveERSCallFullServiceForPremierRVMemberGreaterThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierRVMemBetween180To200"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveRAPCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="saveRAPCallsLightService"/>
+                    <include name="saveRAPCallsForFullService"/>
+                    <include name="saveRAPCallsForLockOutServices"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRRecentCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="recentCall"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPTAScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="pta"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRETA">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="eta"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRFacilityPreference">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="verifyPrecondition"/>
+                    <include name="verifyPostCondition"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRRules">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="verifyEndCall"/>
+                    <include name="verifyRedFlag"/>
+                    <include name="verifySMSOptIn"/>
+                    <include name="verifyTowDestinationExtricationT931"/>
+                    <include name="verifyTowDestinationExtricationT932"/>
+                    <include name="verifyTowDestinationRequiredExtricationService"/>
+                    <include name="verifyTowDestinationRequiredTowingService"/>
+                    <include name="verifyTowDestinationTabHidingTabForLightService"/>
+                    <include name="verifyTowDestinationTabShowingTabOfTowing"/>
+                    <include name="verifyTowDestinationUnrequiredFieldsExtrication"/>
+                    <include name="verifyTowDestinationUnrequiredLightService"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRUpdateCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crUpdateCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRArchivedCallSearchScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="archivedCallSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRComments">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="CreateCall"/>
+                    <include name="ValidateAutoGeneratedComments"/>
+                    <include name="ValidateCannedCommentsInCR"/>
+                    <include name="ValidateCannedCommentsInDispatch"/>
+                    <include name="ValidateHiddenDeletedCommentsForCR"/>
+                    <include name="ValidateInternalCommentsInCR"/>
+                    <include name="ValidateInternalCommentsInDispatch"/>
+                    <include name="ValidateInternalCommentsNotVisibleNotAbleToCreatForCR"/>
+                    <include name="ValidateNormalCommentsInCR"/>
+                    <include name="ValidateNormalCommentsInDispatch"/>
+                    <include name="ValidateNormalCommentsInSPPDispatch"/>
+                    <include name="ValidateStatusTypeDateTimeLocationComment"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTowDestination">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="automaticSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRCancelCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="ValidateCancelProcessForCalls"/>
+                    <include name="ValidatekillProcessForCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRCashCallService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="cashCallService"/>
+                    <include name="cashCallServiceCanceledEntitlements"/>
+                    <include name="cashCallServiceZeroEntitlements"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRDuplicateCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="cancelDuplicateCall"/>
+                    <include name="duplicateAnArchivedCall"/>
+                    <include name="duplicateAnArchivedRAPCall"/>
+                    <include name="duplicateFacilityCall"/>
+                    <include name="DuplicateLiveCall"/>
+                    <include name="DuplicateLiveCallAfterCallLoads"/>
+                </methods>
+            </class>-->
+        </classes>
+    </test>
+</suite>

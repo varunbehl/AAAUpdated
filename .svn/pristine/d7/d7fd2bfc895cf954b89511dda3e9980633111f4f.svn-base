@@ -1,0 +1,281 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.*;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E003999 on 02-01-2018.
+ */
+public class TC_DIProfile10MinutesBeforeETATab extends DILoginLib {
+
+    String callId ="";
+    String callIdDate;
+    public static String callID;
+    public static String callDateCreated;
+    public static String callIDAndDateCombined;
+    public String[] callandfacilityId = new String[3];
+    public static String callIDCreated;
+    public static String spotIDCreated;
+    CRServiceLib services = new CRServiceLib();
+
+    /************************************************************************
+     * Script Name :- TC_DIProfile10MinutesBeforeETATab
+     * Method Name :-  ValidateProfileTenMinutesBeforeETATab
+     * Module	  :- DI
+     * Test Case ID:- 1762
+     * Script Date :- 7-Apr-2018
+     * Author      :- Sachin
+     * @param StartRow
+     * @param EndRow
+     * @param nextTestJoin
+     * @throws Throwable
+     *************************************************************************/
+    @Parameters({"StartRow", "EndRow", "nextTestJoin"})
+    @Test()
+    public void ValidateProfileTenMinutesBeforeETATab(int StartRow, String EndRow, boolean nextTestJoin) throws Throwable {
+        try {
+            int intStartRow = StartRow;
+            int intEndRow = ReportControl.fnGetEndRowCunt(EndRow, "ProfileBeforeETATab", TestData, "D3Dispatch");
+            for (int intCounter = intStartRow; intCounter <= intEndRow; intCounter++) {
+                try {
+
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount = intCounter;
+                    Hashtable<String, String> data = TestUtil.getDataByRowNo("ProfileBeforeETATab", TestData, "D3Dispatch", intCounter);
+                    this.reporter.initTestCaseDescription("1762: DI Profile Ten Minutes Before ETA Tab" + " From Iteration " + StartRow + " to " + EndRow);
+                    reporter.SuccessReport("Iteration Number : ", "**************Iteration Number::  " + intCounter + "   **************");
+
+                    // Creating Library Objects
+                    DIHomeLib diHome = new DIHomeLib();
+                    DILoginLib diLogin = new DILoginLib();
+                    DIProfileLib diProfile = new DIProfileLib();
+                    DIMCDLib diMCD = new DIMCDLib();
+                    DISearchCallsLib diSearchCalls = new DISearchCallsLib();
+                    LoginRoleLib loginRole = new LoginRoleLib();
+
+                    // Creating SP Status Call
+                        if(callId == ""){
+                            CreateSPStatusCall(data);
+                        }
+
+                    //navigating to DI Application
+                    navigateToApplication("DI");
+
+                        // Entering User Credentials
+                    login(data.get("DILoginName"), data.get("DIPassword"));
+                    loginRole.clickOnProceedBtnInDispatchRoleLogin();
+                    waitcloseAllBusyIcons();
+                    String parentHandle = driver.getWindowHandle();
+                    diHome.clickOnCloseIconOnQueueSelection();
+
+                    //Move the call to the ER status and pass in an eta of 15 minutes.  SP>AS>DI>ER>ETA
+                    // Opening Search Calls Window
+                    diHome.clickOnSearchCallsLink();
+
+                    // Entering Call ID in Search Calls Window
+                    diSearchCalls.clickAndEnterCallIDInfo(callId);
+
+                    // Clicking on Search Button on Search Calls Window
+                    diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                    diLogin.waitcloseAllBusyIcons();
+
+                    // Clicking on Call Id on Search Calls Window
+                    diSearchCalls.ClickOnCallIdOnSearchCallsWindow();
+                    diLogin.waitcloseAllBusyIcons();//--------
+
+                    // Opening MCD Window in Popped out mode
+                    if(data.get("PoppedMode").equalsIgnoreCase("Yes")){
+                        diMCD.maximizeMCDWindow();
+                        Thread.sleep(5000);
+                        switchToWindow();
+                    }
+
+                    // Clicking on Status Update Tab
+                    diMCD.clickOnStatusUpdateTabOnMCDWindow();
+
+                    //Entering Status
+                    diMCD.enterStatusOnStatusUpdateTab(data.get("Status"));
+                    Thread.sleep(1000);
+
+                    // Entering Reason
+                    diMCD.enterReasonInStatusUpdateTab(data.get("Reason"));
+                    Thread.sleep(1000);
+
+                    // Entering Facility
+                    diMCD.enterfacilityOnStatusUpdateWindow(data.get("SPPFacilitySpot"));
+                    Thread.sleep(1000);
+
+                    // Clicking on Update button
+                    diMCD.clickOnUpdateButtonInStatusUpdateTab();
+                    Thread.sleep(3000);
+
+                    //Changing call status to AS
+                    diMCD.clickOnAssign();
+                    diMCD.selectSecondFacilityOnAssignTabInMCD();
+
+                    //Changing call status to DI
+                    diMCD.selectDispatch();
+
+                    //select Enroute time
+                    diMCD.selectEnroute();
+                    diMCD.selectEnrouteTime();
+
+                    //set ETA time --- Clicking on ETA button
+                    diMCD.ClickOnActionButton(data.get("ActionButtonName"));
+                    Thread.sleep(2000);
+
+                    // Clicking on option 15 Min from ETA List
+                    diMCD.enterETATime(data.get("ETATime"));
+
+                    //Restoring MCD window to Pop In Mode/Restore MCD to Application Panel
+                    if(data.get("PoppedMode").equalsIgnoreCase("Yes")){
+                        diMCD.clickOnReturnToPanelOnMCDWindow();
+                        switchToWindow(parentHandle);
+                        diLogin.waitcloseAllBusyIcons();
+                    }
+
+                    // Clicking on Profile on Menu items
+                    diHome.clickOnProfileMenu();
+
+                    // Selecting Profile Name
+                    diHome.SelectProfileNameFromProfileMenu(data.get("ProfileName"));
+                    diLogin.waitcloseAllBusyIcons();
+
+                    // Opening Profile Window in Popped out mode
+                    if(data.get("PoppedMode").equalsIgnoreCase("Yes")){
+                        diProfile.clickOnArrowPopTheProfile();
+                        switchToWindow();
+                        Thread.sleep(8000);
+                    }
+
+                    // Clicking on View Hidden Arrow Tabs drop down button
+                    diProfile.ClickOnViewHiddenTabsDownArrow();
+                    Thread.sleep(1000);
+
+                    // Selecting Tab from Profile window
+                    diProfile.SelectHiddenTabNames(data.get("TabName"));
+                    Thread.sleep(5000);
+
+                    // Validating call is not there on 10 Minutes Before ETA Tab
+                    boolean strCallIDTenMinutesBeforeETATab =   diProfile.IsCallIdExistOnProfileTabs(callId,callIdDate);
+                    assertTrue(!strCallIDTenMinutesBeforeETATab,"The call is not on the 10 Minutes Before ETA profile tab, call id is: "+callId);
+
+                    // Waiting for 5 minutes
+                    Thread.sleep(300000);
+
+                    // Validating call appear on the 10 Minutes Before ETA profile tab after waiting for 5 minutes
+                    strCallIDTenMinutesBeforeETATab =   diProfile.IsCallIdExistOnProfileTabs(callId,callIdDate);
+                    assertTrue(strCallIDTenMinutesBeforeETATab,"The call appear on the 10 Minutes Before ETA profile tab after waiting for 5 minutes,call id is: "+callId);
+
+                    //Wait 11 minutes after the call appeared in the 10 minutes before eta tab
+                     Thread.sleep(660000);
+                    // Validating  call is automatically removed from the 10 Minutes Before ETA tab after waiting for 11 minutes
+                    strCallIDTenMinutesBeforeETATab =   diProfile.IsCallIdExistOnProfileTabs(callId,callIdDate);
+                    assertTrue(!strCallIDTenMinutesBeforeETATab,"The call is automatically removed from the 10 Minutes Before ETA tab after waiting for 11 minutes,call id is: "+callId);
+
+                    //Restoring Profile window to Pop In Mode/Restore Profile to Application Panel
+                    if(data.get("PoppedMode").equalsIgnoreCase("Yes")){
+                        diProfile.clickOnArrowPopTheProfile();
+                        Thread.sleep(3000);
+                        switchToWindow(parentHandle);
+                    }
+
+                    diHome.logOut();
+
+                } catch (Exception e) {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Execption Occured","Execption Occured",driver);
+                    reporter.warningReport("Error Description",e.getMessage());
+                }
+                ReportControl.fnEnableJoin();
+                ReportStatus.fnUpdateResultStatus("DI", "1762", ReportStatus.strMethodName, intCounter, browser);
+                fnCloseTest();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+
+    // This functions creates aSP Status call
+    public void CreateSPStatusCall(Hashtable<String, String> data) throws Throwable {
+        CRHomeLib home = new CRHomeLib();
+        CRLocationsLib locations = new CRLocationsLib();
+        CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+        CRMemberSearchLib memeber = new CRMemberSearchLib();
+        CRServiceLib crServiceLib = new CRServiceLib();
+        LoginLib login = new LoginLib();
+
+        navigateToApplication("CR");
+        login.login(data.get("LoginName"), data.get("Password"));
+        home.allErrorAlertsNoButton();
+        home.messageDialogBoxClose();
+
+        String Member = "";
+        if (data.get("Member").equals("db")){
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50,1000);
+            //member from db
+            Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+            System.out.println("member : "+Member);
+        }
+        else
+        {
+            Member = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member);
+        memeber.memberNumClick();
+        //memeber.currentCallClose();
+        memeber.ClickPrimRadioBtnInRowTwo();
+
+        // Locations Page Starts
+        locations.breakdownLocTabSel();
+        locations.enterBreakDownAddressOmniBarSearch(data.get("OmniBarAddress"));
+
+        // Vehicle Triage Page Starts here
+        vehicle.clickOnVehicleTriageTab();
+        Thread.sleep(1000);
+        vehicle.clickOnManualEntryLinkOnVehicle();
+        vehicle.enterVehicleType(data.get("VehicleType"));
+        Thread.sleep(1000);
+        vehicle.enterVehicleYear(data.get("VehicleYear"));
+        Thread.sleep(1000);
+        vehicle.enterVehicleMake(data.get("VehicleMake"));
+        Thread.sleep(1000);
+        vehicle.enterVehicleModel(data.get("VehicleModel"));
+        Thread.sleep(1000);
+        vehicle.enterVehicleColor(data.get("VehicleColor"));
+        Thread.sleep(1000);
+        vehicle.clickTag();
+        vehicle.clickonProblemTypeButton(data.get("TriageType"));
+        Thread.sleep(2000);
+        vehicle.clickonProblemTypeOptions(data.get("TriageOption"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+
+        // Navigating to services tab
+        crServiceLib.clickOnServiceTab();
+        home.waitCloseAllBusyIconsResults();
+        crServiceLib.enterManualSpotDetails(data.get("SPPFacilitySpot"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        //vehicle.scriptErrorHandle();
+        home.saveButton();
+        callId = crServiceLib.getCallId();
+        callIdDate = getText(CRServicePage.dateInCallInformationWindow,"Call Date");
+        callIdDate = callIdDate.replace("-", "");
+        crServiceLib.closeCall();
+        home.logout();
+    }
+
+
+}

@@ -1,0 +1,68 @@
+package com.aaa.utilities;
+
+import com.aaa.util.URLString;
+import com.aaa.security.util.BaseEncryptor;
+import com.aaa.util.BlowfishAAA;
+import com.aaa.utilities.MemberNumberValidator;
+
+public class TQS1Utilities {
+
+	/**
+	 * This method creates the ets parameter based on the key used in the method signature.
+	 * @return
+	 */
+	private static String getEtsValue(String key){
+		return URLString.getEncodedTimeStamp(key);
+	}
+	
+	
+	/**
+	 * Method Name: getRSOWebUrl()
+	 * Details: This function allows the automated scripts to dynamically generate the resultant Partner Redirect URL 
+	 * that would occur when logging in.  This allows the automated scripts to pull the member number from the database,
+	 * encrypt the member number, create a current ets value and pass in the other required parameters needed to validate
+	 * through the RSO Web landing page to the Set Breakdown Location page.
+	 * @param association
+	 * @param clubNumber
+	 * @param memberNumber
+	 * @param zipCode
+	 * @return
+	 */
+	public static String getRSOWebUrl(String association, String clubNumber, String memberNumber, String zipCode){
+		String url = "https://sandbox2.envisionmobile.com:8006/CAA-console/AddSubmitRRA.action?request_locale=en&referrer=aaa";
+		url += "&association=" + association;
+		url += "&club=" + clubNumber;
+		url += "&post=" + zipCode;
+		url += "&ets=" + getEtsValue("AFBDEC");
+		
+		String newMemberNumber = MemberNumberValidator.getCorrectNumber(memberNumber);
+		
+		//url += "&mem=" + BaseEncryptor.encrypt("!cs@!rs0", newMemberNumber, "AES", true);
+		
+		return url;
+	}
+	
+	/**
+	 * Method Name: getServiceTrackerWebUrl
+	 * Description: Will dynamically create the QA URL for Service Tracker.  This allows the automated
+	 * test scripts to bypass the login page and generate the URL directly.
+	 * @param association
+	 * @param clubNumber
+	 * @param memberNumber
+	 * @return
+	 */
+	public static String getServiceTrackerWebUrl(String association, String clubNumber, String memberNumber){
+		String url = "https://caaservicetracker.ca/?referrer=aaa";
+		url += "&association=" + association;
+		url += "&club=" + clubNumber;
+		url += "&ets=" + getEtsValue("ABDEFC");;
+		
+		BlowfishAAA blowFish = new BlowfishAAA();
+		blowFish.setKey("N9x!3Ad7!");
+		String newMemNo = blowFish.encryptString(memberNumber);
+		
+		url += "&memid=" + newMemNo;
+		
+		return url;
+	}
+}

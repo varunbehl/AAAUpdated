@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="375.230">
+  <properties />
+  
+  
+            <testcase name="activeManualSpot" time="186.798" classname="com.aaa.web.script.TC_CRManualSpot" />
+                <testcase name="inActiveManualSpot" time="188.432" classname="com.aaa.web.script.TC_CRManualSpot" />
+      
+</testsuite>

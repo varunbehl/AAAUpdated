@@ -1,0 +1,157 @@
+package com.aaa.rspweb.scripts;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.rspweb.lib.*;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.LoginLib;
+import org.testng.Reporter;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_RSPConfirmOrNotArrived extends RSPCommonLib {
+
+    /*********************************************************************************
+     * *******************************************************************************
+     * *************************STEPS SKIPPED(Discussed on 3/30/2018)******************************************
+     * Step 7:The call will remain in RSP for 96 hours
+     * As per application behavior changed the arrived status to in progress.
+     * *************************Test data is from TestData(Sheet:-RSPWeb,Column name:-RSPConfirmedOrNotArrived)******************************************
+     * ********************************************************************************
+     * ********************************************************************************
+     * ********************************************************************************
+     */
+
+    RSPLoginLib login=new RSPLoginLib();
+    RSPHomeLib home=new RSPHomeLib();
+    RSPOrderDetailsLib orderDetails=new RSPOrderDetailsLib();
+    RSPOrderDetailsArrivedLib orderArrived=new RSPOrderDetailsArrivedLib();
+    Hashtable<String,String> callData;
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void confirmedOrNotArrived(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+
+        try
+        {
+            int intStartRow=StartRow;
+            int intEndRow=ReportControl.fnGetEndRowCunt(EndRow, "RSPConfirmedOrNotArrived", TestData, "RSPWeb");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount = intCounter;
+                    Hashtable<String, String> data = TestUtil.getDataByRowNo("RSPConfirmedOrNotArrived", TestData, "RSPWeb", intCounter);
+                    this.reporter.initTestCaseDescription("RSP Confirmed Or Not Arrived" + " From Iteration " + StartRow + " to " + EndRow);
+                    reporter.SuccessReport("Iteration Number : ", "**************Iteration Number::  " + intCounter + "   **************");
+                    //Creating Call
+                    callData = createCall(data);
+                    String callId=callData.get("callId");
+                    String callCreatedDate=callData.get("callDate");
+                    //Step :1 and 5 Verify the call is saved
+                    assertTrue(!callId.equals("") && !callId.equals(null), "Call saved sucessful");
+                    //if call is not saved successfully test case fails
+                    if (!callId.equals("") && !callId.equals(null)) {
+                        //Step :2 and 6 Put the call in TW status and verifying
+                        assertTrue(changeCallToTow(data, callId,callCreatedDate).contains("TW"), "<b>Call is tow status</b>");
+                        //navigating to RSP
+                        navigateToApplication("RSP");
+                        //Log in RSP
+                        login.loginToRSP(data.get("RSPLoginName"), data.get("RSPPassword"));
+                        //Verifies status modal window appers if found clicks on "Yes set my status to priority services"
+                        home.verifyAndClickOnLinkYesSetMyStatusToPriorityService();
+                        //Settring priority status to priority service if failed to set hrough modal window
+                        home.verifyingAndSettingPriorityStatus(data.get("PriorityToSelect"));
+                        //Searching a call
+                        home.searchingACall(callId, callCreatedDate);
+                        //finds and gets call status
+                        String callStatus=home.findAndGetCallStatus(callId, callCreatedDate);
+                        //Step :2 and 6 Verify the call appears as inbound status in RSP
+                        assertTrue(callStatus.replaceAll(" ","").equalsIgnoreCase("inBound"), "Call status is inbound");
+                        //Clicks on callId
+                        home.clickOnCallId(callId, callCreatedDate);
+                        if (data.get("Scenario").replaceAll(" ", "").equalsIgnoreCase("VerifyPrePopulatedInformation")) {
+                            //clicks on arrived buton
+                            orderDetails.clickOnArrived();
+                            //clicks on Vehicle arrived button in modal window
+                            orderDetails.clickOnVehicleArrived();
+                            //As discussed on 30-Mar-2018 for step-9 verifying call status as in progress instead of arrived
+                            //Step :3 Verify the call status is updated to Arrived(Replaced with InProgress)
+                            callStatus=orderArrived.getStatus();
+                            assertTrue(callStatus.replaceAll(" ","").equalsIgnoreCase("inProgress"), "Call status is inprogress");
+                            //Step :4 Getting member number
+                            String memberNumber = orderArrived.getMemberNumber();
+                            //Step :4 Getting first name
+                            String firstName = orderArrived.getFirstName();
+                            //Getting last name
+                            String lastName = orderArrived.getLastName();
+                            //Step :4 Getting last name
+                            String phoneNumber = orderArrived.getPhoneNumber();
+                            //Step :4 Getting Yeat
+                            String year = orderArrived.getVehicleYear();
+                            //Step :4 Getting make
+                            String make = orderArrived.getVehicleMake();
+                            //Step :4 Getting model
+                            String model = orderArrived.getVehicleModel();
+                            //Step : 4.1 Verify the membership section is pre-populated with d2000/D3 data
+                            //Member ship fields mentioned is verifying
+                            //Verifying member number is pre-populated
+                            assertTrue((!memberNumber.equals(null) && !memberNumber.equals("")), "Member number is pre populated::" + memberNumber);
+                            //verifying first name is pre-populate
+                            assertTrue((!firstName.equals(null) && !firstName.equals("")), "First name is pre populated::" + firstName);
+                            //verifying last name is pre-populated
+                            assertTrue((!lastName.equals(null) && !lastName.equals("")), "Last name is pre populated::" + lastName);
+                            //verifying last name is pre-populated
+                            assertTrue((!phoneNumber.equals(null) && !phoneNumber.equals("")), "Phone number is pre populated::" + phoneNumber);
+                            //Step : 4.2 Verify in the vehicle year make and model are pre-populated. The other fields are optional and may be pre-populated.
+                            //verifying year field is pre-populated
+                            assertTrue((!year.equals(null) && !year.equals("")), "Vehicle year is pre populated::" + year);
+                            //verifying make fiels is pre-populated
+                            assertTrue((!make.equals(null) && !make.equals("")), "Vehicle make is pre populated::" + make);
+                            //verifying model field is pre-populated
+                            assertTrue((!model.equals(null) && !model.equals("")), "Vehicle model is pre populated::" + model);
+                            //clicks on close button
+                            orderDetails.clickOnCloseButton();
+                        }
+
+                        if (data.get("Scenario").replaceAll(" ", "").equalsIgnoreCase("NotArrived")) {
+                            //Clicks on not arrived button
+                            orderDetails.clickOnNotArrived();
+                            //Clicks on Vehicle not arrived button in modal window
+                            orderDetails.clickOnVehicleNotArrived();
+                            //Step 8:Verify the call is Not Arrived status
+                            callStatus=orderDetails.getStatus();
+                            assertTrue(callStatus.replaceAll(" ","").toLowerCase().equals("notarrived"),"Call marked as not arrived");
+                            //Click on arrived
+                            orderDetails.clickOnArrived();
+                            //Click on vehicle arrived
+                            orderDetails.clickOnVehicleArrived();
+                            //Step 9:Verify are you able to set the status as In-progress.
+                            callStatus=orderArrived.getStatus();
+                            assertTrue(callStatus.replaceAll(" ","").equalsIgnoreCase("inProgress"), "Call status is In-Progress ");
+                        }
+                        home.clickOnSignOut();
+                    }
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Failed due to",e.getMessage(),driver);
+                }
+                ReportControl.fnEnableJoin();
+                ReportStatus.fnUpdateResultStatus("RSP","1841",ReportStatus.strMethodName,intCounter,browser);
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="2474.537">
+  <properties />
+  
+  
+            <testcase name="enterPacesetterCodeManuallyforKeyIssueScript" time="784.348" classname="com.aaa.web.script.TC_CRKeylock" />
+                <testcase name="keyLockIssueRadioButton" time="862.498" classname="com.aaa.web.script.TC_CRKeylock" />
+                <testcase name="enterPacesetterCodeforTowManuallyforKeyIssueScript" time="827.691" classname="com.aaa.web.script.TC_CRKeylock" />
+      
+</testsuite>

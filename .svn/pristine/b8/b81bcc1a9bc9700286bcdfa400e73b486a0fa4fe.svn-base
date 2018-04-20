@@ -1,0 +1,563 @@
+package com.aaa.web.lib;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.web.page.CRMemberSearchPage;
+import com.aaa.web.page.LoginPage;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
+
+public class DILoginLib extends ActionEngine {
+    int count;
+    List<WebElement> FIeldData = null;
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: Login
+     * description :: This is for Login into the application
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void login(String userName, String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        loginButton();
+
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: LoginValidation
+     * description :: This is to validate login functionality with difference combinations
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public String loginValidation(String userName, String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        loginButton();
+        String error=errorLoginMessage();
+        return error;
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePasswordVerification
+     * description :: This is to validate login functionality with difference combinations
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void changePasswordVerification(String newPassword, String confirmPassword, String passwordChangeAlert, String userName, String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        changePasswordButton();
+        errorLoginMessage();
+        verifyChangePassword(newPassword, confirmPassword, passwordChangeAlert);
+        errorLoginMessage();
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sessionInNewTabverification
+     * description :: This is for Login into the application
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void sessionInNewTabverification(String userName, String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        loginButton();
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: UserID
+     * description :: UserIDTextField
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+
+    public void enterUserName(String userName) throws Throwable {
+        if(userName == null){
+            reporter.failureReport("<b>User Name is Null</b>", "<b>User Name is null</b>");
+            throw new Exception("Data returned null");
+        }
+        waitForVisibilityOfElement(LoginPage.txtLoginName, "User Name Text Field");
+        type(LoginPage.txtLoginName, userName, "User Name");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: Password
+     * description :: passwordField
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+
+    public void enterPassword(String password) throws Throwable {
+        waitForVisibilityOfElement(LoginPage.txtLoginPassword, "Login password Text Field");
+        type(LoginPage.txtLoginPassword, password, "Password text field");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: LoginButton
+     * description :: LoginButton
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void loginButton() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.btnLogin, "Login button");
+        click(LoginPage.btnLogin, "Login Button");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterLoginDetails
+     * description :: This is for Login into the application
+     * date :: 21-02-2018
+     * author ::Madhukar
+     */
+    public void enterLoginDetails(String UserName, String password) throws Throwable {
+        enterUserName(UserName);
+        enterPassword(password);
+        loginButton();
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: errorLoginMessage
+     * description :: errorLoginMessage
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public String errorLoginMessage() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.alertInvalidLogin, "Invalid Login");
+        boolean errorMessageApearence = isVisibleOnly(LoginPage.alertInvalidLogin, "Invalid Login");
+            String error = getText(LoginPage.alertInvalidLogin, "Invalid Login");
+            click(LoginPage.btnOkOnErrorAlert, "Error alert OK button");
+            return error;
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePasswordButton
+     * description :: changePasswordButton
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void changePasswordButton() throws Throwable {
+
+        waitForVisibilityOfElement(LoginPage.btnChangePassword, "Change Password");
+        click(LoginPage.btnChangePassword, "Change password");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePassword
+     * description :: changePassword
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void verifyChangePassword(String newPassword, String confirmPassword, String passwordChangeAlert) throws Throwable {
+
+        waitForInVisibilityOfElement(LoginPage.txtChangePassword, "changePassword");
+        click(LoginPage.txtChangePassword, "Change password text box");
+        type(LoginPage.txtChangePassword, newPassword, "NewPassword");
+        type(LoginPage.txtConfirmPassword, confirmPassword, "Confirm password");
+        boolean charcount = isVisibleOnly(LoginPage.iconPwdCharCounTure, "Password character count");
+        assertTrue(charcount, "You entered Valid password character count");
+        boolean specialChar = isVisibleOnly(LoginPage.iconPwdSpelCounTrue, "Special characters");
+        assertTrue(specialChar, "You entered password with given special characters ");
+        boolean passwdMatch = isVisibleOnly(LoginPage.iconPwdMatchTrue, "New password and Confirm password Not matched");
+        assertTrue(passwdMatch, "New password and Confirm password Not matched");
+        boolean passChangeBtn = isVisibleOnly(LoginPage.btnChangePasswordChangeButton, "Password change button Enabled");
+        assertTrue(passChangeBtn, "Password change button is Enabled");
+        if (passChangeBtn) {
+            click(LoginPage.btnCancel, "Cancel button");
+            waitForInVisibilityOfElement(LoginPage.alertChangePassword, "Alert");
+            String alert = getText(LoginPage.alertChangePassword, "Change password success message");
+            assertTrue(alert.contains(passwordChangeAlert), "Successfully updated");
+
+        } else {
+            click(LoginPage.btnCancel, "Cancel button");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: multipleLoginAttempts
+     * description :: To Verify multiple login attempts
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void mulipleLoginAttemps(String userName, String password,String attempts) throws Throwable {
+
+        for (int i = 0; i < Integer.parseInt(attempts); i++) {
+            enterUserName(userName);
+            enterPassword(password);
+            loginButton();
+            errorLoginMessage();
+        }
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: waitcloseAllBusyIcons
+     * description :: Application loading wait
+     * date :: 28-Nov-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void waitcloseAllBusyIcons() throws Throwable {
+        int iCounter = 0, loading;
+        boolean status = true;
+        do {
+            iCounter++;
+            loading = getElementsSize(CRMemberSearchPage.loadingspinner);
+            if (loading == 0) {
+                status = true;
+                break;
+            } else {
+                status = false;
+            }
+            if (iCounter > 400) {
+                status = false;
+                break;
+            }
+        }
+        while (iCounter <= 400);
+        if (status) {
+            LOG.info("All spinners are closed");
+        } else {
+            LOG.info("All spinners are not closed");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: waitcloseAllBusyIconsResults
+     * description :: Application loading wait for memberseatch results
+     * date :: 29-Nov-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    protected void waitcloseAllBusyIconsResults() throws Throwable {
+        int iCounter = 0, loading;
+        boolean status = true;
+        do {
+            iCounter++;
+            loading = getElementsSize(CRMemberSearchPage.iconResultLoadingSpinner);
+            if (loading == 0) {
+                status = true;
+                break;
+            } else {
+                status = false;
+                /*LOG.info("iCounter appearStatus " + iCounter);*/
+            }
+            if (iCounter > 400) {
+                status = false;
+                break;
+            }
+        }
+        while (iCounter <= 400);
+        if (status) {
+            LOG.info("All spinners are closed");
+        } else {
+            LOG.info("All spinners are not closed");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: closeErrorAlert
+     * description :: closeErrorAlert
+     * date :: 20-Dec-2017
+     * author ::Abhiram
+     */
+    public void closeErrorAlert() throws Throwable {
+        isVisibleOnly(LoginPage.errorAlertOK, "OK Button");
+        if (isVisibleOnly(LoginPage.errorAlertOK, "OK Button")) {
+            click(LoginPage.errorAlertOK, "Error alert OK button");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: closeErrorAlert
+     * description :: closeErrorAlert
+     * date :: 20-Dec-2017
+     * author ::Abhiram
+     */
+    public void closeErrorAlertOKButton() throws Throwable {
+        //waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+        if (isVisibleOnly(LoginPage.btnErrorAlertOK, "OK Button")) {
+            click(LoginPage.btnErrorAlertOK, "Error alert OK button");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: closeErrorAlert
+     * description :: closeErrorAlert
+     * date :: 20-Dec-2017
+     * author ::Abhiram
+     */
+    public boolean verifyOkErrorAlert() throws Throwable {
+        //waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+        boolean okErrorAlertAvailable = isVisibleOnly(LoginPage.btnErrorAlertOK, "Existing Vehicles are Not Visible");
+        return okErrorAlertAvailable;
+    }
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetErrorMessageFromErrorsAlert
+     * description :: This function gets the error messages from error alert window
+     * date ::
+     * author ::Sachin
+     */
+    public String GetErrorMessageFromErrorsAlert()throws Throwable {
+        waitForVisibilityOfElement(LoginPage.errorMessageOnErrorAlert, "Error Message Errors Alert");
+        String errorMEssage = getText(LoginPage.errorMessageOnErrorAlert, "Error Message Errors Alert").trim();
+        return errorMEssage;
+    }
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: VerifyRoleFieldIsDisplayed
+     * description :: This function validates if Role field is displayed or not.
+     * date ::
+     * author ::Sachin
+     */
+    public boolean VerifyRoleFieldIsDisplayed()throws Throwable {
+        waitForVisibilityOfElement(LoginPage.ddlRoleField, "Role Field login screen");
+        boolean roleField = isVisible(LoginPage.ddlRoleField, "Role Field login screen");
+        return roleField;
+    }
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: VerifyLocationFieldIsDisplayed
+     * description :: This function validates if LOcation field is displayed or not.
+     * date ::
+     * author ::Sachin
+     */
+
+    public boolean VerifyLocationFieldIsDisplayed()throws Throwable {
+        waitForVisibilityOfElement(LoginPage.ddnLocationField,"Location Field login screen");
+        boolean locationField = isVisible(LoginPage.ddnLocationField,"Location Field login screen");
+        return locationField;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: ClickOnRoleDownArrowButton
+     * description :: This function clicks on down arrow of Role field.
+     * date ::
+     * author ::Sachin
+     */
+    public void ClickOnRoleDownArrowButton() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.ddnRole, "Role screen displays Drop Down");
+        click(LoginPage.ddnRole," Role Drop Down button");
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetRoleCountFromRoleField
+     * description :: This function returns the total items from role field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public int GetRoleCountFromRoleField() throws Throwable {
+        FIeldData = getWebElementList(LoginPage.ddnRoleList, "Role FIeld");
+        int count ;
+        if (FIeldData != null) {
+            count = FIeldData.size();
+        }else{
+            count=0;
+        }
+        return count;
+    }
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetSPPManagerRoleFromRoleField
+     * description :: This function returns the Manager name which is displayed on the Role field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public String GetSPPManagerRoleFromRoleField() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.lblRoleSPPManager, "P3 - SPP Manager");
+        String Role1SPPManager = getText(LoginPage.lblRoleSPPManager, "P3 - SPP Manager").trim();
+        return Role1SPPManager;
+    }
+
+    /**
+     * param :: String inputs
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetServiceProviderFromRoleField
+     * description :: This function returns the servide provider name which is displayed on the Role field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public String GetServiceProviderFromRoleField() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.lblRoleServiceProvider, "P3 - SPP Manager");
+        String ServiceProvider =getText(LoginPage.lblRoleServiceProvider,"PP - Service Provider Portal").trim();
+        return ServiceProvider;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetSelectedLocationFromLocationField
+     * description :: This function returns the Location which is displayed on the location field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public String GetSelectedLocationFromLocationField() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.ddnLocationField,"Location Filed");
+        String Location = getText(LoginPage.ddnLocationField,"Location Filed");
+        return Location;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: VerifyBackToLoginButtonExists
+     * description :: This function verifies existance of Back to Login button
+     * date ::
+     * author ::Sachin
+     */
+
+    public boolean VerifyBackToLoginButtonExists() throws Throwable {
+        boolean bBackToLogin =  isElementPresent(LoginPage.btnBackToLogin,"Back to login");
+        return bBackToLogin;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: VerifyProceedButtonExists
+     * description :: This function verifies existance of Proceed button
+     * date ::
+     * author ::Sachin
+     */
+
+    public boolean VerifyProceedButtonExists() throws Throwable {
+        boolean bProceed =  isElementPresent(LoginPage.btnProceedLogin,"Proceed Button");
+        return bProceed;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: ClickOnProceedButton
+     * description :: This function clicks on Proceed BUtton
+     * date ::
+     * author ::Sachin
+     */
+    public void ClickOnProceedButton() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.btnProceedLogin, "Proceed");
+        click(LoginPage.btnProceedLogin, "Proceed");
+    }
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetRoleNamesFromRoleField
+     * description :: This function returns the total roles available in role field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public String GetRoleNamesFromRoleField() throws Throwable {
+        FIeldData = getWebElementList(LoginPage.ddnRoleList, "Role Field");
+        String RoleType = null;
+        String RoleTypeItems = null;
+        if (FIeldData != null) {
+            for (int i = 0; i <= FIeldData.size() - 1; i++) {
+                RoleType = FIeldData.get(i).getText().toString().trim();
+                RoleTypeItems = RoleTypeItems + RoleType;
+            }
+        }
+        return RoleTypeItems;
+    }
+
+    /**
+     * param :: NA
+     * return ::String
+     * throws :: throwable
+     * methodName :: GetLocationCountFromLocationField
+     * description :: This function returns the total count from Location field.
+     * date ::
+     * author ::Sachin
+     */
+
+    public int GetLocationCountFromLocationField() throws Throwable {
+        FIeldData = getWebElementList(LoginPage.ddnLocationField,"Location Filed");
+        int count ;
+        if (FIeldData != null) {
+            count = FIeldData.size();
+        }else{
+            count=0;
+        }
+        return count;
+    }
+
+public String getLoggedInUserRole() throws Throwable{
+        String loggedInRole=getText(LoginPage.lblloggedinUserRole,"Logged in user role");
+        return loggedInRole;
+}
+
+
+}

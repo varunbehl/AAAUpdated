@@ -1,0 +1,74 @@
+package com.aaa.rspweb.scripts;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.rspweb.lib.*;
+import com.aaa.rspweb.pages.RSPHomePage;
+import com.aaa.utilities.TestUtil;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+import java.util.List;
+
+public class TC_RSPUserAdministration extends RSPCommonLib {
+
+	RSPLoginLib login = new RSPLoginLib();
+	RSPHomeLib home = new RSPHomeLib();
+	RSPManageUserLib managerUser = new RSPManageUserLib();
+	RSPCreateUserDetailsLib createUserDetails = new RSPCreateUserDetailsLib();
+	List headerValues;
+	List webPageHeaderValues;
+
+	@Parameters({ "StartRow", "EndRow", "nextTestJoin" })
+	@Test()
+	public void RSPUserAdministration(int StartRow, String EndRow, boolean nextTestJoin)throws Throwable {
+		try {
+			int intStartRow = StartRow;
+			int intEndRow = ReportControl.fnGetEndRowCunt(EndRow,"RSPUserAdministration", TestData, "RSPWeb");
+			for (int intCounter = intStartRow; intCounter <= intEndRow; intCounter++) {
+				try {
+					fnOpenTest();
+					ReportStatus.fnDefaultReportStatus();
+					ReportControl.intRowCount = intCounter;
+					Hashtable<String, String> data = TestUtil.getDataByRowNo("RSPUserAdministration", TestData, "RSPWeb",intCounter);
+					this.reporter.initTestCaseDescription("RSPUserAdministration"+ " From Iteration " + StartRow + " to "+ EndRow);
+					reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  " + intCounter+ "   **************");
+					// Navigating to RSP
+					navigateToApplication("RSP");
+					login.loginToRSP(data.get("LoginName"),data.get("Password"));
+					home.validateUserCanManageClubsOrShops(data.get("UserType"));
+					home.validateUserCanManageSettings(data.get("UserType"));
+					home.validateUserCanViewDashBoards(data.get("UserType"));
+					// Can Create Users
+					home.clickOnMenuDropdown();
+					if (!data.get("UserType").equals("Shop User")) {
+						home.clickOnManageUser();
+						managerUser.clickOnNewUser();
+						createUserDetails.validateCreatableUserRoles(data.get("UserType"));
+					} else {
+						if (isElementNotPresent(RSPHomePage.lblManageUsers,"Manage Users")) {
+							reporter.SuccessReport("Manage users menu item should not be displayed","Manage users menu item is not displayed");
+						} else {
+							reporter.failureReport("Manage users menu item should not be displayed","Manage users menu item is displayed",driver);
+						}
+					}
+					home.clickOnSignOut();
+					acceptAlert();
+				} catch (Exception e) {
+					ReportStatus.blnStatus = false;
+					reporter.failureReport("Failed due to", e.getMessage(),
+							driver);
+				}
+				ReportControl.fnEnableJoin();
+				ReportStatus.fnUpdateResultStatus("RSP", "1854",ReportStatus.strMethodName, intCounter, browser);
+				fnCloseTest();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		ReportControl.fnNextTestJoin(nextTestJoin);
+	}
+}

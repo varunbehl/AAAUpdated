@@ -1,0 +1,4058 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ICAT - HTML Logs</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Mar 24 11:57:15 EDT 2018<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>10248</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Suite time ==============&gt;24_Mar_2018_11_57_16_014</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">-----Before Class----</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Execution Start Time :: 1521907035577</td>
+</tr>
+
+<tr>
+<td>10279</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">browser name :: chrome Browser version :: 60 platform ::windows 10</td>
+</tr>
+
+<tr>
+<td>10404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = clientName</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = deviceName</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = iterationMode</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = suiteName</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = onErrorAction</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = singleThreadExecution</td>
+</tr>
+
+<tr>
+<td>10436</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10436</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = AUT</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = baseUrl</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = showroomUrl</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = baseUrl2</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = Waittime</td>
+</tr>
+
+<tr>
+<td>10451</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = DynamicWait</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = MinWait</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = browserName</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = version</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = platform</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = reportFormat</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationResult</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = folderScreenShot</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationClientLogo</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationMobileLogo</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = showroomClientLogo</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationCompanyLogo</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationFailedLogo</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10483</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationMinusLogo</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationPassedLogo</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationPlusLogo</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationWarningLogo</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = onSuccessScreenshot</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10498</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = userName</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = accessKey</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = cloudImplicitWait</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = cloudPageLoadTimeOut</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationCssFolder</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationJsFolder</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationImagesFolder</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>10514</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10529</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>10529</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10529</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>10545</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>10545</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>10545</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">local</td>
+</tr>
+
+<tr>
+<td>10576</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">New BrowserContext Instance Was Created And Placed In Map : BrowserContext.mapBrowserContext</td>
+</tr>
+
+<tr>
+<td>10576</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>10576</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">BrowserContext Info Being returned: &lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>10576</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>10576</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">BrowserContext Info Being returned: &lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>10608</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">resultDir = results\CHROME-windows 10-local_2018-03-24_11_57_16_374</td>
+</tr>
+
+<tr>
+<td>10608</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/logo.png</td>
+</tr>
+
+<tr>
+<td>10701</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\logo.pngcopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>10701</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/gallop_logo.png</td>
+</tr>
+
+<tr>
+<td>10717</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\gallop_logo.pngcopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>10717</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/failed.ico</td>
+</tr>
+
+<tr>
+<td>11670</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\failed.icocopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>11670</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/Minus.ico</td>
+</tr>
+
+<tr>
+<td>11826</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\Minus.icocopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>11826</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/passed.ico</td>
+</tr>
+
+<tr>
+<td>11873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\passed.icocopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>11873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/Plus.ico</td>
+</tr>
+
+<tr>
+<td>11920</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\Plus.icocopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>11920</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/warning.ico</td>
+</tr>
+
+<tr>
+<td>11983</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\warning.icocopied to results\CHROME-windows 10-local_2018-03-24_11_57_16_374\screenshots</td>
+</tr>
+
+<tr>
+<td>11983</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/css</td>
+</tr>
+
+<tr>
+<td>12108</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/images</td>
+</tr>
+
+<tr>
+<td>12623</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/js</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">instance member browserContext was set to : </td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Instance Of CReporter Created</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">reporter was placed into CReporter.mapBrowserContextReporter</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---End Before Class--</td>
+</tr>
+
+<tr>
+<td>13467</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>17920</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">******getData*******: liveCallSearch</td>
+</tr>
+
+<tr>
+<td>17950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Test Starts from row -&gt; 173</td>
+</tr>
+
+<tr>
+<td>17954</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total cols in test -&gt; 25</td>
+</tr>
+
+<tr>
+<td>17968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Selenium Grid URLlocal</td>
+</tr>
+
+<tr>
+<td>27182</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Driver launch ::chrome</td>
+</tr>
+
+<tr>
+<td>27182</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message"></td>
+</tr>
+
+<tr>
+<td>31455</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">******getData*******: liveCallSearch</td>
+</tr>
+
+<tr>
+<td>31472</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Test Starts from row -&gt; 173</td>
+</tr>
+
+<tr>
+<td>31473</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total cols in test -&gt; 25</td>
+</tr>
+
+<tr>
+<td>31476</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total rows in test -&gt; 1</td>
+</tr>
+
+<tr>
+<td>31525</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31525</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>31528</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31532</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>31534</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31534</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>31539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31540</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>31541</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31541</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>31541</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31542</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>31563</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31563</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>31564</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31564</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>31565</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31565</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>31566</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31566</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>31567</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31567</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>31570</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31570</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>31671</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31672</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>31673</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31673</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>31693</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31693</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>31694</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31695</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>31697</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31697</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>31699</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31699</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>31810</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31811</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>31812</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31813</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>31827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>31828</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31828</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>31829</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31829</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>31830</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>31830</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>31836</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>31836</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>31836</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterUserName  ::  Locator : User Name Text Field</td>
+</tr>
+
+<tr>
+<td>32138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32376</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32378</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>32380</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : User Name :: Data :autocr1</td>
+</tr>
+
+<tr>
+<td>32381</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>32618</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-name</td>
+</tr>
+
+<tr>
+<td>32703</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>32824</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: autocr1</td>
+</tr>
+
+<tr>
+<td>32824</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32825</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32842</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32843</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>32843</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterPassword  ::  Locator : Login password Text Field</td>
+</tr>
+
+<tr>
+<td>32923</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>32950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>32950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : Password text field :: Data :auto123!!</td>
+</tr>
+
+<tr>
+<td>32950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>32997</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-password</td>
+</tr>
+
+<tr>
+<td>33110</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>33335</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: auto123!!</td>
+</tr>
+
+<tr>
+<td>33335</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>33335</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>33347</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>33348</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : clickOnLoginButton</td>
+</tr>
+
+<tr>
+<td>33348</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnLoginButton  ::  Locator : Login button</td>
+</tr>
+
+<tr>
+<td>33433</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>33710</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>33710</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : clickOnLoginButton</td>
+</tr>
+
+<tr>
+<td>33710</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Login Button</td>
+</tr>
+
+<tr>
+<td>33711</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>33711</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-login-btn</td>
+</tr>
+
+<tr>
+<td>33951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>39885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: login-login-btn</td>
+</tr>
+
+<tr>
+<td>39886</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>44914</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>44914</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.LoginLib Method name :: clickOnPartialCallCloseButton</td>
+</tr>
+
+<tr>
+<td>44915</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnPartialCallCloseButton  ::  Locator : Partial Call Close Icon</td>
+</tr>
+
+<tr>
+<td>61682</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>61683</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: messageDialogBoxClose</td>
+</tr>
+
+<tr>
+<td>61683</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : messageDialogBoxClose  ::  Locator : Message Alert Close</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : messageDialogBoxClose</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Message Alert Close</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>62232</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //div[@id='messages-panel']/div/div/div/a[2]/i</td>
+</tr>
+
+<tr>
+<td>62295</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>62495</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //div[@id='messages-panel']/div/div/div/a[2]/i</td>
+</tr>
+
+<tr>
+<td>62495</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>72516</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>72517</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>72519</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchCalls  ::  Locator : Search Calls</td>
+</tr>
+
+<tr>
+<td>72775</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>72787</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>72787</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>72787</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Calls</td>
+</tr>
+
+<tr>
+<td>72788</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>72788</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id='application-content']/header/ul[1]/li[6]/a</td>
+</tr>
+
+<tr>
+<td>72873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>73086</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //*[@id='application-content']/header/ul[1]/li[6]/a</td>
+</tr>
+
+<tr>
+<td>73086</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>75100</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>75100</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>75100</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchCalls  ::  Locator : Search Calls</td>
+</tr>
+
+<tr>
+<td>75182</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>75214</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>75214</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>75214</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Calls</td>
+</tr>
+
+<tr>
+<td>75214</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>75214</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: search-calls-btn</td>
+</tr>
+
+<tr>
+<td>75394</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>75909</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: search-calls-btn</td>
+</tr>
+
+<tr>
+<td>75909</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>77985</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>77986</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>77986</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnClearOnSearchCallsWindow  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>78268</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>78288</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>78288</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>78288</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>78288</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>78289</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>78395</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>78773</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>78773</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>78789</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>78790</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : getStartDateSearchDetails</td>
+</tr>
+
+<tr>
+<td>78790</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : getStartDateSearchDetails</td>
+</tr>
+
+<tr>
+<td>78790</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Time out value is : 2</td>
+</tr>
+
+<tr>
+<td>78791</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>78791</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.accelerators.ActionEngine Method name :: getAttributeByValue</td>
+</tr>
+
+<tr>
+<td>78791</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : getAttributeByValue  ::  Locator : Start date in Search Calls</td>
+</tr>
+
+<tr>
+<td>79149</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>79226</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and attribute value is retrieved :: 03/24/2018</td>
+</tr>
+
+<tr>
+<td>79227</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>79242</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and attribute value is retrieved :: 03/24/2018</td>
+</tr>
+
+<tr>
+<td>79242</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>79242</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>79243</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>79587</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>79604</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>79604</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>79604</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>79604</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>79604</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>79899</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>80455</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>80455</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>90486</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>90486</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRSearchCallsLib Method name :: clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>90486</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Results found</td>
+</tr>
+
+<tr>
+<td>90723</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>92746</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>92746</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRSearchCallsLib Method name :: getCallIdAndDate</td>
+</tr>
+
+<tr>
+<td>92746</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : getCallIdAndDate  ::  Locator :  Call Id and Date is avaiable</td>
+</tr>
+
+<tr>
+<td>92950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>92967</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ </td>
+</tr>
+
+<tr>
+<td>92967</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : getCallIdAndDate</td>
+</tr>
+
+<tr>
+<td>92968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Time out value is : 2</td>
+</tr>
+
+<tr>
+<td>92968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>92968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.accelerators.ActionEngine Method name :: getText</td>
+</tr>
+
+<tr>
+<td>92968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : getText  ::  Locator : Call Id and Date</td>
+</tr>
+
+<tr>
+<td>93241</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>93447</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and text is retrieved :: 3/24/2018
+#20113</td>
+</tr>
+
+<tr>
+<td>93465</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and text is retrieved :: 3/24/2018
+#20113</td>
+</tr>
+
+<tr>
+<td>93504</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>93505</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickSearchAgainOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>93505</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickSearchAgainOnSearchCalls  ::  Locator : Search Again Button</td>
+</tr>
+
+<tr>
+<td>93580</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>93593</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>93594</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickSearchAgainOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>93594</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Again Button</td>
+</tr>
+
+<tr>
+<td>93594</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>93594</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: call-search-back-btn</td>
+</tr>
+
+<tr>
+<td>93719</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>94069</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: call-search-back-btn</td>
+</tr>
+
+<tr>
+<td>94069</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94101</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94101</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>94101</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnClearOnSearchCallsWindow  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>94290</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94304</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94305</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>94305</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>94305</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>94305</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>94364</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>94739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>94740</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94753</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>94753</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : enterCallIdOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>94753</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterCallIdOnSearchCallsWindow  ::  Locator : Search Calls Window callid</td>
+</tr>
+
+<tr>
+<td>95025</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>95040</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>95040</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.CRSearchCallsLibMethod name : enterCallIdOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>95040</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : Search Calls Window callid :: Data :20001</td>
+</tr>
+
+<tr>
+<td>95040</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>95280</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id='call-search-call-id']</td>
+</tr>
+
+<tr>
+<td>95526</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>95959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: 20001</td>
+</tr>
+
+<tr>
+<td>95959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>95959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>95974</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>95974</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>95974</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>96093</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>96124</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>96124</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>96124</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>96124</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>96124</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>96309</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>97009</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>97009</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>107022</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>107023</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRSearchCallsLib Method name :: clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>107023</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Results found</td>
+</tr>
+
+<tr>
+<td>107255</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>109283</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>109283</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRSearchCallsLib Method name :: verifyCallIDOnSearCallWindow</td>
+</tr>
+
+<tr>
+<td>109283</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : verifyCallIDOnSearCallWindow  ::  Locator : Call ID in Search Call Window </td>
+</tr>
+
+<tr>
+<td>112358</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>112358</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : verifyCallIDOnSearCallWindow</td>
+</tr>
+
+<tr>
+<td>112359</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method :verifyCallIDOnSearCallWindow  ::  Locator : Call ID in Search Call Window</td>
+</tr>
+
+<tr>
+<td>112497</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Size of List ::1</td>
+</tr>
+
+<tr>
+<td>112579</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">List value are :: 3/24/2018
+#20001</td>
+</tr>
+
+<tr>
+<td>112579</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>116628</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>116628</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickSearchAgainOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>116629</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickSearchAgainOnSearchCalls  ::  Locator : Search Again Button</td>
+</tr>
+
+<tr>
+<td>116740</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>116779</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>116779</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickSearchAgainOnSearchCalls</td>
+</tr>
+
+<tr>
+<td>116780</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Again Button</td>
+</tr>
+
+<tr>
+<td>116780</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>116780</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: call-search-back-btn</td>
+</tr>
+
+<tr>
+<td>116907</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>117163</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: call-search-back-btn</td>
+</tr>
+
+<tr>
+<td>117163</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>117181</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>117182</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>117182</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnClearOnSearchCallsWindow  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>117339</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>117360</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>117361</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnClearOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>117361</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Clear</td>
+</tr>
+
+<tr>
+<td>117361</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>117361</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>117444</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>117997</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //button[@id='call-search-clear-button']</td>
+</tr>
+
+<tr>
+<td>117997</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>118026</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>118027</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : enterStartTimeOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>118027</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterStartTimeOnSearchCallsWindow  ::  Locator : Start Time Search Calls Window </td>
+</tr>
+
+<tr>
+<td>118312</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>118315</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>118315</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.CRSearchCallsLibMethod name : enterStartTimeOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>118315</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : Start Time Search Calls Window :: Data :01:00</td>
+</tr>
+
+<tr>
+<td>118315</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>118377</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id='call-search-start-time']</td>
+</tr>
+
+<tr>
+<td>118539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>119074</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: 01:00</td>
+</tr>
+
+<tr>
+<td>119074</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119074</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119093</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119094</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : enterEndTimeOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>119094</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterEndTimeOnSearchCallsWindow  ::  Locator : End Time Search Calls Window</td>
+</tr>
+
+<tr>
+<td>119198</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119212</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119212</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.CRSearchCallsLibMethod name : enterEndTimeOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>119213</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : End Time Search Calls Window :: Data :21:05</td>
+</tr>
+
+<tr>
+<td>119213</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>119293</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id='call-search-end-time']</td>
+</tr>
+
+<tr>
+<td>119443</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>119782</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: 21:05</td>
+</tr>
+
+<tr>
+<td>119782</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119783</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119799</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119799</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>119800</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>119879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119894</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>119894</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>119894</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Search Button</td>
+</tr>
+
+<tr>
+<td>119894</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>119894</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>120093</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>120459</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.xpath: //*[@id=&quot;call-search-search-button&quot;]/span[contains(text(),'Search')]</td>
+</tr>
+
+<tr>
+<td>120459</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>130509</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>130509</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRSearchCallsLib Method name :: clickOnSearchBtnOnSearchCallsWindow</td>
+</tr>
+
+<tr>
+<td>130509</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : clickOnSearchBtnOnSearchCallsWindow  ::  Locator : Results found</td>
+</tr>
+
+<tr>
+<td>130679</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>132726</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>132726</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : verifyAndGetDateFromMemberPageandChangeFormat</td>
+</tr>
+
+<tr>
+<td>132726</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : verifyAndGetDateFromMemberPageandChangeFormat  ::  Locator : Click On Call ID</td>
+</tr>
+
+<tr>
+<td>132937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>132963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>132963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : verifyAndGetDateFromMemberPageandChangeFormat</td>
+</tr>
+
+<tr>
+<td>132963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Click On Call ID</td>
+</tr>
+
+<tr>
+<td>132963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>132963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.cssSelector: table[id='call-search-results-table'] tbody tr[id*='call-'] a</td>
+</tr>
+
+<tr>
+<td>133143</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>133400</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.cssSelector: table[id='call-search-results-table'] tbody tr[id*='call-'] a</td>
+</tr>
+
+<tr>
+<td>133400</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>138419</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>138420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : verifyAndGetDateFromMemberPageandChangeFormat</td>
+</tr>
+
+<tr>
+<td>138420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : verifyAndGetDateFromMemberPageandChangeFormat  ::  Locator : Getting Date From Member Tab</td>
+</tr>
+
+<tr>
+<td>138869</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>138897</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ </td>
+</tr>
+
+<tr>
+<td>138898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRSearchCallsLibMethod name : verifyAndGetDateFromMemberPageandChangeFormat</td>
+</tr>
+
+<tr>
+<td>138898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Time out value is : 2</td>
+</tr>
+
+<tr>
+<td>138898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>138898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.accelerators.ActionEngine Method name :: getText</td>
+</tr>
+
+<tr>
+<td>138898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : getText  ::  Locator : Getting Date From Member Tab</td>
+</tr>
+
+<tr>
+<td>139071</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>139156</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and text is retrieved :: 20114, 07:59 AM</td>
+</tr>
+
+<tr>
+<td>139172</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible and text is retrieved :: 20114, 07:59 AM</td>
+</tr>
+
+<tr>
+<td>141195</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>141210</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRVehicleTriageLib Method name :: handleScriptErrorInVehicleTriagePage</td>
+</tr>
+
+<tr>
+<td>141210</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : handleScriptErrorInVehicleTriagePage  ::  Locator : Script Error OKAY button</td>
+</tr>
+
+<tr>
+<td>144217</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>144217</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRVehicleTriageLib Method name :: handleScriptErrorInVehicleTriagePage</td>
+</tr>
+
+<tr>
+<td>144217</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : handleScriptErrorInVehicleTriagePage  ::  Locator : Error icon on java script error popup</td>
+</tr>
+
+<tr>
+<td>150922</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>150923</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>150924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlerts  ::  Locator : : Confirmation alert</td>
+</tr>
+
+<tr>
+<td>154173</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>154173</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>154173</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlerts  ::  Locator : Undefined Error</td>
+</tr>
+
+<tr>
+<td>160382</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>160382</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>160382</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlerts  ::  Locator : : Confirmation alert</td>
+</tr>
+
+<tr>
+<td>163480</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>163480</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>163480</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlerts  ::  Locator : Undefined Error</td>
+</tr>
+
+<tr>
+<td>169543</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>169543</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : leaveButton</td>
+</tr>
+
+<tr>
+<td>169543</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : leaveButton  ::  Locator : Member leave button</td>
+</tr>
+
+<tr>
+<td>169708</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>169739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>169739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : leaveButton</td>
+</tr>
+
+<tr>
+<td>169739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Member Leave button</td>
+</tr>
+
+<tr>
+<td>169739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>169739</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: leave-call</td>
+</tr>
+
+<tr>
+<td>169801</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>169959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: leave-call</td>
+</tr>
+
+<tr>
+<td>169960</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>172989</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>172989</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>172989</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlerts  ::  Locator : : Confirmation alert</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : allErrorAlerts</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : : Confirmation alert Yes button</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>173240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: confirmation-yes-btn</td>
+</tr>
+
+<tr>
+<td>173384</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>

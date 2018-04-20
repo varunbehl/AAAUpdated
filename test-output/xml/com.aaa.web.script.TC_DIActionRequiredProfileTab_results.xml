@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="3296.344">
+  <properties />
+  
+  
+            <testcase name="verifyREstatusOnProfileActionRequired" time="310.640" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+                <testcase name="ERstatusWithCommentsOnProfileActionRequired" time="338.965" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+                <testcase name="verifyBDstatusOnProfileActionRequired" time="583.120" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+                <testcase name="verifySPstatusOnProfileActionRequired" time="855.791" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+                <testcase name="acknowledgeERstatusOnProfileActionRequired" time="845.601" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+                <testcase name="verifyHSandHCCallStatusOnProfileActionRequired" time="362.227" classname="com.aaa.web.script.TC_DIActionRequiredProfileTab" />
+      
+</testsuite>

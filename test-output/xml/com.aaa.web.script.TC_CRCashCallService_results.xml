@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="472.990">
+  <properties />
+  
+  
+            <testcase name="cashCallServiceCanceledEntitlements" time="173.228" classname="com.aaa.web.script.TC_CRCashCallService" />
+                <testcase name="cashCallService" time="153.741" classname="com.aaa.web.script.TC_CRCashCallService" />
+                <testcase name="cashCallServiceZeroEntitlements" time="146.021" classname="com.aaa.web.script.TC_CRCashCallService" />
+      
+</testsuite>

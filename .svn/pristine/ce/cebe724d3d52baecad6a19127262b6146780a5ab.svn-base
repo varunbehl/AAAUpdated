@@ -1,0 +1,376 @@
+package com.aaa.e2e.script;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.accelerators.TestEngineWeb;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.script.TC_CRSaveAppointmentCall;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class RAP_SPP_ITU_DI_E2EWeb extends LoginLib
+{
+    public static String callIDCreated;
+    public static String spotIDCreated;
+    public static String callDateCreated;
+    public static String callIDAndDateCombined;
+    public static String [] callandfacilityId = new String[3];
+    public static long ranRAPID;
+    public static String date;
+
+    CRLocationsLib crLocationsLib =new CRLocationsLib();
+    CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+    CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+    CRServiceLib crServiceLib = new CRServiceLib();
+    CRHomeLib crHomeLib = new CRHomeLib();
+    CRTowDestinationLib crTowDestinationLib = new CRTowDestinationLib();
+    DIMCDLib dimcdLib = new DIMCDLib();
+    DIHomeLib diHomeLib = new DIHomeLib();
+    CommonLib commonLib=new CommonLib();
+    DISearchCallsLib diSearchCallsLib = new DISearchCallsLib();
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void RAPSPPITUDIWebEnd2End(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+            int intStartRow=StartRow;
+            int intEndRow=ReportControl.fnGetEndRowCunt(EndRow, "RAPSPPITUDIWeb", TestData, "e2eRAPSPPITUDIWeb");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    //Open the browser in each iteration
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount=intCounter;
+                    Hashtable<String, String> data=TestUtil.getDataByRowNo("RAPSPPITUDIWeb", TestData, "e2eRAPSPPITUDIWeb",intCounter);
+                    TestEngineWeb.reporter.initTestCaseDescription("RAP SPP ITU DI End to End"+ " From Iteration " + StartRow + " to " + EndRow );
+                    reporter.SuccessReport("<font color='#0819F1'><b>Iteration Number : </b></font>","<font color='#0819F1'><b>**************Iteration Number::  "+ intCounter+"   **************</b></font>");
+
+                    //CallReceiving Login
+                    callReceivingLogin(data);
+
+                    //Entering Member Details
+                    crRAPTab(data);
+
+                    //Entering Vehicle Details
+                    crVehicleTab(data);
+
+                    //Entering Location details
+                    crLocationsTab(data);
+
+                    //Entering Tow Destination Details
+                    crTowDestinationTab(data);
+
+                    //ServiceTab Deatils
+                    crServiceTab(data);
+
+                    //Call receiving Logout
+                    callReceivingLogout();
+
+                    //Navigate to Dispatch Application
+                    navigateToApplication("DI");
+
+                    //Diaptach Login
+                    commonLib.dispatchLogin(data.get("SPPLoginName"),data.get("SPPPassword"),data.get("SPPLoginRoleDispatch"),data.get("DI-RoleinDispatch"));
+
+                    //Call Clearing Process
+                    diCallClearProcess(data);
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Execption Occured","Execption Occured",driver);
+                    reporter.warningReport("Error Description",e.getMessage());
+                }
+                ReportControl.fnEnableJoin();
+
+                //updating google sheet. Will be used in Zephyr integration. Currently the code will not do anything as the function is commented.
+                ReportStatus.fnUpdateResultStatus("RAP_SPP_DI_ITUWeb","7777",ReportStatus.strMethodName,intCounter,browser);
+
+                //To close the browser after each iteration
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+
+        //Switch to mobile
+        //ReportControl.fnSwitchToMobile();
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: callReceivingLogin
+     * description :: Login
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void callReceivingLogin(Hashtable<String, String> data) throws Throwable {
+        navigateToApplication("CR");
+        crHomeLib.verifyandClickLogout();
+        switch (data.get( "LoginRoleCallReceiving")) {
+            case "CR":
+                login(data.get("LoginName"),data.get("Password"));
+                break;
+            default:
+                break;
+        }
+        crMemberSearchLib.clickOnPartialCallCloseButton();
+        crHomeLib.messageDialogBoxClose();
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: crRAPTab
+     * description :: Entering RAP Details
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void crRAPTab(Hashtable<String, String> data) throws Throwable
+    {
+        crHomeLib.verifyHomeScreen();
+        crHomeLib.workFlowSelectionForRAP();
+        crMemberSearchLib.verifyIsRapWorkFlowSet();
+        crMemberSearchLib.enterDataInClubCode(data.get("clubCode"));
+        //crMemberSearchLib.clickOnClubClodeSuggestedOption();
+        ranRAPID=generateRandomNumber();
+        crMemberSearchLib.mandatoryFieldsForRAPCall(data.get("firstName"),data.get("lastName"),ranRAPID,data.get("paymentCode"));
+        crMemberSearchLib.enterMemberContactInfoPrimaryPhoneNumber(data.get("phoneNumber"));
+        crMemberSearchLib.selectType(data.get("phoneType"));
+        crMemberSearchLib.clickPrimRadioBtnRowOne();
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: crLocationsTab
+     * description :: entering Location Details
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void crLocationsTab(Hashtable<String, String> data) throws Throwable
+    {
+        crLocationsLib.breakdownLocTabSel();
+        crLocationsLib.enterBreakDownLocationManually(data.get("Address"));
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: crVehicleTab
+     * description :: entering Vehicle Details
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void crVehicleTab(Hashtable<String, String> data) throws Throwable
+    {
+        crVehicleTriageLib.clickOnVehicleTriageTab();
+        crVehicleTriageLib.enterVehicleDetailsManually(data.get("VehicleDetails"));
+        crVehicleTriageLib.problemTriage(data.get( "ProblemTriage"),data.get("ProblemType"));
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: crTowDestinationTab
+     * description :: Entering TowDestination Details
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void crTowDestinationTab(Hashtable<String, String> data) throws Throwable
+    {
+        String TowAddressVal[] =  data.get("TowAddress").split("#");
+
+        crTowDestinationLib.clickOnTowDestinationTab();
+        crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+        boolean noAddressLocationAvailable = crTowDestinationLib.verifyAddressAvailableInTowDestination();
+        if (noAddressLocationAvailable) {
+            crTowDestinationLib.enterTowDestinationLocationFields(data.get("TowAddress"));
+        } else {
+            crTowDestinationLib.enterExistingTowDestAddr(TowAddressVal[9]);
+        }
+        Thread.sleep(2000);
+    }
+
+    /**
+     * param :: Hashtable with String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: crServiceTab
+     * description ::
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void crServiceTab(Hashtable<String, String> data) throws Throwable
+    {
+        crServiceLib.clickOnServiceTab();
+        crServiceLib.enterManualSpotDetails(data.get("ManualSoptFacilityID"));
+        crVehicleTriageLib.errorAlertHandlingBeforeEnterMandatoryFields();
+        crServiceLib.getFacilityType();
+        completeCall(data.get("CompleteCall"));
+    }
+    /**
+     * param :: String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: completeCall
+     * description :: Save call and return CallID , CallDate and SpotID
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public String[] completeCall(String CompleteCall) throws Throwable {
+        switch (CompleteCall) {
+            case "Save":
+                crHomeLib.saveButton();
+                crHomeLib.allErrorAlerts();
+
+                callIDCreated = crServiceLib.getCallId();
+                spotIDCreated = crServiceLib.getSpotFacilityId();
+                callDateCreated=crServiceLib.getCallDate();
+                crServiceLib.closeCall();
+                break;
+            default:
+                break;
+        }
+        ReportControl.callID= callIDCreated;
+        callandfacilityId[0] = callIDCreated;
+        callandfacilityId[1] = spotIDCreated;
+        callandfacilityId[2] = callDateCreated;
+        return callandfacilityId;
+    }
+
+    /**
+     * param :: String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: callReceivingLogout
+     * description :: Logout CR
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void callReceivingLogout() throws Throwable
+    {
+        crHomeLib.logout();
+        acceptAlert();
+        acceptAlert();
+    }
+
+    /**
+     * param :: String inputs
+     * return :: String
+     * throws :: throwable
+     * methodName :: diCallClearProcess
+     * description :: Clearing call
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void diCallClearProcess(Hashtable<String, String> data) throws Throwable
+    {
+        callFlow(data);
+        dimcdLib.paymentForRAPCall(data.get("Cost"),data.get("CashCollected"),data.get("ServiceType"),data.get("towServiceType"));
+        //spotDispatch(data.get("SpotDispatch"),data.get("ResoptFacilityID"),data.get("SPEnterReason"),data.get("ResoptFacilityIDNew") );
+        // condition for IT Driver
+        if(data.get("LoginRoleITU").equals("IT")) {
+            //verify assign status
+            dimcdLib.statusUpdateAsAS(data.get("StatusUpdateAS"));
+            dimcdLib.selectITUDriver(data.get("TruckID"));
+        }
+
+    }
+
+    /**
+     * param :: Hash table with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: callFlow
+     * description :: Select call using Searchcall , profile or Truckload
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void callFlow(Hashtable<String, String> data) throws Throwable {
+        //crHomeLib.messageDialogBoxClose();
+        switch (data.get("CallFlow") ){
+            case "Profile" :
+                diHomeLib.clickOnProfile();
+                callIDAndDateCombined = callandfacilityId[2].substring(0,4) + callandfacilityId[2].substring(5,7)+ callandfacilityId[2].substring(8,10)+callandfacilityId[2].substring(4,5)+callandfacilityId[0];
+                diHomeLib.searchAndClickOnCallIdOnProfileWindow(callIDAndDateCombined);
+                break;
+            case "MCD" :
+                diHomeLib.clickOnSearchCallsInDispatch();
+                date= callandfacilityId[2].substring(5,7) + "/" + callandfacilityId[2].substring(8,10)+ "/" + callandfacilityId[2].substring(0,4);//02/13/2018
+                diSearchCallsLib.enterStartDate(date);
+                commonLib.tabout();
+                diSearchCallsLib.enterEndDate(date);
+                commonLib.tabout();
+                diHomeLib.enterCallIDInfo(callandfacilityId[0]); //callIDCreated
+                diHomeLib.clickOnSearchInSearchCalls();
+                diHomeLib.clickOnCallDateOrIDLink();
+                break;
+            case "Truckload" :
+                diHomeLib.clickOnTruckLoad();
+                diHomeLib.enterSpotFacilityIDInfoOnTruckLoad(callandfacilityId[1]); //spotIDCreated
+                Thread.sleep(5000);
+                diHomeLib.dateDecendingOrder();
+                callIDAndDateCombined = callandfacilityId[2].substring(0,4) + callandfacilityId[2].substring(5,7)+ callandfacilityId[2].substring(8,10)+callandfacilityId[2].substring(4,5)+callandfacilityId[0];
+                diHomeLib.searchAndClickOnCallIdOnTruckloadWindow(callIDAndDateCombined);
+                break;
+            default :
+                break;
+        }
+    }
+
+    /**
+     * param :: String Inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: spotDispatch
+     * description :: Change autospot facility id
+     * date :: 27-Mar-2017
+     * author :: Abhiram Vajrapu
+     */
+
+    public void spotDispatch(String SpotDispatch, String ResoptFacilityID, String SPEnterReason, String ResoptFacilityIDNew ) throws Throwable {
+        switch (SpotDispatch){
+            case "Respot" :
+                dimcdLib.clickOnServiceTabInMCDWindow();
+                if(callandfacilityId[1]!=ResoptFacilityID) //spotIDCreated
+                {
+                    dimcdLib.verifyFacilityAndEnterReasonAndReSpot(SPEnterReason, ResoptFacilityID);
+                }
+                else
+                {
+                    dimcdLib.verifyFacilityAndEnterReasonAndReSpot(SPEnterReason, ResoptFacilityIDNew);
+                }
+                break;
+            default :
+                break;
+        }
+    }
+
+}

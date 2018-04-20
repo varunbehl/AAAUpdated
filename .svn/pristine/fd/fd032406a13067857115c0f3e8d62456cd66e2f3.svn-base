@@ -1,0 +1,555 @@
+package com.aaa.web.script;
+
+/**
+ * Created by E001133 on 3/30/2018.
+ */
+
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.DIMCDPage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Date;
+import java.util.Hashtable;
+
+import java.util.Iterator;
+import java.util.Set;
+
+public class TC_DIMcdClosestTrucks extends LoginLib {
+
+    LoginLib login = new LoginLib();
+    CRMemberSearchLib member = new CRMemberSearchLib();
+    CRHomeLib home = new CRHomeLib();
+    CRLocationsLib locations = new CRLocationsLib();
+    CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+    CRServiceLib service = new CRServiceLib();
+    DILoginLib diLoginLib = new DILoginLib();
+    LoginRoleLib role = new LoginRoleLib();
+    DIHomeLib diHome = new DIHomeLib();
+    DIMCDLib diMCD = new DIMCDLib();
+
+    String newCallId;
+    String callDateCreated;
+    String callDateStr;
+    Date newPtaTime;
+
+    String newCallId1;
+    String callDateCreated1;
+    String callDateStr1;
+    Date newPtaTime1;
+    //    String parentHandle = driver.getWindowHandle();
+    String newCallId2;
+    String callDateCreated2;
+    String callDateStr2;
+    Date newPtaTime2;
+
+    /************************************************************************
+     * Script Name :-TC_DI MCD Closest Trucks
+     * Method Name :-verifyDIMCDClosestTrucks
+     * Module	   :- DI
+     * Test Case ID:-1926
+     * Script Date :-3/30/2018
+     * Author      :-Ravi
+     * @param StartRow
+     * @param EndRow
+     * @param nextTestJoin
+     * @throws Throwable
+     *************************************************************************/
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void verifyDIMCDClosestTrucks(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+
+            int intStartRow=StartRow;
+            int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "verifyDIMCDClosestTrucks", TestData, "D3Dispatch");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    //Open the browser in each iteration
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount=intCounter;
+                    Hashtable<String, String> data=TestUtil.getDataByRowNo("verifyDIMCDClosestTrucks", TestData, "D3Dispatch",intCounter);
+
+                    this.reporter.initTestCaseDescription("1926 :verifyDIMCDClosestTrucks"+ " From Iteration " + StartRow + " to " + EndRow );
+                    reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+                    DIFacilityDetailInformationLib diFacilityInfo = new DIFacilityDetailInformationLib();
+
+
+                    //1.create RE CALL that do not have a facility
+                    String reCall=createRECall(data);
+
+                    // step 2
+
+                    DIHomeLib diHome = new DIHomeLib();
+                    DILoginLib  diLogin = new DILoginLib();
+                    DISearchCallsLib diSearchCalls =new DISearchCallsLib();
+                    DIMCDLib DIMcd = new DIMCDLib();
+                    DITruckLoadDeafultViewLib diTruckLoad = new DITruckLoadDeafultViewLib();
+                    LoginToDIApplication(data);
+
+                    diHome.clickOnSearchCallsInDispatch();
+                  diHome.enterCallIDInfo(newCallId);
+
+                    //diHome.enterCallIDInfo("20071");
+                    diHome.clickOnSearchInSearchCalls();
+                    diHome.clickOnCallDateOrIDLink();
+                    diLogin.waitcloseAllBusyIcons();
+                    // Clicking on StatusUpdate on MCD window
+                    DIMcd.clickOnStatusUpdateTab();
+                    // Entering Status
+                    DIMcd.enterStatusOnStatusUpdateTab(data.get("Status"));
+                    Thread.sleep(2000);
+                    DIMcd.enterReasonInStatusUpdateTab(data.get("Reason"));
+                    Thread.sleep(2000);
+                    DIMcd.enterfacilityOnStatusUpdateWindow(data.get("FacilityIdealTowing"));
+                    Thread.sleep(2000);
+                    DIMcd.clickOnUpdateButtonInStatusUpdateTab();
+                    Thread.sleep(2000);
+                    diMCD.getTextOfFacility();
+                    diMCD.ClickOnFacilityLinkOnSummaryTab();
+
+                    diFacilityInfo.ClickOnTruckListButton();
+                    boolean bTruckListWindow = diFacilityInfo.VerifyTruckListWindow();
+                    assertTrue(bTruckListWindow,"The Truck List screen is in view");
+                    diFacilityInfo.CloseTruckListWindow();
+
+                    // Step 3 Click the Closest Truck button
+                    diMCD.clickOnClosestTruck();
+                    Thread.sleep(3000);
+                  //  diMCD.getTextOfTableListOfClosestTrucks(data.get("columnName1"),data.get("columnName2"),data.get("columnName3"),data.get("columnName4"),data.get("columnName5"),data.get("columnName6"),data.get("columnName7"));
+                    //    assertElementPresent(DIMCDPage.lblShowBatteryTrucksOnly,"verified Show Battery Trucks Only");
+                    //step 4 Click the View Search Criteria link
+                    diMCD.clickOnViewSearchCriteria();
+
+                    assertElementPresent(DIMCDPage.lblViewSearchCriteria,"verified view search criteria");
+                    assertElementPresent(DIMCDPage.lblInactive,"verified inactive");
+                    assertElementPresent(DIMCDPage.lblLoaded,"verified loaded");
+                    assertElementPresent(DIMCDPage.lblFromOtherFaciilties,"verified from other facilitlies");
+                    assertElementPresent(DIMCDPage.lblShowBatteryTrucksOnly,"verified Show Battery Trucks Only");
+
+                    //Step 5 Select the Inactive filter and click search- unable to get Inactive status and asked to fail
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblInactive,"verified inactive");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click on Search");
+                    diMCD.verifyTruckActiveList();
+                    diMCD.verifyTruckInActiveList();
+
+
+                    //Step 6 : Click the view Search Criteria Link and perform the following:
+                    //              1.Un-select the Inactive filter
+                    //               2.Select the Loaded filter
+                    //               3.Click Search
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblInactive,"un select inactive");
+                    mouseDoubleClick(DIMCDPage.lblLoaded,"clicked loaded");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click Search button");
+                    diMCD.verifyListOfClosestTrucksIncludesLoadedTrucks();
+                    diMCD.verifyListOfClosestTrucksIncludesUnLoadedTrucks();
+
+
+                    /*step 7 : Click the view Search Criteria Link and perform the following: FAILING THIS STEP AS WE DONT SEE ANY DATA OF FACILITY TRUCKS
+                                 1.Un-select the Loaded filter
+                                 2.Select the From Other Facilities filter
+                                 3.Click Search*/
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblLoaded,"un-select loaded filter");
+                    mouseDoubleClick(DIMCDPage.lblFromOtherFaciilties,"clicked from other facilities");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+
+                    // FAILING THIS STEP AS WE DONT SEE ANY DATA
+                    diMCD.verifyListOfFacilityTrucks();
+
+
+                  /* step 8 :  Click the view Search Criteria Link and perform the following:
+                                 1.Un-select the From Other Facilities filter
+                                 2.Select the Show Battery Trucks Only filter
+                                 3.Click Search*/
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblFromOtherFaciilties,"Un-select the From Other Facilities filter");
+                    mouseDoubleClick(DIMCDPage.lblShowBatteryTrucksOnly,"clicked show battery trucks only");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+                    diMCD.verifyListOfBatteryTrucksFromCurrentFacility();
+
+
+
+                    //  step 9 : Remove all filters and click search
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseDoubleClick(DIMCDPage.imgCrossButtonInTruckTypes,"Remove all filters and click search");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+
+
+                    //step 10 : Click thru the trucks  -Not automatable as it contain maps
+
+                    //step 11 : Select a truck that's capable of handling the call and click the Assign Truck button
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblViewSearchCriteria,"clicked view search criteria");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+                    diMCD.clickOnFirstTruckWhichContainsDriver();
+
+
+                    //step 12 :Repeat steps but with the MCD window popped-out
+                  //  executed above step in next iteration
+
+                   /* diMCD.clickOnViewSearchCriteria();
+                    diMCD.clickOnFirstLoadedTruck();
+                    diMCD.clickOnAssaignTruck();*/
+
+//logout
+                    home.logout();
+
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Execption Occured","Execption Occured",driver);
+                    reporter.warningReport("Error Description"," "+e.toString());
+                }
+
+
+                ReportControl.fnEnableJoin();
+                //updating google sheet. Will be used in Zephyr integration. Currently the code will not do anything as the function is commented.
+                ReportStatus.fnUpdateResultStatus("DI","1926",ReportStatus.strMethodName,intCounter,browser);
+                //To close the browser after each iteration
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+
+
+
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void verifyDIMCDClosestTrucksPoppedOut(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+
+            int intStartRow=StartRow;
+            int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "verifyDIMCDClosestTrucks", TestData, "D3Dispatch");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    //Open the browser in each iteration
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount=intCounter;
+                    Hashtable<String, String> data=TestUtil.getDataByRowNo("verifyDIMCDClosestTrucks", TestData, "D3Dispatch",intCounter);
+
+                    this.reporter.initTestCaseDescription("1926 :verifyDIMCDClosestTrucks"+ " From Iteration " + StartRow + " to " + EndRow );
+                    reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+                    DIFacilityDetailInformationLib diFacilityInfo = new DIFacilityDetailInformationLib();
+
+
+                    //1.create RE CALL that do not have a facility
+                     String reCall=createRECall(data);
+
+                    // step 2
+
+                    DIHomeLib diHome = new DIHomeLib();
+                    DILoginLib  diLogin = new DILoginLib();
+                    DISearchCallsLib diSearchCalls =new DISearchCallsLib();
+                    DIMCDLib DIMcd = new DIMCDLib();
+                    DITruckLoadDeafultViewLib diTruckLoad = new DITruckLoadDeafultViewLib();
+                    LoginToDIApplication(data);
+
+                    diHome.clickOnSearchCallsInDispatch();
+                    diHome.enterCallIDInfo(newCallId);
+                  //  diHome.enterCallIDInfo("20071");
+                    diHome.clickOnSearchInSearchCalls();
+                    diHome.clickOnCallDateOrIDLink();
+                    diLogin.waitcloseAllBusyIcons();
+                    // Clicking on StatusUpdate on MCD window
+                    String mainwindow = driver.getWindowHandle();
+                    System.out.println(mainwindow);
+                    DIMcd.maximizeMCDWindow();
+                    String mainwindow1 = driver.getWindowHandle();
+                    System.out.println(mainwindow1);
+                    switchToWindow();
+
+                    DIMcd.clickOnStatusUpdateTab();
+                    // Entering Status
+                    DIMcd.enterStatusOnStatusUpdateTab(data.get("Status"));
+                    Thread.sleep(2000);
+                    DIMcd.enterReasonInStatusUpdateTab(data.get("Reason"));
+                    Thread.sleep(2000);
+                    DIMcd.enterfacilityOnStatusUpdateWindow(data.get("FacilityIdealTowing"));
+                    Thread.sleep(2000);
+                    DIMcd.clickOnUpdateButtonInStatusUpdateTab();
+                    Thread.sleep(2000);
+                    diMCD.getTextOfFacility();
+                    diMCD.ClickOnFacilityLinkOnSummaryTab();
+                 //   switchToWindow();
+                  String mainwindow2 = driver.getWindowHandle();
+                    System.out.println(mainwindow2);
+                    Set<String> window= driver.getWindowHandles();
+                    for(String windowHandle  : window) {
+                        if (!windowHandle.equals(mainwindow2)) {
+                            driver.switchTo().window(windowHandle).getTitle().equalsIgnoreCase("Facility Detail Information");
+                       }
+                   }
+
+                    diFacilityInfo.ClickOnTruckListButton();
+                    boolean bTruckListWindow = diFacilityInfo.VerifyTruckListWindow();
+                    assertTrue(bTruckListWindow,"The Truck List screen is in view");
+                    diFacilityInfo.CloseTruckListWindow();
+
+                    driver.switchTo().defaultContent();
+
+                    String mainwindow3 = driver.getWindowHandle();
+                    System.out.println(mainwindow3);
+                    Set<String> window3= driver.getWindowHandles();
+                    for(String windowHandle  : window) {
+                        if (!windowHandle.equals(mainwindow3)) {
+                            driver.switchTo().window(windowHandle).getTitle().equalsIgnoreCase("Facility Detail Information");
+                        }
+                    }
+
+                    // Step 3 Click the Closest Truck button
+                    diMCD.clickOnClosestTruck();
+                    Thread.sleep(3000);
+                    diMCD.getTextOfTableListOfClosestTrucks(data.get("columnName1"),data.get("columnName2"),data.get("columnName3"),data.get("columnName4"),data.get("columnName5"),data.get("columnName6"),data.get("columnName7"));
+                    //    assertElementPresent(DIMCDPage.lblShowBatteryTrucksOnly,"verified Show Battery Trucks Only");
+
+                    //step 4 Click the View Search Criteria link
+                    diMCD.clickOnViewSearchCriteria();
+
+                    assertElementPresent(DIMCDPage.lblViewSearchCriteria,"verified view search criteria");
+                    assertElementPresent(DIMCDPage.lblInactive,"verified inactive");
+                    assertElementPresent(DIMCDPage.lblLoaded,"verified loaded");
+                    assertElementPresent(DIMCDPage.lblFromOtherFaciilties,"verified from other facilitlies");
+                    assertElementPresent(DIMCDPage.lblShowBatteryTrucksOnly,"verified Show Battery Trucks Only");
+
+                    //Step 5 Select the Inactive filter and click search- unable to get Inactive status and asked to fail
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblInactive,"verified inactive");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click on Search");
+                    diMCD.verifyTruckActiveList();
+                    //diMCD.verifyTruckInActiveList();
+
+
+
+
+
+                    //Step 6 : Click the view Search Criteria Link and perform the following:
+                    //              1.Un-select the Inactive filter
+                    //               2.Select the Loaded filter
+                    //               3.Click Search
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblInactive,"clicked inactive");
+                    mouseDoubleClick(DIMCDPage.lblLoaded,"clicked loaded");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click Search button");
+                    diMCD.verifyListOfClosestTrucksIncludesLoadedTrucks();
+                    diMCD.verifyListOfClosestTrucksIncludesUnLoadedTrucks();
+
+
+
+
+                    /*step 7 : Click the view Search Criteria Link and perform the following: FAILING THIS STEP AS WE DONT SEE ANY DATA OF FACILITY TRUCKS
+                                 1.Un-select the Loaded filter
+                                 2.Select the From Other Facilities filter
+                                 3.Click Search*/
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblLoaded,"clicked loaded");
+                    mouseDoubleClick(DIMCDPage.lblFromOtherFaciilties,"clicked from other facilities");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+
+                    // FAILING THIS STEP AS WE DONT SEE ANY DATA
+                    diMCD.verifyListOfFacilityTrucks();
+
+
+                  /* step 8 :  Click the view Search Criteria Link and perform the following:
+                                 1.Un-select the From Other Facilities filter
+                                 2.Select the Show Battery Trucks Only filter
+                                 3.Click Search*/
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblFromOtherFaciilties,"clicked from other facilities");
+                    mouseDoubleClick(DIMCDPage.lblShowBatteryTrucksOnly,"clicked show battery trucks only");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+                    diMCD.verifyListOfBatteryTrucksFromCurrentFacility();
+
+
+
+                    //  step 9 : Remove all filters and click search
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseDoubleClick(DIMCDPage.imgCrossButtonInTruckTypes,"clicked aLL Truck types");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+
+
+                    //step 10 : Click thru the trucks  -Not automatable as it contain maps
+
+                    //step 11 : Select a truck that's capable of handling the call and click the Assign Truck button
+                    diMCD.clickOnViewSearchCriteria();
+                    mouseClick(DIMCDPage.lblViewSearchCriteria,"clicked view search criteria");
+                    mouseDoubleClick(DIMCDPage.btnSearch,"click inactive");
+                    diMCD.clickOnFirstTruckWhichContainsDriver();
+
+
+                    //step 12 :Repeat steps but with the MCD window popped-out
+
+
+
+
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Execption Occured","Execption Occured",driver);
+                    reporter.warningReport("Error Description"," "+e.toString());
+                }
+
+
+                ReportControl.fnEnableJoin();
+                //updating google sheet. Will be used in Zephyr integration. Currently the code will not do anything as the function is commented.
+                ReportStatus.fnUpdateResultStatus("DI","1926",ReportStatus.strMethodName,intCounter,browser);
+                //To close the browser after each iteration
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+
+    public String createRECall(Hashtable<String, String> data) throws Throwable {
+        //CR
+        navigateToApplication("CR");
+        login.login(data.get("LoginNameForCR"), data.get("PasswordForCR"));
+        home.messageDialogBoxClose();
+        String Member = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member);
+        } else {
+            Member = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member);
+  //      home.memberSearchTextBox(data.get("MemberNumber"));
+        member.memberNumClick();
+        locations.clickOnLocationTab();
+        locations.enterTxtinBrkDowLocSrch(data.get("NoFacilityAddress"));
+        locations.brkDowLocSrchBtn();
+        locations.clickOnLocationResultsLink();
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+        vehicle.clickOnVehicleTriageTab();
+        vehicle.selectExistingVehicleModel();
+        boolean messageAlert=home.verifyMessageDialogBoxClose();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        vehicle.enterPaceSetterCodeManually(data.get("paceSettercode1"));
+        Thread.sleep(3000);
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        service.clickOnServiceTab();
+       /* service.setManualOverrideOnSpottedFacility(data.get("maualPTA"));
+        Thread.sleep(5000);
+        service.getTxtCallPTAValue();*/
+
+        service.validateNoFacilityAutoSpot();
+        home.saveButton();
+        Thread.sleep(10000);
+        newCallId = service.getCallId();
+        callDateCreated = service.getCallDate();
+        callDateStr = callDateCreated.replaceAll("-", "");
+        newPtaTime = service.getPTADateAfterCallSave();
+        service.clickOnRemainInCall();
+        Thread.sleep(10000);
+        service.getErrorMessageOnE225ErrorPopup();
+        service.clickOnE225ErrorOkButton();
+        home.logout();
+        return newCallId;
+    }
+
+    public String createSPCall(Hashtable<String, String> data) throws Throwable {
+        //CR
+        navigateToApplication("CR");
+        login.login(data.get("LoginNameForCR"), data.get("PasswordForCR"));
+        home.messageDialogBoxClose();
+        String Member1 = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member1 = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member1);
+        } else {
+            Member1 = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member1);
+        //crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+        member.memberNumClick();
+        member.labelMemberLevelInMemberDetailsSection();
+        locations.clickOnLocationTab();
+        //select location
+        locations.clickOnSecondKownBrkDowLocation();
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+        vehicle.clickOnVehicleTriageTab();
+        vehicle.selectExistingVehicleModel();
+        boolean messageAlert=home.verifyMessageDialogBoxClose();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        vehicle.enterPaceSetterCodeManually(data.get("paceSettercode1"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        service.clickOnServiceTab();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        service.setManualOverrideOnSpottedFacility(data.get("maualPTA"));
+        Thread.sleep(5000);
+        service.getTxtCallPTAValue();
+        home.saveButton();
+        home.allErrorAlerts();
+        Thread.sleep(10000);
+        newCallId1 = service.getCallId();
+        callDateCreated1 = service.getCallDate();
+        callDateStr1 = callDateCreated1.replaceAll("-", "");
+        newPtaTime1 = service.getPTADateAfterCallSave();
+        service.clickOnRemainInCall();
+        Thread.sleep(10000);
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        home.logout();
+        return newCallId1;
+    }
+    public void LoginToDIApplication(Hashtable<String, String> data) throws Throwable {
+
+        DILoginLib diLogin = new DILoginLib();
+        DIHomeLib diHome = new DIHomeLib();
+        CRHomeLib home = new CRHomeLib();
+        LoginRoleLib loginRole=new LoginRoleLib();
+        navigateToApplication("DI");
+        diLogin.login(data.get("DIuserName"), data.get("Dipassword"));
+        diLogin.waitcloseAllBusyIcons();
+        loginRole.clickOnProceedBtnInDispatchRoleLogin();
+        home.messageDialogBoxClose();
+        diHome.clickOnCloseIconOnQueueSelection();
+    }
+
+
+}

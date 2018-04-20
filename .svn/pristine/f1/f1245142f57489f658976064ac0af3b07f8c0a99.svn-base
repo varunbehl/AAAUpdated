@@ -1,0 +1,259 @@
+package com.aaa.rspweb.lib;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.aaa.rspweb.pages.RSPManageUserPage;
+import com.aaa.rspweb.pages.RSPUserDetailsPage;
+import com.thoughtworks.selenium.webdriven.commands.WaitForPageToLoad;
+
+public class RSPUserDetailsLib extends RSPCommonLib {
+
+	/**
+	 * param :: String userName
+	 * throws :: throwable
+	 * methodName :: validateUserDetailsPage
+	 * description :: validate User Details Page URL
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	public void validateUserDetailsPage(String userName) throws Throwable{
+		Thread.sleep(3000);
+		String pageUrl=getCurrentUrl();
+		if(pageUrl.toLowerCase().contains(userName.toLowerCase())){
+			reporter.SuccessReport("Validate User Details Page", userName+" details page is displayed");
+		}
+		else{
+			reporter.failureReport("Validate User Details Page", userName+" details page is not displayed, displayed page is "+pageUrl);
+		}
+	}
+	
+	/**
+	 * param :: By List of Strings
+	 * return ::loginTimes
+	 * throws :: throwable
+	 * methodName :: getUserLoginTimes
+	 * description :: to get the User Login Times
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+
+	public List<String> getUserLoginTimes() throws Throwable{ 
+		List<WebElement> currentLoginRecords=getWebElementList(RSPUserDetailsPage.loginRecords,"loginRecords");
+		List<String> loginTimes=new ArrayList<>();
+		for(WebElement loginRecord:currentLoginRecords){
+			loginTimes.add(loginRecord.findElement(By.tagName("td")).getAttribute("title"));
+		}
+		return loginTimes;
+	}
+
+	 /**
+	 * param :: List<String> loginTimes
+	 * throws :: throwable
+	 * methodName :: validateSortOrderUserLoginTimes
+	 * description :: validate Login Records sorted in Ascending Order 
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	public void validateSortOrderUserLoginTimes(List<String> loginTimes) throws Throwable {
+		boolean isUserLogonTimesSorted=true;
+		String initialDate = null,comparisionDate = null;
+		for(int i=0;i<loginTimes.size()-1;i++){
+			SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+			initialDate =loginTimes.get(i);
+			comparisionDate =loginTimes.get(i+1);
+			Date dateCompare = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(initialDate);
+			Date dateCompareTo = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(comparisionDate);
+			if (!(date.format(dateCompare).compareTo(date.format(dateCompareTo)) >= 0)) {
+				isUserLogonTimesSorted=false;
+				break;
+			}
+		}
+		if (isUserLogonTimesSorted) {
+			reporter.SuccessReport("Validate successful logins are displayed in sorted order from newest to oldest", "logins are displayed in sorted order from newest to oldest");
+		} else {
+			reporter.failureReport("Validate successful logins are displayed in sorted order from newest to oldest", "logins are not displayed in sorted order from newest to oldest. Displayed Order: "+ initialDate+ "->"+comparisionDate);
+		}	
+	}
+
+	/**
+	 * * param :: 
+	 * return ::By String
+	 * throws :: throwable
+	 * methodName :: getUserLastLoginTime
+	 * description :: to Get The User Last Login Time
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	public String getUserLastLoginTime(){
+		String lastLoginTime=getAttributeValue(RSPManageUserPage.lblLastLoginTime, "title");
+		return lastLoginTime;
+	}
+
+	/**
+	 * * param :: By  String
+	 * return ::By String
+	 * throws :: throwable
+	 * methodName :: getUserLastLogoutTime
+	 * description :: to Read The User Last Logout Time
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	public String getUserLastLogoutTime(){
+		String lastLogoutTime=getAttributeValue(RSPManageUserPage.lblLastLogoutTime, "title");
+		return lastLogoutTime;
+	}
+
+	/**
+	 * * param :: By  String
+	 * throws :: throwable
+	 * methodName :: validateUserLastLoginTime
+	 * description :: to Validate the Application Login Time and UserLogin System times are equal
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	//Compare Login time taken from Machine and Application are equal
+	public void validateUserLastLoginTime(String userLoginSystemTime) throws Throwable {
+		refreshPage();
+		acceptAlert();
+		String ApplicationLogintime= getUserLastLoginTime();
+		if(ApplicationLogintime.replace("(","").replace(")","").equals(userLoginSystemTime)){
+			reporter.SuccessReport("Validate userLoginSystemTime should be equal to userLoginLogTime ", "userLoginSystemTime is equal to userLoginLogTime"+ApplicationLogintime);
+		}
+		else{
+			reporter.failureReport("Validate userLoginSystemTime should be equal to userLoginLogTime ", "userLoginSystemTime: "+userLoginSystemTime+" is not equal to userLoginLogTime "+ApplicationLogintime);
+		}
+	}
+
+	/**
+	 * param :: String userLogoutTime - userLoutOut Time taken from the machine
+	 * throws :: throwable
+	 * methodName :: validateUserLastLogoutTime
+	 * description :: to Validate the Application Logout Time and UserLastLogout Times are equal
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	//Validate application logout time
+	public void validateUserLastLogoutTime(String userLogoutTime) throws Throwable {
+		refreshPage();
+		Thread.sleep(5000);
+		String ApplicationLogoutTime= getUserLastLogoutTime();
+		if(ApplicationLogoutTime.replace("(","").replace(")","").equals(userLogoutTime)){
+			reporter.SuccessReport("Validate userLogoutSystemTime should be equal to userLogoutLogTime ", "userLogoutSystemTime is equal to userLogoutLogTime "+ApplicationLogoutTime);
+		}
+		else{
+			reporter.failureReport("Validate userLogoutSystemTime should be equal to userLogoutLogTime ", "userLogoutSystemTime "+userLogoutTime+" is not equal to userLogoutLogTime "+ApplicationLogoutTime);
+		}
+	}
+
+	public void validateUserAuditLog(String appVersion) throws Throwable{
+		validateAuditLog("Login Time","");
+		validateAuditLog("Logout Time","");
+		validateAuditLog("Application Version",appVersion);
+	}
+
+	private void validateAuditLog(String auditData, String validateData) throws Throwable {
+		List<WebElement> headers=getWebElementList(RSPUserDetailsPage.lblUserAduitLogHeaders, "Audit Log headers");
+    	int headerIndex=getHeaderIndex(headers,auditData);
+		List<String> loginTimes=getAduitLogDataForColumn(headerIndex);
+		String unmatchedData = null;
+		boolean isDataValid=true; 
+		for(String data:loginTimes){
+			switch(validateData){
+				case "":
+					if(!(data.length()>0)){
+						unmatchedData=data;
+						isDataValid=false;
+					}
+					break;
+				default:
+					if(!data.toLowerCase().contains(validateData)){
+						unmatchedData=data;
+						isDataValid=false;
+					}
+					break;
+			}
+		}
+		if(isDataValid){
+			reporter.SuccessReport("Validate User Aduit Log for "+auditData, "The Audit Log data is displayed as expected for:"+auditData);
+		}
+		else{
+			reporter.failureReport("Validate User Aduit Log for "+auditData, "Expected Audit Log data : "+validateData+", Found Audit Log Data: "+ unmatchedData);
+		}
+	}
+
+	/**
+	 * param :: String userLogoutTime - userLoutOut Time taken from the machine
+	 * throws :: throwable
+	 * methodName :: validateUserLastLogoutTime
+	 * description :: to Validate the Application Logout Time and UserLastLogout Times are equal
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	public void validateLoginTimes() throws Throwable {
+		List<WebElement> headers=getWebElementList(RSPUserDetailsPage.lblUserAduitLogHeaders, "Audit Log headers");
+    	int headerIndex=getHeaderIndex(headers,"Login Time");
+		List<String> loginTimes=getAduitLogDataForColumn(headerIndex);
+	}
+
+	/**
+	 * param :: String userLogoutTime - userLoutOut Time taken from the machine
+	 * throws :: throwable
+	 * methodName :: validateUserLastLogoutTime
+	 * description :: to Validate the Application Logout Time and UserLastLogout Times are equal
+	 * date :: 17-Apr-2018
+	 * author ::
+	 * added by :: Amulya Gurijala
+	 */
+	private List<String> getAduitLogDataForColumn(int headerIndex) throws Throwable {
+		List<WebElement> auditLog=getWebElementList(RSPUserDetailsPage.loginRecords, "Audit Log");
+		List<String> aduitLogData=new ArrayList<String>();
+		for(WebElement ele : auditLog){
+			try{
+			String data=ele.findElement(By.xpath("//td["+headerIndex+"]")).getAttribute("title");
+			aduitLogData.add(data);
+			}
+			catch(Exception ex){
+				ex.printStackTrace();
+			}
+		}
+		return aduitLogData;
+	}
+
+	private void validateLogoutTimes() throws Throwable {
+    	List<WebElement> headers=getWebElementList(RSPUserDetailsPage.lblUserAduitLogHeaders, "Audit Log headers");
+    	int headerIndex=getHeaderIndex(headers,"Login Time");
+	}
+	private int getHeaderIndex(List<WebElement> indexes,String headerName) {
+		int headerIndex=-1;
+		for(int i=0;i<indexes.size();i++){
+			if(indexes.get(i).getAttribute("title").toLowerCase().equalsIgnoreCase(headerName)){
+				headerIndex=i+1;
+			}
+		}
+		return headerIndex;
+	}
+	
+	
+}
+
+
+
+
+
+
+

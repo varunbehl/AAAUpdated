@@ -1,0 +1,139 @@
+package com.aaa.rspweb.lib;
+
+import com.aaa.rspweb.pages.RSPCreateUserDetailsPage;
+
+public class RSPCreateUserDetailsLib extends RSPCommonLib{
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnEnableButton
+     * description :: To click on enable button
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void clickOnEnableButton() throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.btnEnabled,60);
+        click(RSPCreateUserDetailsPage.btnEnabled,"Button enabled");
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnDisableButton
+     * description :: To click on disable button
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void clickOnDisableButton() throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.btnDisabled,60);
+        click(RSPCreateUserDetailsPage.btnDisabled,"Button disable");
+    }
+    /**
+     * param :: String
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterUserName
+     * description :: To enter the user name
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void enterUserName(String name) throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.txtUserName,60);
+        type(RSPCreateUserDetailsPage.txtUserName,name,"User Name");
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSelectRoleDropdown
+     * description :: To click on select role drop down before selecting a value
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void clickOnSelectRoleDropdown() throws Throwable {
+        clickOnSelectRoleDropdown();
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.drpdwnSelectRole,60);
+        click(RSPCreateUserDetailsPage.drpdwnSelectRole,"Select role dropdown");
+    }
+    /**
+     * param :: String
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectRoleFromDropdown
+     * description :: pass the role name available in select dropdown to select the role
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void selectRoleFromDropdown(String roleName) throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.selectRoleFromDropdown(roleName),60);
+        selectByValue(RSPCreateUserDetailsPage.selectRoleFromDropdown(roleName),roleName,"Select role from dropdown");
+    }
+
+    /**
+     * param ::
+     * return ::boolean
+     * throws :: throwable
+     * methodName :: verifySelectClubDropdownIsDisable
+     * description :: To verify select club drop down is disable or not
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+
+    public boolean verifySelectClubDropdownIsDisableOrEnable() throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.drpdwnSelectClubDisabled,60);
+        boolean flag=false;
+        if(!isEnabled(RSPCreateUserDetailsPage.drpdwnSelectClubDisabled, "Dropdown select club disabled"))
+        {
+            flag=true;
+        }
+        return flag;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSelectClubDropdown
+     * description :: To click on select club drop down before selecting value
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    //Pass click as action if want to perform action
+
+    public void clickOnSelectClubDropdown() throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.drpdwnSelectClubDisabled,60);
+        click(RSPCreateUserDetailsPage.drpdwnSelectClubDisabled, "Click on select club dropdown");
+    }
+
+    /**
+     * param :: String
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectClubFromDropdown
+     * description :: pass club values displayed in dropdown to select club from drop down
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void selectClubFromDropdown(String club) throws Throwable {
+        clickOnSelectClubDropdown();
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.selectClubFromDropdown(club),60);
+        selectByValue(RSPCreateUserDetailsPage.selectRoleFromDropdown(club),club,"Select club from dropdown");
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnChooseShops
+     * description :: to click on choose shop
+     * date :: 11-Mar-2018
+     * author :: Jagadish Pola
+     */
+    public void clickOnChooseShops() throws Throwable {
+        dynamicWaitByLocator(RSPCreateUserDetailsPage.btnChooseShops, 60);
+        click(RSPCreateUserDetailsPage.btnChooseShops, "Choose shops");
+    }
+
+
+}

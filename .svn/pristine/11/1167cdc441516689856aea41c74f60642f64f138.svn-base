@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA1 Automation test suite'>
+
+    <parameter name='suiteExecuted' value='Regression' />
+    <parameter name='executionType' value='Sequential' />
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+    </listeners>
+    <test name="Android-Native" preserve-order='true'>
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="NA"></parameter>
+        <parameter name="platformNameMobile" value="Android"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="app" value="AAA.apk"></parameter>
+        <parameter name="appPackage" value="com.aaa.android.discounts"></parameter>
+        <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"></parameter>
+        <parameter name="platformVersion" value="6.1"></parameter>
+        <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"></parameter>
+        <parameter name="udid" value="02157df2d2788f19"></parameter>
+        <parameter name="deviceName" value="Samsung_Galaxy_S6"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <parameter name="autoStart" value="web"></parameter>
+        <classes>
+
+<!--Chandu-->
+            <class name="com.aaa.web.script.TC_DICallClearingBatteryService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="clearCallBatteryServices"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DICallClearingRAP">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="clearCallRAP"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRManualSpot">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="activeManualSpot"/>
+                    <include name="inActiveManualSpot"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIQueueSelection">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="DIQueueSelection"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTimeZone">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crTimeZone"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DICallClearingFullService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="5"></parameter>
+                    <include name="clearCallFullServices"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DICallClearingLightService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="5"></parameter>
+                    <include name="clearCallLightServices"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDArchivedCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="DIMCDArchivedCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DICashCalClearing">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="clearCashCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDEditBreakDownLocation">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="14"></parameter>
+                    <include name="DIMCDEditBreakDownlocation"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDEditTowDestination">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="DIMCDEditTowDestination"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDEditServiceTabAdditionalInfo">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="MCDEditServiceTabAdditionalInfo"/>
+                </methods>
+            </class>
+            <!--  Madhukar-->
+            <class name="com.aaa.web.script.TC_CRETA">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDStatusUpdatesManual">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRHistoryCallSaveScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="HistoryCallSave"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPhoneTempDelete">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="memberContactInfoSearch"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRPacesetterAndTroubleCodeMapping">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="crPacesetterAndTroubleCodeMapping"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRPTAScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="pta"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_SPPMCDDataPoints">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+
+    <!--Varun-->
+            <class name="com.aaa.web.script.TC_DIActionRequiredProfileTab">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+                    <include name="verifyREstatusOnProfileActionRequired"/>
+                    <include name="verifySPstatusOnProfileActionRequired"/>
+                    <include name="verifyHSandHCCallStatusOnProfileActionRequired"/>
+                    <include name="verifyBDstatusOnProfileActionRequired"/>
+                    <include name="acknowledgeERstatusOnProfileActionRequired"/>
+                    <include name="ERstatusWithCommentsOnProfileActionRequired"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="CRVehicleSearch"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRERSCallLockSmith">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="keyLockIssueRadioButton"/>
+                    <include name="enterPacesetterCodeManuallyforKeyIssueScript"/>
+                    <include name="enterPacesetterCodeforTowManuallyforKeyIssueScript"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRLiveCallSearch">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="liveCallSearch"/>
+
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRCashCallService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="cashCallService"/>
+                    <include name="cashCallServiceZeroEntitlements"/>
+                    <include name="cashCallServiceCanceledEntitlements"/>
+
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRDuplicateCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="duplicateFacilityCall"/>
+                    <include name="DuplicateLiveCall"/>
+                    <include name="DuplicateLiveCallAfterCallLoads"/>
+                    <include name="cancelDuplicateCall"/>
+                    <include name="duplicateAnArchivedRAPCall"/>
+                    <include name="duplicateAnArchivedCall"/>
+
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_DIMCDArchivedCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+                    <include name="DIMCDArchivedCalls"/>
+
+                </methods>
+            </class>
+
+       <class name="com.aaa.web.script.TC_CRSaveERSCallLightService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+
+
+              <class name="com.aaa.web.script.TC_DIProfileRedFlagCallsTab">
+               <methods>
+                   <parameter name="nextTestJoin" value="false"></parameter>
+                   <parameter name="StartRow" value="1"></parameter>
+                   <parameter name="EndRow" value="null"></parameter>
+                   <include name="verifyCallWithRedFlag"/>
+                   <include name="verifyCallWithoutRedFlag"/>
+               </methods>
+           </class>
+
+          <!--  Nidhi-->
+            <class name="com.aaa.web.script.TC_CRFacilityPreference">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="verifyPostCondition"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIEditCallInCallReceiving">
+                   <methods>
+                       <parameter name="nextTestJoin" value="false"></parameter>
+                       <parameter name="StartRow" value="1"></parameter>
+                       <parameter name="EndRow" value="null"></parameter>
+                       <include name="diEditCallInCallRecevingLiveOnly"/>
+                      <include name="diEditCallInCallRecevingArchivedCall"/>
+                           <include name="openCallReceivingSession"/>
+                   </methods>
+               </class>
+            <class name="com.aaa.web.script.TC_CRRules">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="verifyEndCall"/>
+                    <include name="verifyRedFlag"/>
+                    <include name="verifyTowDestinationRequiredTowingService"/>
+                    <include name="verifyTowDestinationUnrequiredLightService"/>
+                    <include name="verifyTowDestinationRequiredExtricationService"/>
+                    <include name="verifyTowDestinationUnrequiredFieldsExtrication"/>
+                    <include name="verifyTowDestinationTabHidingTabForLightService"/>
+                    <include name="verifyTowDestinationTabShowingTabOfTowing"/>
+                    <include name="verifyTowDestinationExtricationT931"/>
+                    <include name="verifyTowDestinationExtricationT932"/>
+                    <include name="verifySMSOptIn"/>
+                </methods>
+            </class>
+              <class name="com.aaa.web.script.TC_CRCreditCard">
+                          <methods>
+                              <parameter name="nextTestJoin" value="false"></parameter>
+                              <parameter name="StartRow" value="1"></parameter>
+                              <parameter name="EndRow" value="null"></parameter>
+                              <include name="verifyCreditCard"/>
+                          </methods>
+                      </class>
+            <!--Lakshmi-->
+            <class name="com.aaa.web.script.TC_CRWorkFlowScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveRAPCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPhoneTypesScript">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRManualEnterMembershipSave">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLocations">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveERSCallFullService">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIDupeCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRRecentCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+
+
+            <class name="com.aaa.web.script.TC_CRLeaveCall">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DILiveCallSearch">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_SPPMCDButtonStatusUpdates">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                </methods>
+            </class>
+
+          <!--  sachin-->
+             <class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+               <methods>
+                   <parameter name="nextTestJoin" value="false"></parameter>
+                   <parameter name="StartRow" value="1"></parameter>
+                   <parameter name="EndRow" value="null"></parameter>
+                   <include name="cdxMemberLookUp"/>
+               </methods>
+           </class>
+            <class name="com.aaa.web.script.TC_CRCancelKillCalls">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="1"></parameter>
+
+                    <include name="ValidatekillProcessForCalls"/>
+                    <include name="ValidateCancelProcessForCalls"/>
+
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_DISPPLogin">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+
+                    <include name="ActiveUserValidUserNameAndValidPassword"/>
+                    <include name="ActiveUserValidUserNameAndInvalidPassword"/>
+                    <include name="InActiveUserValidUserNameAndValidPassword"/>
+                    <include name="MultipleRoles"/>
+                    <include name="NoSPPAccessUserValidUserNameAndValidPassword"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_DICreateNewDuplicateProfile">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="1"></parameter>
+
+                    <include name="CreateNewDuplicateProfile"/>
+                    <include name="DeleteUserProfiles"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DICustomizedProfileColumns">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="1"></parameter>
+
+                    <include name="CreateNewProfile"/>
+                    <include name="CustomizedProfileColumns"/>
+                    <include name="DeleteUserProfile"/>
+                </methods>
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRTriage">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="ValidateCommentsAndEnteredManualPaceSetterCode"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIMCDCallMember">
+                <methods>
+                    <parameter name="nextTestJoin" value="false"></parameter>
+                    <parameter name="StartRow" value="1"></parameter>
+                    <parameter name="EndRow" value="null"></parameter>
+                    <include name="DIMCDCallMemberCMButton"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

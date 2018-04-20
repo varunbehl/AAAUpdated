@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="3260.557">
+  <properties />
+  
+  
+            <testcase name="enterPacesetterCodeforTowManuallyforKeyIssueScript" time="1040.753" classname="com.aaa.web.script.TC_CRERSCallLockSmith" />
+                <testcase name="enterPacesetterCodeManuallyforKeyIssueScript" time="1025.720" classname="com.aaa.web.script.TC_CRERSCallLockSmith" />
+                <testcase name="keyLockIssueRadioButton" time="999.268" classname="com.aaa.web.script.TC_CRERSCallLockSmith" />
+                <testcase name="createCallWithSpecialEntitlementLockoutHLOCK" time="194.816" classname="com.aaa.web.script.TC_CRERSCallLockSmith" />
+      
+</testsuite>

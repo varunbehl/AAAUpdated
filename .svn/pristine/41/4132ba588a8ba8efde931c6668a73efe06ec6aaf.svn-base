@@ -1,0 +1,749 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Hashtable;
+
+
+public class TC_DIProfileBeyondPTATab extends LoginLib {
+    LoginLib login = new LoginLib();
+    CRMemberSearchLib member = new CRMemberSearchLib();
+    CRHomeLib home = new CRHomeLib();
+    CRLocationsLib locations = new CRLocationsLib();
+    CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+    CRServiceLib service = new CRServiceLib();
+    DILoginLib diLoginLib = new DILoginLib();
+    LoginRoleLib role = new LoginRoleLib();
+    DIHomeLib diHome = new DIHomeLib();
+    DIMCDLib diMCD = new DIMCDLib();
+    String newCallId;
+    String callDateCreated;
+    String callDateStr;
+    Date newPtaTime;
+    String newCallId1;
+    String callDateCreated1;
+    String callDateStr1;
+    Date newPtaTime1;
+    String newCallId2;
+    String callDateCreated2;
+    String callDateStr2;
+    Date newPtaTime2;
+
+    /************************************************************************
+     * Script Name :-TC_DI Profile Beyond PTA Tab
+     * Method Name :-verifyDIProfileBeyondPTATab and verifyDIProfileBeyondPTATabInPopOutWindow
+     * Module	   :- DI
+     * Test Case ID:-1778
+     * Script Date :-3/12/2018
+     * Author      :-Nidhi Kumari Raut
+     * @param StartRow
+     * @param EndRow
+     * @param nextTestJoin
+     * @throws Throwable
+     *************************************************************************/
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void verifyDIProfileBeyondPTATab(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+
+            int intStartRow=StartRow;
+            int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "verifyDIProfileBeyondPTATab", TestData, "D3Dispatch");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    //Open the browser in each iteration
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount=intCounter;
+                    Hashtable<String, String> data=TestUtil.getDataByRowNo("verifyDIProfileBeyondPTATab", TestData, "D3Dispatch",intCounter);
+
+                    this.reporter.initTestCaseDescription("1778:TC_DI Profile Beyond PTA Tab"+ " From Iteration " + StartRow + " to " + EndRow );
+                    reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+
+                    //verify BeyondPTATab is available
+                    loginToDIAndClickOnProfile(data);
+                    diHome.selectBeyondPTACall();
+                    Thread.sleep(3000);
+                    diHome.logOut();
+
+                    //create RE CALL
+                    String reCall=createRECall(data);
+                    String timeDuringCallSave[] = diMCD.currentTime().split(" ");
+
+                    //checking if call id is not null
+                    if(!reCall.equalsIgnoreCase(null))
+                    {
+                        //DI//Verify RE call not in tab
+                        loginToDIAndClickOnProfile(data);
+                        diHome.selectBeyondPTACall();
+                        String timeInDispatch[] = diMCD.currentTime().split(" ");
+                        if(timeInDispatch[0].compareTo(timeDuringCallSave[0])<5)
+                        {
+                            Boolean verifyCallInBeyondPTA = diHome.verifyPTACallIdOnProfileWindow(newCallId, callDateStr);
+                            assertTrue(verifyCallInBeyondPTA, "<b>Call ID with status RE is not in Required Profile Tab</b>");
+                        }
+                         diHome.logOut();
+
+                        //wait for 5 mints of PTA
+                        Thread.sleep(300000);
+
+                        //DI//Verify RE call in tab
+                        navigateToApplication("DI");
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(100000);
+                        diHome.selectBeyondPTACall();
+                        Boolean verifyCallInBeyondPTA1 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId, callDateStr);
+                        if(verifyCallInBeyondPTA1)
+                        {
+                            assertTrue(verifyCallInBeyondPTA1, "<b>Call ID with status RE in Required Profile Tab</b>");
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId, callDateStr);
+                            diMCD.lblCallOnREStatus(data.get("StatusupdateRE"));
+                        }
+                        else
+                        {
+                            reporter.failureReport("<b>reCall:</b>","Call ID is not present in the tab");
+                        }
+                        diHome.logOut();
+                        acceptAlert();
+                    }
+                    else {
+                        reporter.failureReport("<b>reCall:</b>","Unable tp proceed because call ID is null");
+                    }
+
+                    //create SP CALL
+                    String spCall= createSPCall(data);
+                    String timeDuringSPCallSave[] = diMCD.currentTime().split(" ");
+
+                    //checking if call id is not null
+                    if(!spCall.equalsIgnoreCase(null))
+                    {
+                        //DI//Verify SP call not in tab
+                        loginToDIAndClickOnProfile(data);
+                        diHome.selectBeyondPTACall();
+                        String timeSPInDispatch[] = diMCD.currentTime().split(" ");
+                        if(timeSPInDispatch[0].compareTo(timeDuringSPCallSave[0])<5) {
+                            Boolean verifyCallInBeyondPTA2 = diHome.verifyPTACallIdOnProfileWindow(newCallId1, callDateStr1);
+                            assertTrue(verifyCallInBeyondPTA2, "<b>Call ID with status SP is not in Required Profile Tab</b>");
+                        }
+                        diHome.logOut();
+
+                        //wait for 5 mints of PTA
+                        Thread.sleep(300000);
+
+                        //DI//Verify SP call in tab
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(100000);
+                        diHome.selectBeyondPTACall();
+                        Boolean verifyCallInBeyondPTA3 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        if(verifyCallInBeyondPTA3) {
+                            assertTrue(verifyCallInBeyondPTA3, "<b>Call ID with status SP in Required Profile Tab</b>");
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+
+                            //DI//CHANGE status AS
+                            Thread.sleep(5000);
+                            diMCD.clickOnAssign();
+                            boolean Facility = diMCD.selectFacilityOnAssignTabInMCD();
+                            if (!Facility) {
+                                diMCD.clickOnAssign();
+                                diMCD.selectTruckFacilityOnAssignTabInMCD(data.get("TruckIDForFacility"));
+                            }
+                            //VERIFY CALL Status as AS
+                            diHome.clickOnProfile();
+                            Thread.sleep(5000);
+                            diHome.selectBeyondPTACall();
+                            Thread.sleep(10000);
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                            diMCD.lblCallAssignedStatus(data.get("StatusupdateAS"));
+
+
+                            //DI//CHANGE status DI
+                            diMCD.selectDispatch();
+
+                            //VERIFY CALL Status as DI
+                            diHome.clickOnProfile();
+                            Thread.sleep(5000);
+                            diHome.selectBeyondPTACall();
+                            Thread.sleep(10000);
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                            diMCD.lblCallDispatchedStatus(data.get("StatusupdateDI"));
+
+
+                            //DI//CHANGE status ER
+                            diMCD.selectEnroute();
+                            diMCD.selectEnrouteTime();
+
+                            //VERIFY CALL Status as ER
+                            diHome.clickOnProfile();
+                            Thread.sleep(5000);
+                            diHome.selectBeyondPTACall();
+                            Thread.sleep(10000);
+                            // diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                            diMCD.lblCallENRouteStatus(data.get("StatusupdateEN"));
+
+                            //DI//CHANGE status OL
+                            diMCD.selectOnLocation();
+
+                            //VERIFY CALL Status as OL
+                            diHome.clickOnProfile();
+                            Thread.sleep(5000);
+                            diHome.selectBeyondPTACall();
+                            Thread.sleep(10000);
+                            diMCD.lblCallOnLocationStatus(data.get("StatusupdateOL"));
+
+                            //VERIFY CALL is removed from tab
+                            diHome.clickOnProfile();
+                            Thread.sleep(5000);
+                            diHome.selectBeyondPTACall();
+                            Thread.sleep(10000);
+                            Boolean verifyCallInBeyondPTA6 = diHome.verifyPTACallIdOnProfileWindow(newCallId1, callDateStr1);
+                            assertTrue(verifyCallInBeyondPTA6, "<b>Call ID with status OL is removed</b>");
+                            diHome.closeMcd();
+                        }
+                        else
+                        {
+                            reporter.failureReport("<b>spCall:</b>","Call ID is not present in the tab");
+                        }
+                        diHome.logOut();
+                        acceptAlert();
+
+                    }
+                    else
+                    {
+                        reporter.failureReport("<b>spCall:</b>","Unable tp proceed because call ID is null");
+                    }
+
+                    String bdCall=createBDCall(data);
+                    String timeBDDuringCallSave[] = diMCD.currentTime().split(" ");
+
+                    //checking if call id is not null
+                    if(!bdCall.equalsIgnoreCase(null))
+                    {
+                        //DI//BD call not in tab
+                        loginToDIAndClickOnProfile(data);
+                        diHome.selectBeyondPTACall();
+                        String timeBDInDispatch[] = diMCD.currentTime().split(" ");
+                        if(timeBDInDispatch[0].compareTo(timeBDDuringCallSave[0])<5) {
+                            Boolean verifyCallInBeyondPTA4 = diHome.verifyPTACallIdOnProfileWindow(newCallId2, callDateStr2);
+                            assertTrue(verifyCallInBeyondPTA4, "<b>Call ID with status BD is not in Required Profile Tab</b>");
+                        }
+                        diHome.logOut();
+
+                        //wait for 5 mints of PTA
+                        Thread.sleep(300000);  //EXPIRE BD
+
+                        //DI//BD call in tab
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(100000);
+                        diHome.selectBeyondPTACall();
+                        Boolean verifyCallInBeyondPTA5 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId2, callDateStr2);
+                        if(verifyCallInBeyondPTA5) {
+                            assertTrue(verifyCallInBeyondPTA5, "<b>Call ID with status BD in Required Profile Tab</b>");
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId2, callDateStr2);
+                            diMCD.lblCallOnBDStatus(data.get("StatusupdateBD"));
+                        }
+                        else
+                        {
+                            reporter.failureReport("<b>bdCall:/b>","Call ID is not present in the tab");
+                        }
+                        diHome.logOut();
+                        acceptAlert();
+                    }
+                    else
+                    {
+                        reporter.failureReport("<b>bdCall:</b>","Unable tp proceed because call ID is null");
+                    }
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                }
+                ReportControl.fnEnableJoin();
+                //updating google sheet. Will be used in Zephyr integration. Currently the code will not do anything as the function is commented.
+                ReportStatus.fnUpdateResultStatus("DI","1778",ReportStatus.strMethodName,intCounter,browser);
+                //To close the browser after each iteration
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void verifyDIProfileBeyondPTATabInPopOutWindow(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+            int intStartRow=StartRow;
+            int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "verifyDIProfileBeyondPTATab", TestData, "D3Dispatch");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+            {
+                try {
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount=intCounter;
+                    Hashtable<String, String> data=TestUtil.getDataByRowNo("verifyDIProfileBeyondPTATab", TestData, "D3Dispatch",intCounter);
+
+                    this.reporter.initTestCaseDescription("1778:TC_DI Profile Beyond PTA Tab"+ " From Iteration " + StartRow + " to " + EndRow );
+                    reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+
+                   //verify BeyondPTATab is available
+                    loginToDIAndClickOnProfile(data);
+                    diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                    Thread.sleep(5000);
+                    diHome.selectBeyondPTACall();
+                    Thread.sleep(15000);
+                    diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                    diHome.clickToMinimizeProfileWindow();
+                    diHome.logOut();
+
+                    //create RE CALL
+                   String reCall= createRECall(data);
+                   String timeDuringCallSave[] = diMCD.currentTime().split(" ");
+                   //checking the call id is not null
+                   if(!reCall.equalsIgnoreCase(null))
+                   {
+                       //DI//RE call not in tab
+                       loginToDIAndClickOnProfile(data);
+
+                       diHome.selectBeyondPTACall();
+                       diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                       Thread.sleep(5000);
+                       String timeInDispatch[] = diMCD.currentTime().split(" ");
+                       if(timeInDispatch[0].compareTo(timeDuringCallSave[0])<5) {
+                           Boolean verifyCallInBeyondPTA = diHome.verifyPTACallIdOnProfileWindow(newCallId, callDateStr);
+                           assertTrue(verifyCallInBeyondPTA, "<b>Call ID with status RE is not in Required Profile Tab</b>");
+                       }
+                       diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                       diHome.clickToMinimizeProfileWindow();
+                       diHome.logOut();
+
+                       //wait for 5 mints of PTA as per the test step
+                       Thread.sleep(300000);
+
+                       //DI//RE call in tab
+                       loginToDIAndClickOnProfile(data);
+                       diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                       Thread.sleep(5000);
+                       diHome.selectBeyondPTACall();
+                       Thread.sleep(10000);
+                       Boolean verifyCallInBeyondPTA1 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId, callDateStr);
+                       if(verifyCallInBeyondPTA1)
+                       {
+                           assertTrue(verifyCallInBeyondPTA1, "<b>Call ID with status RE in Required Profile Tab</b>");
+                           diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId, callDateStr);
+                           diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                           diHome.clickToMinimizeProfileWindow();
+                           diMCD.lblCallOnREStatus(data.get("StatusupdateRE"));
+
+                       }
+                       else{
+                           reporter.failureReport("<b>reCall:</b>","Call ID is not present in the tab");
+                       }
+                       diHome.logOut();
+                       acceptAlert();
+                   }
+                   else
+                   {
+                       reporter.failureReport("<b>reCall:</b>","Unable tp proceed because call ID is null");
+                   }
+
+                    //create SP CALL
+                    String spCall=createSPCall(data);
+                    String timeSPDuringCallSave[] = diMCD.currentTime().split(" ");
+
+                    if(!spCall.equalsIgnoreCase(null))
+                    {
+                        //DI//SP call not in tab
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        String timeSPInDispatch[] = diMCD.currentTime().split(" ");
+                        if(timeSPInDispatch[0].compareTo(timeSPDuringCallSave[0])<5) {
+                            Boolean verifyCallInBeyondPTA2 = diHome.verifyPTACallIdOnProfileWindow(newCallId1, callDateStr1);
+                            assertTrue(verifyCallInBeyondPTA2, "<b>Call ID with status SP is not in Required Profile Tab</b>");
+                        }
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diHome.logOut();
+
+                        //wait for 5 mints of PTA
+                        Thread.sleep(300000);
+
+                        //DI//SP call in tab
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        Boolean verifyCallInBeyondPTA3 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        if(verifyCallInBeyondPTA3)
+                        {
+                        assertTrue(verifyCallInBeyondPTA3, "<b>Call ID with status SP in Required Profile Tab</b>");
+                        diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+
+                        //DI//change staus as AS
+                        Thread.sleep(5000);
+                        diMCD.clickOnAssign();
+                        boolean Facility= diMCD.selectFacilityOnAssignTabInMCD();
+                        if(!Facility)
+                        {
+                            diMCD.clickOnAssign();
+                            diMCD.selectTruckFacilityOnAssignTabInMCD(data.get("TruckIDForFacility"));
+                        }
+
+
+                        //VERIFY CALL status as As
+                        diHome.clickOnProfile();
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diMCD.lblCallAssignedStatus(data.get("StatusupdateAS"));
+
+
+                        //DI//change staus as DI
+                        diMCD.selectDispatch();
+
+                        //VERIFY CALL status as DI
+                        diHome.clickOnProfile();
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diMCD.lblCallDispatchedStatus(data.get("StatusupdateDI"));
+
+
+                        //DI//change staus as ER
+                        diMCD.selectEnroute();
+                        diMCD.selectEnrouteTime();
+
+
+                        //VERIFY CALL status as ER
+                        diHome.clickOnProfile();
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId1, callDateStr1);
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diMCD.lblCallENRouteStatus(data.get("StatusupdateEN"));
+
+                        //DI//change staus as OL
+                        diMCD.selectOnLocation();
+
+
+                        //VERIFY CALL status as OL
+                        diHome.clickOnProfile();
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diMCD.lblCallOnLocationStatus(data.get("StatusupdateOL"));
+
+                        //VERIFY CALL is removed  for tab
+                        diHome.clickOnProfile();
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        Boolean verifyCallInBeyondPTA6 = diHome.verifyPTACallIdOnProfileWindow(newCallId1, callDateStr1);
+                        assertTrue(verifyCallInBeyondPTA6, "<b>Call ID with status OL is removed</b>");
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        }
+                        else{
+                            reporter.failureReport("<b>spCall:</b>","Call ID is not present in the tab");
+                        }
+                        diHome.logOut();
+                        acceptAlert();
+                    }
+                    else
+                    {
+                        reporter.failureReport("<b>spCall:</b>","Unable tp proceed because call ID is null");
+                    }
+
+                    String bdCall=createBDCall(data);
+                    String timeBDDuringCallSave[] = diMCD.currentTime().split(" ");
+
+                    if(!bdCall.equalsIgnoreCase(null))
+                    {
+                        //DI//BD call not in tab
+                        loginToDIAndClickOnProfile(data);
+                        Thread.sleep(5000);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Thread.sleep(5000);
+                        String timeBDInDispatch[] = diMCD.currentTime().split(" ");
+                        if(timeBDInDispatch[0].compareTo(timeBDDuringCallSave[0])<5) {
+                            Boolean verifyCallInBeyondPTA4 = diHome.verifyPTACallIdOnProfileWindow(newCallId2, callDateStr2);
+                            assertTrue(verifyCallInBeyondPTA4, "<b>Call ID with status BD is not in Required Profile Tab</b>");
+                        }
+                        diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                        diHome.clickToMinimizeProfileWindow();
+                        diHome.logOut();
+
+                        //wait for 5 mints of PTA
+                        Thread.sleep(300000);  //EXPIRE BD
+
+                        //DI//BD call in tab
+                        loginToDIAndClickOnProfile(data);
+                        diMCD.clickOnPoppedOutButtonInActionRequiredTab();
+                        Thread.sleep(5000);
+                        diHome.selectBeyondPTACall();
+                        Boolean verifyCallInBeyondPTA5 = diHome.verifyCallIdOnBeyondPTAProfileWindow(newCallId2, callDateStr2);
+                        if(verifyCallInBeyondPTA5)
+                        {
+
+                            assertTrue(verifyCallInBeyondPTA5, "<b>Call ID with status BD in Required Profile Tab/<b>");
+                            diHome.clickCallIdOnBeyondPTAProfileWindow(newCallId2, callDateStr2);
+                            diMCD.clickToClosePoppedOutButtonInActionRequiredTab();
+                            diHome.clickToMinimizeProfileWindow();
+                            diMCD.lblCallOnBDStatus(data.get("StatusupdateBD"));
+                        }
+                        else{
+                            reporter.failureReport("<b>bdCall:</b>","Call ID is not present in the tab");
+                        }
+
+                        diHome.logOut();
+                        acceptAlert();
+                    }
+                    else
+                    {
+                        reporter.failureReport("<b>bdCall:</b>","Unable tp proceed because call ID is null");
+                    }
+
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                }
+                ReportControl.fnEnableJoin();
+                //updating google sheet. Will be used in Zephyr integration. Currently the code will not do anything as the function is commented.
+                ReportStatus.fnUpdateResultStatus("DI","1778",ReportStatus.strMethodName,intCounter,browser);
+                //To close the browser after each iteration
+                fnCloseTest();
+
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+    public void loginToDIAndClickOnProfile(Hashtable<String, String> data) throws Throwable {
+        CommonLib commonLib =new CommonLib();
+        navigateToApplication("DI");
+        diLoginLib.login(data.get("DILoginName"), data.get("DIPassword"));
+        role.selectRoleInDispatch(data.get("RoleDispatch"));
+        commonLib.clickOnProceedBtnForDispatchSPPLogin();
+        diHome.clickOnProfile();
+        Thread.sleep(3000);
+    }
+    public String createRECall(Hashtable<String, String> data) throws Throwable {
+        //CR
+        navigateToApplication("CR");
+        login.login(data.get("LoginNameForCR"), data.get("PasswordForCR"));
+        home.messageDialogBoxClose();
+        String Member = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member);
+        } else {
+            Member = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member);
+        //home.memberSearchTextBox(data.get("MemberNumber"));
+        member.memberNumClick();
+        locations.clickOnLocationTab();
+        locations.enterTxtinBrkDowLocSrch(data.get("NoFacilityAddress"));
+        locations.brkDowLocSrchBtn();
+        locations.clickOnLocationResultsLink();
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+        vehicle.clickOnVehicleTriageTab();
+        vehicle.enterVehicleDetailsinSearchBar(data.get("Vehiclemodel"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        boolean messageAlert=home.verifyMessageDialogBoxClose();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        vehicle.enterPaceSetterCodeManually(data.get("paceSettercode1"));
+        Thread.sleep(3000);
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        service.clickOnServiceTab();
+        service.getTxtCallPTAValue();
+        service.setManualOverrideOnSpottedFacility(data.get("maualPTA"));
+        service.getTxtCallPTAValue();
+        home.saveButton();
+        Thread.sleep(5000);
+        newCallId = service.getCallId();
+        callDateCreated = service.getCallDate();
+        callDateStr = callDateCreated.replaceAll("-", "");
+        newPtaTime = service.getPTADateAfterCallSave();
+        service.clickOnRemainInCall();
+        Thread.sleep(5000);
+        service.getErrorMessageOnE225ErrorPopup();
+        service.clickOnE225ErrorOkButton();
+        home.logout();
+        return newCallId;
+    }
+
+    public String createSPCall(Hashtable<String, String> data) throws Throwable {
+        //CR
+        navigateToApplication("CR");
+        login.login(data.get("LoginNameForCR"), data.get("PasswordForCR"));
+        home.messageDialogBoxClose();
+        String Member1 = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member1 = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member1);
+        } else {
+            Member1 = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member1);
+        //crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+        member.memberNumClick();
+        member.labelMemberLevelInMemberDetailsSection();
+        locations.clickOnLocationTab();
+        //select location
+        locations.clickOnSecondKownBrkDowLocation();
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+        vehicle.clickOnVehicleTriageTab();
+        vehicle.enterVehicleDetailsinSearchBar(data.get("Vehiclemodel"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        boolean messageAlert=home.verifyMessageDialogBoxClose();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        vehicle.enterPaceSetterCodeManually(data.get("paceSettercode1"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        service.clickOnServiceTab();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        service.getTxtCallPTAValue();
+        service.setManualOverrideOnSpottedFacility(data.get("maualPTA"));
+        service.getTxtCallPTAValue();
+        home.saveButton();
+        home.allErrorAlerts();
+        Thread.sleep(5000);
+        newCallId1 = service.getCallId();
+        callDateCreated1 = service.getCallDate();
+        callDateStr1 = callDateCreated1.replaceAll("-", "");
+        newPtaTime1 = service.getPTADateAfterCallSave();
+        service.clickOnRemainInCall();
+        Thread.sleep(5000);
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        home.logout();
+        return newCallId1;
+    }
+    public String createBDCall(Hashtable<String, String> data) throws Throwable {
+        //CR
+        navigateToApplication("CR");
+        login.login(data.get("LoginNameForCR"), data.get("PasswordForCR"));
+        home.messageDialogBoxClose();
+        String Member2 = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member2 = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member2);
+        } else {
+            Member2 = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member2);
+        //crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+        member.memberNumClick();
+        member.labelMemberLevelInMemberDetailsSection();
+        locations.clickOnLocationTab();
+        //select location
+        locations.clickOnSecondKownBrkDowLocation();
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+        vehicle.clickOnVehicleTriageTab();
+        vehicle.enterVehicleDetailsinSearchBar(data.get("Vehiclemodel"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        boolean messageAlert=home.verifyMessageDialogBoxClose();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        vehicle.enterPaceSetterCodeManually(data.get("paceSettercode1"));
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        service.clickOnServiceTab();
+        if(messageAlert){
+            home.closeMessageDialogBoxClose();
+        }
+        service.enterManualFacilityNumber(data.get("spotFacilityIDAutoBid"));
+        service.clickOnSpotInServicePage();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        service.getTxtCallPTAValue();
+        service.setManualOverrideOnSpottedFacility(data.get("maualPTA"));
+        service.getTxtCallPTAValue();
+        home.saveButton();
+        Thread.sleep(5000);
+        newCallId2 = service.getCallId();
+        callDateCreated2 = service.getCallDate();
+        callDateStr2 = callDateCreated2.replaceAll("-", "");
+        newPtaTime2 = service.getPTADateAfterCallSave();
+        service.clickOnRemainInCall();
+        Thread.sleep(5000);
+        vehicle.errorAlertHandlingBeforeEnterMandatoryFields();
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        home.logout();
+        return newCallId2;
+    }
+
+
+}

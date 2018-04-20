@@ -1,0 +1,264 @@
+
+
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.*;
+import com.sun.mail.util.CRLFOutputStream;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_DIMCDCallMember extends ActionEngine {
+    String problemTypes;
+    String callId = "";
+    String callIdDate;
+  
+    /************************************************************************
+    * Script Name :- TC-DIMCDCallMember
+    * Method Name :- DIMCDCallMemberCMButton
+    * Module	  :- DI
+    * Test Case ID:- 2048
+    * Script Date :- 
+    * Author      :- Sachin
+    * @param StartRow
+    * @param EndRow
+    * @param nextTestJoin
+    * @throws Throwable
+    *************************************************************************/
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void DIMCDCallMemberCMButton(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+    	try
+    	{
+    		int intStartRow=StartRow;
+    		int intEndRow=ReportControl.fnGetEndRowCunt(EndRow, "MCDCallMember", TestData, "D3Dispatch");
+    		for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+    		{
+    			try {
+						fnOpenTest();
+    					ReportStatus.fnDefaultReportStatus();
+    					ReportControl.intRowCount=intCounter;
+    					Hashtable<String, String> data=TestUtil.getDataByRowNo("MCDCallMember", TestData, "D3Dispatch",intCounter);
+		                this.reporter.initTestCaseDescription("2048:TC-DIMCDCallMCDCallMember"+ " From Iteration " + StartRow + " to " + EndRow );
+		                reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+						DISearchCallsLib diSearchCalls = new DISearchCallsLib();
+						DIProfileLib diProfile = new DIProfileLib();
+						DIHomeLib diHome = new DIHomeLib();
+						DIMCDLib diMCD = new DIMCDLib();
+						DILoginLib diLogin = new DILoginLib();
+
+						if(callId == ""){
+							ceateCallWithSPStatus(data);
+						}
+
+						// Navigating to application
+						LoginToDIApplication(data);
+						// Clicking on Search Calls Button
+						diHome.clickOnSearchCallsInSPPDispatch();
+						// Entering Call ID in Search Calls Window
+						diSearchCalls.clickAndEnterCallIDInfo(callId);
+						// Clicking on Search Button on Search Calls Window
+						diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+						diLogin.waitcloseAllBusyIcons();
+						// Clicking on Call Id on Search Calls Window
+						diSearchCalls.ClickOnCallIdOnSearchCallsWindow();
+						diLogin.waitcloseAllBusyIcons();
+						// Validate MCD Window is opened
+						boolean bMCDWindowExist = diMCD.IsMCDWindowExist();
+						assertTrue(bMCDWindowExist,"MCD Window opens successfully");
+						// Clicking on CM button
+						diMCD.ClickOnActionButton(data.get("ActionButtonName"));
+						Thread.sleep(6000);
+						// Clicking on option 'NC Member Needs Callback Y'
+						diMCD.ClickOnActionButtonItemMembers(data.get("ActionButtonMember1"));
+						// Validating Phone Icon appears on MCD window
+						boolean PhoneIcon = diMCD.VerifyPhoneIconExistsOnMCDWindow();
+						assertTrue(PhoneIcon,"phone icon appears on the MCD");
+						diMCD.ClickMinimizeIcon();
+						//Click on Profile Tab on Menu
+						diHome.clickOnProfileMenu();
+						// Selecting Profile Name
+						diHome.SelectProfileNameFromProfileMenu(data.get("ProfileName"));
+						Thread.sleep(10000);
+						// Clicking on View Hidden Arrow Tabs drop down button
+						diLogin.waitcloseAllBusyIcons();
+						diProfile.ClickOnViewHiddenTabsDownArrow();
+						Thread.sleep(1000);
+						// Selecting Tab from Profile window
+						diProfile.SelectHiddenTabNames(data.get("TabName"));
+						Thread.sleep(5000);
+
+						String  callIdDateFor =callIdDate.replaceAll("-","");
+						// Validating call is moved to the Call Back profile tab
+						boolean callIDinCallBackProfiletab =   diProfile.IsCallIdExistOnProfileTabs(callId,callIdDateFor);
+						assertTrue(callIDinCallBackProfiletab,"call is moved to the Call Back profile tab, call id is: "+callId);
+						Thread.sleep(6000);
+						boolean phoneIcon = diProfile.IsPhoneIconExistForCallOnProfileWindow(callId,callIdDateFor);
+						// Validating phone icon appears on the profile window
+						assertTrue(phoneIcon,"phone icon appears on the profile window.");
+						diProfile.CLoseProfileWindow();
+						// Opening Search Calls Window
+						diHome.clickOnSearchCallsLink();
+						// Entering Call ID in Search Calls Window
+						diSearchCalls.clickAndEnterCallIDInfo(callId);
+						// Clicking on Search Button on Search Calls Window
+						diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+						diLogin.waitcloseAllBusyIcons();
+						// Clicking on Call Id on Search Calls Window
+						diSearchCalls.ClickOnCallIdOnSearchCallsWindow();
+						Thread.sleep(3000);
+						// Clicking on 'UP' Button
+						diMCD.ClickOnActionButton(data.get("ActionButtonNameUP"));
+						// Clicking on option 'C5 Called Member/ Member Notified'
+						diMCD.ClickOnActionButtonItemMembers(data.get("ActionButtonMember2"));
+						Thread.sleep(1000);
+						// Close MCD Window
+						diMCD.CloseMCDWindow();
+						Thread.sleep(15000);
+						// Clicking on Profiles menu item
+						diHome.clickOnProfileMenu();
+						Thread.sleep(1000);
+						// Selecting Profile Name
+						diHome.SelectProfileNameFromProfileMenu(data.get("ProfileName"));
+						Thread.sleep(10000);
+						diLogin.waitcloseAllBusyIcons();
+						// Clicking on View Hidden Arrow Tabs drop down button
+						diProfile.ClickOnViewHiddenTabsDownArrow();
+						Thread.sleep(1000);
+						//Selecting Tab
+						diProfile.SelectHiddenTabNames(data.get("TabName"));
+						Thread.sleep(5000);
+						callIDinCallBackProfiletab =   diProfile.IsCallIdExistOnProfileTabs(callId,callIdDateFor);
+						// Validating call is moved off the Call Back profile tab
+						assertTrue(!callIDinCallBackProfiletab,"call is moved off the Call Back profile tab, call id is: "+callId);
+						Thread.sleep(3000);
+						diProfile.CLoseProfileWindow();
+						diHome.logOut();
+    			}
+    			catch(Exception e)
+    			{
+    				ReportStatus.blnStatus=false;
+    			}
+    			ReportControl.fnEnableJoin();
+    			ReportStatus.fnUpdateResultStatus("DI","2048",ReportStatus.strMethodName,intCounter,browser);
+				fnCloseTest();
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+    		e.printStackTrace();
+    		throw new RuntimeException(e);
+    	}
+    	ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+
+    public void LoginToDIApplication(Hashtable<String, String> data) throws Throwable {
+
+        DILoginLib diLogin = new DILoginLib();
+        DIHomeLib diHome = new DIHomeLib();
+        LoginRoleLib loginRole=new LoginRoleLib();
+        navigateToApplication("DI");
+        diLogin.login(data.get("SPPDILoginName"), data.get("SPPDIPassword"));
+        Thread.sleep(5000);
+        diLogin.waitcloseAllBusyIcons();
+        if (data.get("SPPUser").equalsIgnoreCase("No")){
+        loginRole.clickOnProceedBtnInDispatchRoleLogin();
+        }
+        Thread.sleep(5000);
+        if (data.get("SPPUser").equalsIgnoreCase("No")) {
+            diHome.clickOnCloseIconOnQueueSelection();
+        }
+        if (data.get("SPPUser").equalsIgnoreCase("Yes")) {
+            diHome.closeFacilityWindow();
+        }
+    }
+
+    public void LoginToCRApplication(Hashtable<String, String> data) throws Throwable {
+        LoginLib login = new LoginLib();
+        CRHomeLib home = new CRHomeLib();
+		DILoginLib diLogin = new DILoginLib();
+        // Logging into the application
+        navigateToApplication("CR");
+        login.login(data.get("LoginName"), data.get("Password"));
+		diLogin.waitcloseAllBusyIcons();
+        Thread.sleep(5000);
+        home.allErrorAlertsNoButton();
+        home.messageDialogBoxClose();
+    }
+
+    public void ceateCallWithSPStatus(Hashtable<String, String> data)throws Throwable {
+		CRHomeLib home = new CRHomeLib();
+		CRLocationsLib locations = new CRLocationsLib();
+		CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+		CRMemberSearchLib memeber = new CRMemberSearchLib();
+		CRServiceLib crServiceLib = new CRServiceLib();
+		DILoginLib diLogin = new DILoginLib();
+		// Logging into the application
+		LoginToCRApplication(data);
+
+		String Member = "";
+		if (data.get("Member").equals("db")){
+			//fetch member details from db
+			//generating a random number everytime to fetch a new record everytime
+			int rownum = IntRandomNumberGenerator(50,1000);
+			//member from db
+			Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+			System.out.println("member : "+Member);
+		}
+		else
+		{
+			Member = data.get("MemberNumber");
+		}
+		home.memberSearchTextBox(Member);
+		memeber.memberNumClick();
+		//memeber.currentCallClose();
+		memeber.ClickPrimRadioBtnInRowTwo();
+
+		// Locations Page Starts
+		locations.breakdownLocTabSel();
+		locations.enterBreakDownAddressOmniBarSearch(data.get("OmniBarAddress"));
+
+		// Vehicle Triage Page Starts here
+
+		vehicle.clickOnVehicleTriageTab();
+		Thread.sleep(3000);
+		vehicle.clickOnManualEntryLinkOnVehicle();
+		vehicle.enterVehicleType(data.get("VehicleType"));
+		Thread.sleep(3000);
+		vehicle.enterVehicleYear(data.get("VehicleYear"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleMake(data.get("VehicleMake"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleModel(data.get("VehicleModel"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleColor(data.get("VehicleColor"));
+		Thread.sleep(1000);
+		vehicle.clickTag();
+		vehicle.clickonProblemTypeButton(data.get("TriageType"));
+		Thread.sleep(2000);
+		vehicle.clickonProblemTypeOptions(data.get("TriageOption"));
+		// Handling errors
+		vehicle.handleScriptErrorInVehicleTriagePage();
+		vehicle.scriptErrorHandle();
+		// Navigating to services tab
+		crServiceLib.clickOnServiceTab();
+		// Entering Facility
+		crServiceLib.enterManualSpotDetails(data.get("SPPFacilitySpot"));
+		Thread.sleep(5000);
+		home.saveButton();
+		diLogin.waitcloseAllBusyIcons();
+		callId = crServiceLib.getCallId();
+		callIdDate = getText(CRServicePage.dateInCallInformationWindow,"Call Date");
+		crServiceLib.closeCall();
+		home.logout();
+	}
+}

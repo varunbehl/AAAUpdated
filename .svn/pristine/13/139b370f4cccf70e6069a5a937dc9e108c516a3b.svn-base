@@ -1,0 +1,192 @@
+package com.aaa.rspweb.pages;
+
+import org.openqa.selenium.By;
+
+public class RSPHomePage {
+
+
+
+    public static By tabStatusReminder= By.xpath("//div[@class='sweet-alert ']");
+    public static By lnkNoNotAtThisTime= By.xpath("//button[@class='btn btn-lg btn-link']");;
+    public static By btnYesSetMyStatusToPriorityService = By.xpath("//button[text()='Yes, Set my status to Priority Service']");;
+    public static By lblCallStatus;
+    public static By lblSearchCall;
+    public static By clickToSetOrdersPerPage=By.xpath("//*[text()=' Per Page']");
+    public static By lblSearchCallByTimeCreated;
+    //getting table values
+    public static By queueSearchCall;
+    //Headers
+    public static By tableHeader=By.xpath("//*[@title='Time Created']/../th");
+
+    //Menubar top
+    public static By btnAAAParksLincoln=By.xpath("//*[contains(text(),'AAR Park')]/../..");
+    public static By btnSearch=By.xpath("//*[contains(text(),'Search')]/../.");
+    public static By btnHelp=By.xpath("//*[contains(text(),'Help')]/../.");
+    public static By btnMenuDropdown=By.id("menu-dropdown");
+    public static By lblDropdownPriorityServices=By.id("nav-acceptingTows-dropdown");
+    public static By menuSelectPriority=By.xpath("//*[@id='content']//ul[2]/li[1]/ul");
+    public static By btnSignOut=By.xpath("//*[contains(text(),'Sign Out')][@role='button']");
+
+    //Right frame buttons and links
+    public static By btnHideComment=By.xpath("//button[text()='Hide Completed']");
+    public static By btnNewOrder=By.xpath("//*[text()='New Order']/..");
+    public static By txtAppointmentsSearch=By.xpath("//*[@type='search']");
+
+    //bottom page
+    public static By txtOrdersPerPage=By.xpath("//*[contains(@type,'number')]");
+    public static By btnAriaLabelNext=By.xpath("//*[contains(@aria-label,'Next')]/..");
+    public static By btnAriaLabelPrevious=By.xpath("//*[contains(@aria-label,'Previous')]/..");
+    public static By btnAriaLabelFirstPage=By.xpath("//*[contains(@aria-label,'First')]/..");
+    public static By btnAriaLabelLastPage=By.xpath("//*[contains(@aria-label,'Last')]/..");
+    public static By lblTotalOrders=By.xpath("//*[contains(@class,'text-center')]/../div[3]");
+    public static By btnNumber;
+
+    //searching the call based on month and year
+    public static By selectDropdownMonth;
+    public static By selectDropdownYear;
+
+    //clicking on select month and year dropdown
+    public static By drpdwnMonth=By.xpath("//*[text()='Jan']/..");
+    public static By drpdwnYear;
+
+    //label Menu dropdown
+    public static By lblAppointments=By.xpath("//*[text()='Appointments']/..");
+    public static By lblReporting=By.xpath("//*[text()='Reporting']/..");
+    public static By lblBlankInspectionForm=By.xpath("//*[text()='Blank Inspection Form']/..");
+    public static By lblShopSettings=By.xpath("//*[text()='Shop Settings']/..");
+    public static By lblManageUsers=By.xpath("//*[text()='Manage Users']/..");
+    public static By lblDocuments=By.xpath("//*[text()='Documents']/..");
+    public static By lblPromotions=By.xpath("//*[text()='Promotions']/..");
+    public static By lblCoupons=By.xpath("//*[text()='Coupons']/..");
+    public static By lblMyProfile=By.xpath("//*[text()='My Profile']/..");
+    public static By lblChangePassword=By.xpath("//*[text()='Change Password']/..");
+    public static By lblSignout=By.xpath("//*[text()='Sign Out']/..");
+    public static By successNotification=By.xpath("//*[@class='notification notification-success notification-visible']");
+    public static By warningNotification=By.xpath("//*[@class='notification notification-warning notification-visible']");
+    public static By errorNotification=By.xpath("//*[@class='notification notification-warning error-visible']");
+    public static By recordsToVerifyRecordsOrder;
+    public static By arrowIconUpOrDown;
+    public static By lblTableHeader;
+    public static By windowNewRepairOrder=By.xpath("//*[text()='New Repair Order']/../..");
+    public static By totalTableRows=By.xpath("//tr");
+    public static By lblTableRowToClick;
+    public static By lblCallStatusForExistingCall;
+    public static By lblStatusOfParticularCall;
+    public static By lblPriorityServiceDropdownToSelectPriority;
+    public static By lblSelectedPriorityService=By.xpath("//*[@id='nav-acceptingTows-dropdown']//span[1]//span[2]");
+
+
+    //dynamic method for findin a call in Rsp using call id
+    public static By findingCallId(String callId,String date)
+    {
+        String xpath="//*[contains(text(),'"+date+"')]/../..//*[text()='"+callId+"']";
+        queueSearchCall=By.xpath(xpath);
+        return queueSearchCall;
+    }
+
+    //dynamic method for getting column values from table
+    public static By gettingTableValues(String callId,String date)
+    {
+        String xpath="//*[contains(text(),'"+date+"')]/../..//*[text()='"+callId+"']/../td";
+        queueSearchCall=By.xpath(xpath);
+        return queueSearchCall;
+    }
+
+    //selecting month
+    public static By selectMonthFromDropdown(String month)
+    {
+        String xpath="//*[@value='0']//..//*[text()='"+month+"']";
+        selectDropdownMonth=By.xpath(xpath);
+        return selectDropdownMonth;
+    }
+
+
+    //clicking on year dropdown
+    public static By clickOnYearDropdown(int year)
+    {
+        String xpath="//*[@value='"+year+"']/..";
+        drpdwnYear=By.xpath(xpath);
+        return drpdwnYear;
+    }
+
+    //selecting year
+    public static By selectYearFromDropdown(int year)
+    {
+        String xpath="//*[@class='form-group']//*[@value='"+year+"']";
+        selectDropdownYear=By.xpath(xpath);
+        return selectDropdownYear;
+    }
+
+
+    //getting status of a call
+    public static By callStatus(String callId,String date)
+    {
+        String xpath="//*[contains(text(),'"+date+"')]/../..//*[text()='"+callId+"']/..//td[12]/span";
+        lblCallStatus=By.xpath(xpath);
+        return lblCallStatus;
+    }
+
+
+    public static By findCallByMemberNameTime(String firstName,String lastName,String lastUpdatedTime)
+    {
+        String xpath="//*[contains(text(),'"+lastUpdatedTime+"')]//..//..//*[text()='"+lastName+", "+firstName+"']";
+        lblSearchCall=By.xpath(xpath);
+        return lblSearchCall;
+    }
+
+    public static By findCallByMemberNameTimeCreated(String firstName,String lastName,String timeCreated)
+    {
+        String xpath="//*[contains(text(),'"+timeCreated+"')]//..//..//*[text()='"+lastName+", "+firstName+"']";
+        lblSearchCallByTimeCreated=By.xpath(xpath);
+        return lblSearchCallByTimeCreated;
+    }
+
+    public static By verifyCallStatusByMemberNameTime(String firstName,String lastName,String lastUpdatedTime)
+    {
+        String xpath="//*[contains(text(),'"+lastUpdatedTime+"')]//..//..//*[text()='"+lastName+", "+firstName+"']/../../td[12]/span[1]";
+        lblStatusOfParticularCall=By.xpath(xpath);
+        return lblStatusOfParticularCall;
+    }
+
+    public static By clickOnNumberButtonAvailable(int number)
+    {
+        String xpath="//*[text()='"+number+"']";
+        return btnNumber=By.xpath(xpath);
+    }
+
+    public static By clickOnTableHeader(String headerName)
+    {
+        String xpath="//*[@title='"+headerName+"']";
+        return lblTableHeader=By.xpath(xpath);
+    }
+
+    public static By getArrowIconDirection(String headerName)
+    {
+        String xpath="//*[@title='"+headerName+"']//span";
+        return arrowIconUpOrDown=By.xpath(xpath);
+    }
+
+    public static By getColumnData(int columnNumber)
+    {
+        String xpath="//*[@class='order-row']//td["+columnNumber+"]";
+        return recordsToVerifyRecordsOrder=By.xpath(xpath);
+    }
+
+    public static By clickOnExistingCall(String rowNumber)
+    {
+        String xpath="//tr["+rowNumber+"]";
+        return lblTableRowToClick = By.xpath(xpath);
+    }
+
+    public static By gettingStatusOfExistingCall(String rowNumber)
+    {
+        String xpath="//tr["+rowNumber+"]//td[12]/span[1]";
+        return lblCallStatusForExistingCall = By.xpath(xpath);
+    }
+
+    public static By selectPriority(String selectPriority)
+    {
+        String xpath="//*[@aria-labelledby='nav-acceptingTows-dropdown']//*[text()='"+selectPriority+"']/../..";
+        return lblPriorityServiceDropdownToSelectPriority=By.xpath(xpath);
+    }
+}

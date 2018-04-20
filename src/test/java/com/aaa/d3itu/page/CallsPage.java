@@ -1,0 +1,87 @@
+package com.aaa.d3itu.page;
+import org.openqa.selenium.By;
+
+public class CallsPage {
+    public static By assignCallToTruck;
+    public static By nextStatus;
+    public static By statusDI;
+    public static By statusER;
+    public static By statusOL;
+    public static By statusAS;
+    public static By statusCL;
+    public static By assignTruckAccept;
+    public static By callAsSP;
+    public static By txtNewCall;
+    public static By btnOkOnNewCallPopup;
+    public static By firstElement;
+    public static By assignedCallPopup;
+    public static By errorPopup;
+    public static By errorPopupMsg;
+    public static By okOnErrorPopup;
+    public static By callasAS;
+    public static By assignTruckDecline;
+    public static By clickonCall;
+    public static By btnGoToCallOnNewCallPopup;
+    public static By lblAllFacilities;
+    public static By callStatusAllCalls;
+    public static By sortByReceivedTime;
+    public static By sortOrdeDescending;
+    public static By OKButton;
+    public static By CallStatus;
+    public static By SortBy;
+    public static By SortOrder;
+    public static By DeclineCallComment;
+    public static By callStatusOnlyActive;
+    public static By sortOrdeAscending;
+
+
+    static {
+        assignCallToTruck = By.xpath("//android.view.View[@text='Assign Call to Truck']");
+        nextStatus=By.xpath("//android.view.View[@text='Next Status']");
+        statusDI=By.xpath("//android.view.View[@text='DI']");
+        statusAS=By.xpath("//android.view.View[@text='AS']");
+        statusER=By.xpath("//android.view.View[@text='ER']");
+        statusOL=By.xpath("//android.view.View[@text='OL']");
+        statusCL=By.xpath("//android.view.View[@text='CL']");
+        assignTruckAccept=By.xpath("//android.view.View[@text='Accept']");
+        callAsSP=By.xpath("//android.view.View[@text='SP']");        
+        txtNewCall=By.xpath("//android.widget.TextVeiw[@text='New Call']");
+        btnOkOnNewCallPopup=By.xpath("//android.widget.Button[@text='OK']");
+        firstElement=By.className("android.view.View");
+        assignedCallPopup=By.id("com.aaa.d3itu:id/PriorityDialogText");
+        errorPopup=By.id("com.aaa.d3itu:id/ErrorTitle");
+        errorPopupMsg=By.id("com.aaa.d3itu:id/ErrorDialogText");
+        okOnErrorPopup=By.id("com.aaa.d3itu:id/ErrorDialogOkButton");
+        callasAS=By.xpath("//android.view.View[@content-desc='AS']");
+        assignTruckDecline=By.xpath("//android.view.View[@text='Decline']");
+        //New Call Options
+        btnGoToCallOnNewCallPopup=By.xpath("//android.widget.Button[@text='Go To Call']");
+        lblAllFacilities=By.xpath("//android.view.View[@text='All Facilities/All Trucks']");
+        callStatusOnlyActive=By.xpath("//android.widget.Spinner[@text='ONLY ACTIVE']");
+        callStatusAllCalls=By.xpath("//android.view.View[@text='All Calls']");
+        sortByReceivedTime=By.xpath("//android.widget.Spinner[@text='RECEIVED TIME']");
+        sortOrdeAscending=By.xpath("//android.widget.Spinner[@text='ASCENDING']");
+        sortOrdeDescending=By.xpath("//android.view.View[@text='Descending']");
+        OKButton=By.xpath("//android.view.View[@text='Ok']");
+        CallStatus=By.xpath("((//*[@id='callfilter-form']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./*[@class='android.widget.Spinner']])[3]");
+        SortBy=By.xpath("((//*[@id='callfilter-form']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./*[@class='android.widget.Spinner']])[4]");
+        SortOrder=By.xpath("((//*[@id='callfilter-form']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./*[@class='android.widget.Spinner']])[5]");
+        DeclineCallComment=By.xpath("//*[@text='Decline Call - Comment Required']");
+    }
+
+    public static By clickonCall(String searchValue) {
+        String xpath = "//android.view.View[contains(@text,'"+searchValue+"')]";
+        clickonCall = By.xpath(xpath);
+        return clickonCall;
+    }
+    
+    public static By lblCallInTheAssignedList(String callID){
+    	 String xpath = "//android.view.View[@text='"+callID+"']";
+    	 return By.xpath(xpath);
+    }
+    
+    public static By lblCallStatus(String callID){
+    	String xpath = "//*[./parent::*[./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='"+callID+"']]]]]";
+		return By.xpath(xpath);
+    }
+}

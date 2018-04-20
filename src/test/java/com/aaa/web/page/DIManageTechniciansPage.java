@@ -1,0 +1,141 @@
+package com.aaa.web.page;
+
+import org.openqa.selenium.By;
+
+public class DIManageTechniciansPage {
+    public static By lblmanageTechnicians;
+    public static By manageTechniciansWindow;
+    public static By btnDownArrow;
+    public static By btnNew;
+    public static By txtLogin;
+    public static By txtFirstName;
+    public static By txtLastName;
+    public static By txtEmail;
+    public static By ddnRole;
+    public static By chkBoxtechAssistUser;
+    public static By txTechnicalComments;
+    public static By txtPhoneNumber;
+    public static By txtPhoneExtension;
+    public static By ddnPhoneType;
+    public static By iconTchnicalPhoto;
+    public static By lstFacilities;
+    public static By DownArrowRole;
+    public static By selectRoleOptions;
+    public static By txtRole;
+    public static By downArrowType;
+    public static By txtType;
+    public static By btnSave;
+    public static By txtErrorContent;
+    public static By DownArrowFacilities;
+    public static By DownArrowDriverID;
+    public static By btnAdd;
+    public static By iconClose;
+    public static By lblNoFacilitiesAssigned;
+    public static By txtFacilitiesOnFacilitiesAsignment;
+    public static By txtDriverOnFacilitiesAssignment;
+    public static By btnYesConfirmationPopUp;
+    public static By txtFacilitiesAssigned;
+    public static By btnReSetPassword;
+    public static By notificationConfirmationMessage;
+    public static By tabFacilityAssignment;
+    public static By PopUpConfirmTechnicalOverWrite;
+    public static By popUpMessageConfirmTechnicalOverWrite;
+    public static By btnNoConfirmTechnicalOverWritePopUp;
+    public static By txtManageTechnicianInputField;
+    public static By txtFirstLoginNameInList;
+    public static By popUpWindowChangesWillBeLost;
+    public static By lblMessageChangesWillBeLostWindow;
+    public static  By btnYesChangesWillBeLostPopUpWindow;
+    public static By btnDelete;
+    public static By tabUserInformation;
+    public static By lstDriverIDFacilityAssignmentTab;
+    public static By btnNoOnConfirmationPopUpWindow;
+    public static By lblLoginNameInManageTechnicianSearchTable;
+    public static By lstFacilityListFacilityAssignmentTab;
+    public static By lstDriverIdInFacilityAssignmenmtTab;
+    public static By btnOKErrorDialog;
+    public static By lblFacilityAndDriverId;
+    public static By lblTechnicianNameInManageTechnicianTable;
+    public static By firstRowManageTechnicianSearchTable;
+    public static By lstFacilitiesAssignedSection;
+    public static By lblLoginNameFirstRowInSearchManageTechnicianTable;
+
+    static {
+        lblmanageTechnicians = By.id("manage-technicians");
+        manageTechniciansWindow = By.id("manage-technicians-window");
+        btnDownArrow = By.xpath("//h3[@id='mt-heading']/following-sibling::button");
+        btnNew = By.id("manage-technicians-new-button");
+        txtLogin = By.id("manage-technicians-data-login");
+        txtFirstName = By.id("manage-technicians-data-first-name");
+        txtLastName = By.id("manage-technicians-data-last-name");
+        txtEmail = By.id("manage-technicians-data-email");
+        ddnRole = By.id("manage-technicians-data-role");
+        chkBoxtechAssistUser = By.id("manage-technicians-tech-level");
+        txTechnicalComments = By.id("manage-technicians-data-comments");
+        txtPhoneNumber = By.id("manage-technicians-data-phone-number");
+        txtPhoneExtension = By.id("manage-technicians-data-phone-ext");
+        ddnPhoneType = By.xpath("//input[@id='manage-technicians-data-phone-type']");
+        iconTchnicalPhoto = By.xpath("//div[@class='d3ui-row d3ui-fieldset']//i[@class='icon-user manage-technicians-no-photo']");
+        lstFacilities = By.xpath("//li[@class='ui-menu-item']/a");
+        DownArrowRole = By.xpath("//input[@id='manage-technicians-tech-level']//preceding-sibling::button");
+        txtRole = By.xpath("//input[@id='manage-technicians-data-role']");
+        downArrowType = By.xpath("//input[@id='manage-technicians-data-phone-type']/following-sibling::button");
+        txtType = By.xpath("//input[@id='manage-technicians-data-phone-type']");
+        btnSave = By.id("manage-technicians-save-button");
+        txtErrorContent = By.xpath(" //div[@class='formErrorContent']");
+        DownArrowFacilities = By.xpath("//input[@id='manage-technicians-search-facility']/following-sibling::button");
+        DownArrowDriverID = By.xpath("//input[@id='manage-technicians-search-drivers']/following-sibling::button");
+        btnAdd = By.id("manage-technicians-add-driver-button");
+        iconClose = By.xpath("//a[@class='tagit-close']");
+        lblNoFacilitiesAssigned = By.id("manage-technicians-facilities-none");
+        txtFacilitiesOnFacilitiesAsignment = By.id("manage-technicians-search-facility");
+        txtDriverOnFacilitiesAssignment = By.id("manage-technicians-search-drivers");
+        btnYesConfirmationPopUp = By.id("confirmation-yes-btn");
+        txtFacilitiesAssigned = By.xpath("//span[@class='tagit-label']");
+        btnReSetPassword = By.id("manage-technicians-reset-password-button");
+        notificationConfirmationMessage = By.className("d3ui-notification-title");
+        tabFacilityAssignment = By.id("manage-technicians-tablink-facilities");
+        PopUpConfirmTechnicalOverWrite = By.xpath("//div[@aria-labelledby='ui-dialog-title-confirmation-box']");
+        popUpMessageConfirmTechnicalOverWrite = By.id("confirmation-dialog-question");
+        btnNoConfirmTechnicalOverWritePopUp = By.id("confirmation-no-btn");
+        txtManageTechnicianInputField = By.id("manage-technicians-search-input");
+        //txtFirstLoginNameInList = By.xpath("//table[@id='manage-technicans-search-table']/tbody//tr[2]");
+        txtFirstLoginNameInList = By.xpath("//table[@id='manage-technicans-search-table']/tbody//tr[2]/td/b/span");
+        popUpWindowChangesWillBeLost = By.xpath("//div[@aria-labelledby='ui-dialog-title-confirmation-box']");
+        lblMessageChangesWillBeLostWindow = By.id("confirmation-dialog-question");
+        btnYesChangesWillBeLostPopUpWindow  = By.id("confirmation-yes-btn");
+        btnDelete = By.id("manage-technicians-delete-button");
+        tabUserInformation = By.id("manage-technicians-tablink-userinfo");
+        lstDriverIDFacilityAssignmentTab =By.xpath("//ul[12]/li[class='ui-menu-item']");
+        lstFacilityListFacilityAssignmentTab = By.xpath("//ul[11]//li");
+        lstDriverIdInFacilityAssignmenmtTab = By.xpath("//ul[12]/li//a");
+        btnOKErrorDialog = By.xpath("//span[text()='OK']/..");
+        lblFacilityAndDriverId = By.xpath("//table[@id='manage-technicans-search-table']//tr[2]//i[2]");
+        firstRowManageTechnicianSearchTable = By.xpath("//table[@id='manage-technicans-search-table']//tr[2]");
+        lstFacilitiesAssignedSection = By.id("manage-technicians-facilities-tagit-container");
+        lblLoginNameFirstRowInSearchManageTechnicianTable = By.xpath("//table[@id='manage-technicans-search-table']//tr[2]//span");
+    }
+
+    public static By selectFacilityDropDownOptions(String Name) {
+        String xpath ="//ul[11]//li//a[contains(text(),'"+Name+"')]";
+        selectRoleOptions = By.xpath(xpath);
+        return selectRoleOptions;
+    }
+    public static By selectTechnicianName(String LoginName) {
+        String xpath = "//table[@id='manage-technicans-search-table']//span[text()='"+LoginName+"']/../../..";
+        lblLoginNameInManageTechnicianSearchTable = By.xpath(xpath);
+        return lblLoginNameInManageTechnicianSearchTable;
+    }
+
+    public static By selectLoginNameFromTable(String LoginName) {
+        String xpath = "//table[@id='manage-technicans-search-table']//b//span[contains(text(),'"+LoginName+"')]";
+        lblTechnicianNameInManageTechnicianTable = By.xpath(xpath);
+        return lblTechnicianNameInManageTechnicianTable;
+    }
+    public static By selectDriverDropDownOptions(String Name) {
+        String xpath ="//ul[12]//li//a[contains(text(),'"+Name+"')]";
+        selectRoleOptions = By.xpath(xpath);
+        return selectRoleOptions;
+    }
+
+}

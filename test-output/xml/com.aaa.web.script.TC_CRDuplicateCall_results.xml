@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="5"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="920.604">
+  <properties />
+  
+  
+            <testcase name="DuplicateLiveCall" time="217.102" classname="com.aaa.web.script.TC_CRDuplicateCall" />
+                <testcase name="DuplicateCallFromSearchResult" time="186.881" classname="com.aaa.web.script.TC_CRDuplicateCall" />
+                <testcase name="duplicateAnArchivedCall" time="199.695" classname="com.aaa.web.script.TC_CRDuplicateCall" />
+                <testcase name="cancelDuplicateCall" time="151.997" classname="com.aaa.web.script.TC_CRDuplicateCall" />
+                <testcase name="duplicateAnArchivedRAPCall" time="164.929" classname="com.aaa.web.script.TC_CRDuplicateCall" />
+      
+</testsuite>

@@ -1,0 +1,159 @@
+package com.aaa.rspweb.scripts;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.rspweb.lib.*;
+import com.aaa.utilities.TestUtil;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_RSPDeclineService extends RSPCommonLib {
+
+        /*********************************************************************************
+         * *******************************************************************************
+         * *************************STEPS SKIPPED******************************************
+         * *********************No steps where skipped************************************
+         * *********************We are verifying decline service on towin,walkin,new call orders*******************
+         * *************************Test data is from TestData(Sheet:-RSPWeb,Column name:-DeclineService)******************************************
+         * ********************************************************************************
+         * ********************************************************************************
+         * ********************************************************************************
+         */
+
+        RSPLoginLib login=new RSPLoginLib();
+        RSPHomeLib home=new RSPHomeLib();
+        RSPOrderDetailsLib orderDetails=new RSPOrderDetailsLib();
+        RSPOrderDetailsArrivedLib orderArrived=new RSPOrderDetailsArrivedLib();
+        RSPNewOrderLib newOrder=new RSPNewOrderLib();
+        Hashtable<String, String> callData=new Hashtable<>();
+        String callId;
+        String callCreatedDate;
+
+        @Parameters({"StartRow","EndRow","nextTestJoin"})
+        @Test()
+        public void DeclineService(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+            try
+            {
+                int intStartRow=StartRow;
+                int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "DeclineService", TestData, "RSPWeb");
+                for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+                {
+                    try {
+                        fnOpenTest();
+                        ReportStatus.fnDefaultReportStatus();
+                        ReportControl.intRowCount = intCounter;
+                        Hashtable<String, String> data = TestUtil.getDataByRowNo("DeclineService", TestData, "RSPWeb", intCounter);
+                        this.reporter.initTestCaseDescription("RSP Decline Service" + " From Iteration " + StartRow + " to " + EndRow);
+                        reporter.SuccessReport("Iteration Number : ", "**************Iteration Number::  " + intCounter + "   **************");
+                        //Creating a new call
+
+                        if(data.get("Scenario").toLowerCase().replaceAll(" ","").equals("newcall")) {
+                            callData = createCall(data.get("CRLoginName"),data.get("CRPassword"),data.get("BreakdownAddress"),data.get("Vehiclemodel"),
+                                    data.get("PacesetterCode"),data.get("TowDestination"),data.get("TowPassengers"),data.get("Member"),data.get("Membersearch"),data.get("dbServer")
+                                    ,data.get("dbqueryFileName"),data.get("colomnName"),data.get("PhoneNumber"),data.get("primaryphonenum1"),data.get("callType"),data.get("facilityId"));
+                            callId = callData.get("callId");
+                            callCreatedDate= callData.get("callDate");
+                            assertTrue(!callId.equals("") && !callId.equals(null), "Call saved sucessful");
+                        }
+                        //Navigating to RSP
+                        navigateToApplication("RSP");
+                        //Step 1:Logging into application
+                        login.loginToRSP(data.get("RSPLoginName"), data.get("RSPPassword"));
+                        //Verifies status modal window appers if found clicks on "Yes set my status to priority services"
+                        home.verifyAndClickOnLinkYesSetMyStatusToPriorityService();
+                        //Setting priority status to priority service if failed to set hrough modal window
+                        home.verifyingAndSettingPriorityStatus(data.get("PriorityToSelect"));
+                        //Creating a walkin order
+                        if(data.get("Scenario").toLowerCase().replaceAll(" ","").equals("walkin")) {
+                            reporter.SuccessReport("<b>Decline service on</b>","<b>*****Verifying decline service on walk in order*****</b>");
+                            home.clickOnNewOrder();
+                            //Clicking on Walk-In
+                            newOrder.clickOnWalkin();
+                            //Verify walk-in is selected or not
+                            assertTrue(newOrder.verifyWalkInIsActiveOrNot().toLowerCase().contains(data.get("VerificationValue").toLowerCase()), "Walk-In is selected");
+                            //clicking on create order button
+                            newOrder.clickOnCreateNewOrder();
+                        }
+                        //Creating a tow in order
+                        if(data.get("Scenario").toLowerCase().replaceAll(" ","").equals("towin")) {
+                            reporter.SuccessReport("<b>Decline service on</b>","<b>*****Verifying decline service on tow in order*****</b>");
+                            home.clickOnNewOrder();
+                            //Selecting Tow-In
+                            newOrder.clickOnTowIn();
+                            //Verify tow-in is selected or not
+                            assertTrue(newOrder.verifyTowInIsActiveOrNot().toLowerCase().contains(data.get("VerificationValue").toLowerCase()), "Tow-In is selected");
+                            //clicking on create order button
+                            newOrder.clickOnCreateNewOrder();
+                        }
+                        // verifying call is saved successfully
+                        if (!callId.equals("") && !callId.equals(null)&&data.get("Scenario").toLowerCase().replaceAll(" ","").equals("newcall")) {
+                            reporter.SuccessReport("<b>Decline service on</b>","<b>*****Verifying decline service on new call*****</b>");
+                            home.searchingACall(callId, callCreatedDate);
+                            //Clicks on callid
+                            home.clickOnCallId(callId, callCreatedDate);
+                            String status=orderDetails.getStatus();
+                            //Clicking on action drop down
+                            orderDetails.clickOnOrderActionDropdown();
+                            //Step 3:Verify the decline menu only appears for in-progress orders
+                            //It verifyies for newly created order which is not in progress
+                            assertTrue(!orderArrived.verifyingMemberDeclineService(),"Member decline service in drop down is not visible for call in::"+status+" status");
+                            //Clicking on arrived
+                            orderDetails.clickOnArrived();
+                            //Clicking on vehicle arrived in modal window
+                            orderDetails.clickOnVehicleArrived();
+                        }
+                            //Step 3:The user should only be able to decline service on an order that is in the status 'In Progress'
+                            String callStatusInRSP = orderArrived.getStatus();
+                            assertTrue(callStatusInRSP.replaceAll(" ", "").equalsIgnoreCase("InProgress"), "Call status is In-Progress");
+                            //Clickin on action dropdown
+                            orderDetails.clickOnOrderActionDropdown();
+                            //Step 2 :Verify the menu item appears to decline orders
+                            //Step 3 :Verify the decline menu only appears for in-progress orders
+                            assertTrue(orderArrived.verifyingMemberDeclineService(),"Member decline service in drop down is visible");
+                            //Step 4:Clicking on member decline service
+                            orderArrived.clickOnMemberDeclineService();
+                            //Step 4(Verification):Verify confirmation message appears
+                            assertTrue(home.alertStatusReminder(),"Confirmation window appears");
+                            //Clicking on decline service in modal window
+                            orderArrived.clickOnDeclineServiceInModalWindow();
+                            //Getting service category
+                            String serviceCategory=orderArrived.getServiceCategory().replaceAll(" ","");
+                            //Getting service sub category
+                            String serviceSubCategory=orderArrived.getServiceSubCategory().replaceAll(" ","");
+                            //Step 5:Verify the service category is automatically populated
+                            assertTrue((!serviceCategory.equals("")&&!serviceSubCategory.equals("")),"Service category and service sub category is automatically populated with service category::"+serviceCategory+"service sub category::"+serviceSubCategory);
+                            //Step 5:After confirming to decline service, the order repairService.category should be set to "Miscellaneous (21)", and the repairService.subCategory should be set to "Member declined service/repair (b)"
+                            assertTrue(serviceCategory.toLowerCase().equals(data.get("ServiceCategory").toLowerCase().replaceAll(" ",""))&&serviceSubCategory.toLowerCase().equals(data.get("ServiceSubCategory").toLowerCase().replaceAll(" ","")),"Service category is populated with::Miscellaneous (21) and service sub category is populated with::Member declined service/repair (b)");
+                            //Clearing mandatory fields
+                           //Step 6:If an order has been marked as declined service, then the required fields for the order do not need to be completed
+                            orderArrived.clearRepairOrderNumber();
+                            orderArrived.clearFirstName();
+                            orderArrived.clearLastName();
+                            orderArrived.clearPhoneNumber();
+                            //Step 6(Verification):Verify you can complete the order with red fields blank
+                            assertTrue(!orderArrived.verifyCompleteButtonIsDisableOrEnable(), "Complete button is enable to complete the order after clearing mandatory fields first name,last name,phone number and repair order number");
+                            //Clicks on signout button
+                            home.clickOnSignOut();
+                    }
+                    catch(Exception e)
+                    {
+                        reporter.failureReport("Failed due to",e.getMessage(),driver);
+                        ReportStatus.blnStatus=false;
+
+                    }
+                    ReportControl.fnEnableJoin();
+                    ReportStatus.fnUpdateResultStatus("RSP","1857",ReportStatus.strMethodName,intCounter,browser);
+                    fnCloseTest();
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                reporter.failureReport("Failed due to",e.getMessage(),driver);
+                throw new RuntimeException(e);
+            }
+            ReportControl.fnNextTestJoin(nextTestJoin);
+        }
+    }

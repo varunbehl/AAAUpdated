@@ -1,0 +1,11 @@
+package com.aaa.rspweb.pages;
+
+import org.openqa.selenium.By;
+
+public class RSPUserDetailsPage {
+
+	public static By lblLastLoginTime=By.xpath("//tbody[@id='table-body-Logins']//tr[1]/td[1]");
+	public static By loginRecords=By.xpath("//tbody[@id='table-body-Logins']//tr");
+    
+   
+}

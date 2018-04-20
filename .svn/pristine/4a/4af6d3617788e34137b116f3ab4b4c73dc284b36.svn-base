@@ -1,0 +1,130 @@
+package com.aaa.rspweb.scripts;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.rspweb.lib.*;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_RSPShopPriorityStatus extends RSPCommonLib{
+
+
+    /*********************************************************************************
+     * *******************************************************************************
+     * *************************No STEPS SKIPPED******************************************
+     * *************************Test data is from TestData(Sheet:-RSPWeb,Column name:-RSPShopPriorityStatus)******************************************
+     * ********************************************************************************
+     * ********************************************************************************
+     * ********************************************************************************
+     */
+
+    RSPHomeLib home=new RSPHomeLib();
+    RSPLoginLib login=new RSPLoginLib();
+    LoginLib crLogin = new LoginLib();
+    CRHomeLib crHomeLib = new CRHomeLib();
+    CRSearchCallsLib searchCall=new CRSearchCallsLib();
+    CRTowDestinationLib towdestination = new CRTowDestinationLib();
+    CRMemberSearchLib memberSearchLib =new CRMemberSearchLib();
+    Hashtable<String,String> callDetails;
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void shopPriorityStatus(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+        try
+        {
+            int intStartRow=StartRow;
+            int intEndRow= ReportControl.fnGetEndRowCunt(EndRow, "RSPShopPriorityStatus", TestData, "RSPWeb");
+            for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++) {
+                try {
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount = intCounter;
+                    Hashtable<String, String> data = TestUtil.getDataByRowNo("RSPShopPriorityStatus", TestData, "RSPWeb", intCounter);
+                    this.reporter.initTestCaseDescription("RSP Shop Priority Status" + " From Iteration " + StartRow + " to " + EndRow);
+                    reporter.SuccessReport("Iteration Number : ", "**************Iteration Number::  " + intCounter + "   **************");
+                    //Create call to verify last step
+                    callDetails=createCall(data.get("CRLoginName"),data.get("CRPassword"),data.get("BreakdownAddress"),data.get("Vehiclemodel"),
+                            data.get("PacesetterCode"),data.get("TowDestination"),data.get("TowPassengers"),data.get("Member"),data.get("Membersearch"),data.get("dbServer")
+                            ,data.get("dbqueryFileName"),data.get("colomnName"),data.get("PhoneNumber"),data.get("primaryphonenum1"));
+                    //Changing call status to tow
+                    changeCallToTow(data.get("DILoginName"),data.get("DIPassword"),data.get("role"),callDetails.get("callId"),callDetails.get("callDate"));
+                    //navigating to RSP
+                    navigateToApplication("RSP");
+                    //Step 1: Login as Shop User, Shop Admin
+                    login.loginToRSP(data.get("RSPLoginName"), data.get("RSPPassword"));
+                    //Verifies status modal window appers if found clicks on "Yes set my status to priority services"
+                    home.verifyAndClickOnLinkNoNotAtThisTime();
+                    //Step 2:Verify the status is changed
+                    String priorityService=home.selectedPriorityService();
+                    if(!priorityService.toLowerCase().contains("closed"))
+                    {
+                    if(!priorityService.replaceAll(" ","").equalsIgnoreCase("priorityservice"))
+                    {
+                        //if priority service is not selected then clicks on dropdown to select service
+                        home.clickOnDropdownPriorityServices();
+                        //Selects priority service
+                        home.selectPriorityFromDropdown(data.get("PriorityToSelect"));
+                        priorityService=home.selectedPriorityService();
+                    }
+                    //Step 2:verifying priority service is selected or not
+                    assertTrue(priorityService.replaceAll(" ","").equalsIgnoreCase("priorityservice"),"Successfully selected priority service ");
+                    //Clicks on signout
+                    home.clickOnSignOut();
+                    if(priorityService.replaceAll(" ","").equalsIgnoreCase("priorityservice")) {
+                        //Step 3:Entering into tow call
+                        navigateToApplication("CR");
+                        //logging into D3 calls
+                        crLogin.login(data.get("CRLoginName"), data.get("CRPassword"));
+                        //Closing messege dialoge box if visible
+                        crHomeLib.messageDialogBoxClose();
+                        //clicks on search call dropdown and selects
+                        searchCall.clickOnSearchCallsAndSearchLink();
+                        //Enter start date in search call window
+                        searchCall.enterStartDateOnSearchCallsWindow(callDetails.get("callDate"));
+                        //Enter end date in search call window
+                        searchCall.enterEndDateOnSearchCallsWindow(callDetails.get("callDate"));
+                        //Entering callId in search call window
+                        searchCall.enterCallIdOnSearchCallsWindow(callDetails.get("callId"));
+                        //Clicking on search button in search call window
+                        searchCall.clickOnSearchBtnOnSearchCallsWindow();
+                        //Clicking on call
+                        searchCall.clickOnCallIDLink();
+                        //verifying member search button
+                        crLogin.waitcloseAllBusyIconsResults();
+                        //Clicking on tow destination tab
+                        towdestination.clickOnTowDestinationTab();
+                        //Handing errors
+                        crHomeLib.allErrorAlerts();
+                        //Verifying tow destination R icon turned to green or not
+                        //Step 3:Verify the shop shows with a colored R
+                        assertTrue(towdestination.verifyTowDestinationPriority(), "Shop showing with coloured R");
+                    }
+                    else
+                    {
+                        reporter.failureReport("Shop is closed","Unable to select priority service because shop priority status is::"+priorityService,driver);
+                    }
+                        crHomeLib.logout();
+                    }
+                }
+                catch(Exception e)
+                {
+                    ReportStatus.blnStatus=false;
+                    reporter.failureReport("Failed due to",e.getMessage(),driver);
+                }
+                ReportControl.fnEnableJoin();
+                ReportStatus.fnUpdateResultStatus("RSP","1865",ReportStatus.strMethodName,intCounter,browser);
+                fnCloseTest();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+}

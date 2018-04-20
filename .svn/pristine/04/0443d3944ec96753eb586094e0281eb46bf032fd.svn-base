@@ -1,0 +1,407 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRMemberSearchPage;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRTowDestination extends ActionEngine {
+
+    public String address;
+    public String getValue;
+    public int towDestinationResultsCount;
+    public int towDestinationResultsCountForSearchMiles;
+    public int towDestinationResultsCountForModSearchMiles;
+    public int towDestinationMakeSearchResultCount;
+    public int towDestinationMakeSearchResultCountForHours;
+    public String resultCount;
+    public String resultCountForSearchMiles;
+    public String resultCountForSearchModMiles;
+    public String searchtowDestinationMakeSearchResultCount;
+    public String searchtowDestinationMakeSearchResultCountForHours;
+    public String Date;
+    public String latitude;
+    public String longitude;
+    public String addressVerifiedInfo;
+
+
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void automaticSearch(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+    	try
+    	{
+    		int intStartRow=StartRow;
+    		int intEndRow=ReportControl.fnGetEndRowCunt(EndRow,"towDestination", TestData, "D3CallRecieving");
+    		for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+    		{
+    			try {
+    				fnOpenTest();
+    					ReportStatus.fnDefaultReportStatus();
+    					ReportControl.intRowCount=intCounter;
+    					Hashtable<String, String> data=TestUtil.getDataByRowNo("towDestination", TestData, "D3CallRecieving",intCounter);
+    	
+		                this.reporter.initTestCaseDescription("1949:TS-Tow Destination"+ " From Iteration " + StartRow + " to " + EndRow );
+		                reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+		                LoginLib login = new LoginLib();
+		                CRMemberSearchLib member = new CRMemberSearchLib();
+		                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+		                CRLocationsLib locations = new CRLocationsLib();
+		                CRHomeLib home = new CRHomeLib();
+		                CRServiceLib service = new CRServiceLib();
+		                CRRecentCallsLib recent = new CRRecentCallsLib();
+		                CRTowDestinationLib tow = new CRTowDestinationLib();
+		                CommonLib commonLib = new CommonLib();
+		
+		                navigateToApplication("CR");
+		                login.login(data.get("CRLoginName"), data.get("Password"));
+		                login.waitcloseAllBusyIconsResults();
+		                home.messageDialogBoxClose();
+		                String Member = "";
+		                if (data.get("Member").equals("db")){
+		        	        //fetch member details from db
+		        	        //generating a random number everytime to fetch a new record everytime
+		        	        int rownum = IntRandomNumberGenerator(50,1000);       
+		        	        //member from db
+		        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+		        	        System.out.println("member : "+Member);
+		                }
+		                else
+		                {
+		                	Member = data.get("Membersearch");
+		                }
+		                home.memberSearchTextBox(Member);
+		                //home.memberSearchTextBox(data.get("Membersearch"));
+		                member.memberNumClick();
+		                member.currentCallClose();
+
+						locations.breakdownLocTabSel();
+						//Enter Location Mandatory Fields
+						locations.enterBreakDownAddressOmniBarSearch(data.get("OmniBarAddress"));
+						//To enter Vehicle Information
+						commonLib.crVehicleTriageTab(data.get("VehicleSearch"), data.get("VehicleDetails"), "", data.get("ProblemTriage"), data.get("ProblemType"));
+						crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+						home.allErrorAlerts();
+		                tow.clickOnTowDestinationTab();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                //Validation -Automatic Search
+		                towDestinationResultsCount=tow.verifyTowDestinationResultsList();
+		                assertTrue(towDestinationResultsCount!=0,"Verified the tow destination results List :Number of tow destinations are  :"+towDestinationResultsCount);
+		                resultCount=String.valueOf(towDestinationResultsCount);
+						//Clicking On AAR Location Hyper Link
+						address=tow.getAutoSearchCriteriaInTowDestinationTab();
+		                String inputvalues[] = address.split(", ");
+		                String addressInput = inputvalues[0];
+		                String vehicleType = inputvalues[1];
+		                assertTrue(vehicleType.equalsIgnoreCase(data.get("ReEnterMake")),"Given Vehicle:: '"+data.get("ReEnterMake")+"' ::Search criteria is matched with call criteria::  '"+vehicleType+"'");
+		                assertTrue(addressInput.contains(data.get("StreetAddress").toUpperCase()),"Given address:: '"+data.get("StreetAddress")+"' ::search criteria is matched with Call criteria::  '"+addressInput+"'");
+		                Thread.sleep(1000);
+
+		                tow.clickOnAARTowDetinationLink();
+					   	tow.enterTowPassengers(data.get("Towpassengers"));
+						//Verify a referral pop up message on the right side of the application
+		                String popUpNotificationMsg = tow.popupNotificationForRSPreferalGetTitle();
+						//Validation -Step3 ,Verification of PopUp error
+		                assertTrue(popUpNotificationMsg!=null,"Verified the popup Notification , Notification Message is :: "+popUpNotificationMsg);
+		                //Verify address with latitude and Longitude on Tow destination
+		                String addressVerification = tow.addressVerificationWithLatitudeAndLongitude();
+		                assertTrue(addressVerification!=null,"Address verified with Latitude and Longitude, Verification message On Screen  Is : "+addressVerification);
+
+		                /********************Radius Search********/
+		                reporter.SuccessReport("Radius Search","Radius Search Starting");
+		                //radius Search
+		                tow.clickOnManualEntryLinkOnTowDestination();
+		                home.waitCloseAllBusyIconsResults();
+		                tow.clickOnShowCriteriaCollapseButton();
+		                home.waitCloseAllBusyIconsResults();
+		                Thread.sleep(6000);
+		                //Validate with searchmilesas 20 miles
+		                tow.enterMilesToSearchRepairShopWithInRange(data.get("searchMiles"));
+		                Thread.sleep(4000);
+		                tow.clickOnSearchButtonOnTow();
+		                home.waitCloseAllBusyIconsResults();
+		                tow.getAutoSearchCriteriaInTowDestinationTab();
+		                Thread.sleep(5000);
+		                Thread.sleep(2000);
+
+		                //Validation when Search with 20 miles
+		                boolean milesFlag = tow.verifyMilesOnTowBasedOnSearchCriteria(data.get("searchMiles"));
+		                assertTrue(milesFlag,"Verified the list of tow destinations are returned and some of the results have miles greater than 20");
+		                Thread.sleep(2000);
+		                //enter miles as 5
+		                tow.clickOnShowCriteriaCollapseButton();
+		                tow.enterMilesToSearchRepairShopWithInRange(data.get("ModifiedSearchMiles"));
+		                Thread.sleep(2000);
+		                home.waitCloseAllBusyIconsResults();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                boolean milesFlagLessThanFive = tow.getDisatanceInTow(data.get("ModifiedSearchMiles"));
+		               //Validation of results with  miles 5
+		                assertTrue(milesFlagLessThanFive,"Verified the results,Results returned are 5 or less miles");
+		                Thread.sleep(2000);
+
+		                /***************VehicleSear***************/
+		                reporter.SuccessReport("Vehicle Search","Vehicle Search");
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		                getValue=tow.getVehicleValueInTowSearch();
+		                tow.compareTwoValues(getValue,data.get("ReEnterMake"));
+						tow.clickOnShowCriteriaCollapseButton();
+		                tow.getDisatanceInTow(data.get("ModifiedSearchMiles"));
+		                Thread.sleep(2000);
+		                //Tow Destination changes has to be validated
+					   tow.clickOnShowCriteriaCollapseButton();
+		               // Thread.sleep(2000);  Vehicle make exotic vehicle Search
+		                tow.enterValueInVehicle(data.get("MakeValue"));
+		                Thread.sleep(1000);
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		               String vehicelNameFromTow = tow.getAutoSearchCriteriaInTowDestinationTab();
+		               assertTrue(vehicelNameFromTow.contains(data.get("MakeValue"))," List of tow destinations has changed based on the Exotic vehicle make is taken into consideration");
+		                boolean milesFromList = tow.getDisatanceInTow(data.get("ModifiedSearchMiles"));
+					String combineKeys1 = Keys.chord(Keys.END);
+					sendKeys(combineKeys1, "END");
+		                assertTrue(milesFromList," List of tow destinations are returned based on the Exotic vehicle make");
+					   tow.clickOnShowCriteriaCollapseButton();
+					   Thread.sleep(2000);
+					   //To change the vehicle to Exotic to default vehicle
+						tow.enterValueInVehicle(data.get("ReEnterMake"));
+					   //tow.clickOnSearchButtonOnTow();
+						//Hours Search
+		                reporter.SuccessReport("Hours Search","Hours Search");
+		                ///tow.clickOnShowCriteriaCollapseButton();
+		                home.waitCloseAllBusyIconsResults();
+		                Thread.sleep(4000);
+		                tow.clickOnOpenOnCheckBox();
+		                Date=tow.getDateValue();
+		                tow.enterValueInDate(Date);
+
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(2000);
+
+		                 tow.getAutoSearchCriteriaInTowDestinationTab();
+						int towResultsCount  = tow.verifyTowDestinationResultsList();
+		                //searchtowDestinationMakeSearchResultCountForHours=String.valueOf(towDestinationMakeSearchResultCountForHours);
+		                assertTrue(towResultsCount!=0," List of tow destinations appear in the operating hours ");
+		                Thread.sleep(5000);
+		                /***********Shop Type Search************************/
+		                reporter.SuccessReport("Shop Type Search","Shop Type Search");
+		                //tow.clickOnRepairShopCheckboxOnTow();
+		                //Thread.sleep(5000);
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		                //Enter default Search Miles as 10
+						tow.enterMilesToSearchRepairShopWithInRange(data.get("DefaultsearchMiles"));
+						//To Un check OpenOn Check Box
+						tow.clickOnOpenOnCheckBox();
+		                // Total Repair Care Miles validation  TRC Related Functionality
+		                tow.clickOnTRCCheckBox();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(2000);
+		                Thread.sleep(5000);
+		               String resultsRelatedToTRC =  tow.getAutoSearchCriteriaInTowDestinationTab();
+		               boolean trcResultsAvailable = (resultsRelatedToTRC.contains(data.get("TRCName")));
+		               assertTrue(trcResultsAvailable,"only Total Repair Care tow destinations appear");
+					//Total Repair Care Miles validation available In The  verifyTowDestinationResultsList() method
+						tow.verifyTowDestinationResultsList();
+
+						//AAR Miles validation
+		                Thread.sleep(5000);
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		
+		                tow.clickOnTRCCheckBox();
+		                tow.clickOnAARnCheckBox();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(2000);
+		                Thread.sleep(5000);
+						String resultsRelatedToAAR =  tow.getAutoSearchCriteriaInTowDestinationTab();
+						boolean aarResultsAvailable = (resultsRelatedToAAR.contains(data.get("AARName")));
+						assertTrue(aarResultsAvailable," AAR tow destinations appear");
+						//AAR Miles validation available In The  verifyTowDestinationResultsList() method
+						tow.verifyTowDestinationResultsList();
+
+						///Auto Glass Miles validation
+		                Thread.sleep(5000);
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		                tow.clickOnAARnCheckBox();
+		                tow.clickOnAutoGlass();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(5000);
+						String resultsRelatedToAutoGlass =  tow.getAutoSearchCriteriaInTowDestinationTab();
+						boolean AutoGlassResultsAvailable = (resultsRelatedToAutoGlass.contains(data.get("AutoGlass")));
+						assertTrue(AutoGlassResultsAvailable," only Auto Glass tow destinations are returned.");
+						//Auto Glass Miles validation available In The  verifyTowDestinationResultsList() method
+						tow.verifyTowDestinationResultsList();
+		                tow.verifyAutoGlassStatus();
+
+		                //Collisin Validation
+		                Thread.sleep(5000);
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		                tow.clickOnAutoGlass();
+		                tow.clickOnCollisinCheckBox();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(5000);
+						String resultsRelatedToCollision =  tow.getAutoSearchCriteriaInTowDestinationTab();
+						boolean CollisionResultsAvailable = (resultsRelatedToCollision.contains(data.get("Collision")));
+						assertTrue(CollisionResultsAvailable,"  only Collision tow destinations are returned.");
+						//Collision Miles validation available In The  verifyTowDestinationResultsList() method
+						tow.verifyTowDestinationResultsList();
+
+		
+		                Thread.sleep(5000);
+		                tow.clickOnShowCriteriaCollapseButton();
+		                Thread.sleep(2000);
+		                tow.clickOnCollisinCheckBox();
+		                tow.clickOnRVCheckboxOnTow();
+		                tow.clickOnSearchButtonOnTow();
+		                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+		                Thread.sleep(5000);
+						String resultsRelatedToRV =  tow.getAutoSearchCriteriaInTowDestinationTab();
+						boolean rvResultsAvailable = (resultsRelatedToRV.contains(data.get("RV")));
+						assertTrue(rvResultsAvailable,"   only RV tow destinations are returned.");
+						//RV Miles validation available In The  verifyTowDestinationResultsList() method
+						tow.verifyTowDestinationResultsList();
+
+
+					reporter.SuccessReport("Service Provided Search","Service Provided Search");
+					//tow.clickOnManualEntryLinkOnTowDestination();
+					home.waitCloseAllBusyIconsResults();
+					tow.clickOnShowCriteriaCollapseButton();
+					home.waitCloseAllBusyIconsResults();
+					tow.enetrServiceProvider(data.get("RefrigerationName"));
+					tow.clickOnSearchButtonOnTow();
+					//ServiceProvider Validation Is available In getDisatanceInTow() method
+					boolean availableMilesFlag = tow.getDisatanceInTow(data.get("RefrigerationName"));
+					assertTrue(!availableMilesFlag,"Now Tow results available");
+					home.waitCloseAllBusyIconsResults();
+
+					//Remove the Refrigeration before searching with FurnancesName
+					tow.clickOnShowCriteriaCollapseButton();
+					home.waitCloseAllBusyIconsResults();
+					tow.removeTheServiceProvider();
+					Thread.sleep(2000);
+					tow.enetrServiceProvider(data.get("FurnancesName"));
+					tow.clickOnSearchButtonOnTow();
+					//ServiceProvider Validation Is available In getDisatanceInTow() method
+					boolean availableMiles =  tow.getDisatanceInTow(data.get("FurnancesName"));
+					assertTrue(!availableMiles,"Now Tow results available");
+
+					reporter.SuccessReport("ManualEntry Search","ManualEntry Search");
+					crVehicleTriageLib.clickOnVehicleTriageTab();
+					crVehicleTriageLib.validatePaceSetterCode("");
+					crVehicleTriageLib.problemTriage(data.get("ProblemTriage"), data.get("ProblemType"));
+					crVehicleTriageLib.scriptErrorHandle();
+					tow.clickOnTowDestinationTab();
+					crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+					tow.clickOnManualEntryLinkOnTowDestination();
+					crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+					tow.clickOnClearLocation();
+					crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+					tow.clickOnManualEntryLinkOnTowDestination();
+					home.waitCloseAllBusyIconsResults();
+					tow.enterStreetAddressNo(data.get("streetNumber"));
+					tow.enterStreetAddressName(data.get("streetName"));
+					tow.enterCityCodeInTow(data.get("cityName"));
+					tow.enterStateInTow(data.get("state"));
+					addressVerifiedInfo = tow.getAddressVerifiedTextFromButton();
+					 latitude = tow.getLatitudeValueInTow();
+					 longitude = tow.getLogitudeValueInTow();
+					assertTrue(addressVerifiedInfo.contains(data.get("AddressVerification"))," "+addressVerifiedInfo+"  with valid  "+latitude +"  "+longitude);
+
+
+					//Cross street: (street name, cross street, city, state)
+					tow.clickOnClearLocation();
+					tow.clickOnManualEntryLinkOnTowDestination();
+
+					tow.enterStreetAddressName(data.get("streetName"));
+					tow.enterFirstCrossStreet(data.get("CrossStreet1"));
+					tow.enterSecondCrossStreet(data.get("CrossStreet2"));
+					tow.enterCityCodeInTow(data.get("cityName"));
+					tow.enterStateInTow(data.get("state"));
+					home.waitCloseAllBusyIconsResults();
+					addressVerifiedInfo = tow.getAddressVerifiedTextFromButton();
+					latitude = tow.getLatitudeValueInTow();
+					longitude = tow.getLogitudeValueInTow();
+					assertTrue(addressVerifiedInfo.contains(data.get("AddressVerification"))," "+addressVerifiedInfo+"  with valid  "+latitude +"  "+longitude);
+
+					//Landmark: (Landmark name, city, state)
+					tow.clickOnClearLocation();
+					tow.clickOnManualEntryLinkOnTowDestination();
+
+					tow.enterLandMarkInTow(data.get("landMark"));
+					tow.enterCityCodeInTow(data.get("cityName"));
+					tow.enterStateInTow(data.get("state"));
+					home.waitCloseAllBusyIconsResults();
+					addressVerifiedInfo = tow.getAddressVerifiedTextFromButton();
+					latitude = tow.getLatitudeValueInTow();
+					longitude = tow.getLogitudeValueInTow();
+					assertTrue(addressVerifiedInfo.contains(data.get("AddressVerification"))," "+addressVerifiedInfo+"  with valid  "+latitude +"  "+longitude);
+
+					//Special Character: (block#, street name, city, state)
+					tow.clickOnClearLocation();
+					tow.clickOnManualEntryLinkOnTowDestination();
+
+					tow.enterStreetAddressNo(data.get("streetNumber"));
+					tow.enterStreetAddressName(data.get("streetName"));
+					tow.enterCityCodeInTow(data.get("cityName"));
+					tow.enterStateInTow("state");
+					home.waitCloseAllBusyIconsResults();
+					home.waitCloseAllBusyIconsResults();
+					tow.clickOnAddressVerificationLinkInRowSelection();
+					addressVerifiedInfo = tow.getAddressVerifiedTextFromButton();
+					latitude = tow.getLatitudeValueInTow();
+					longitude = tow.getLogitudeValueInTow();
+					assertTrue(addressVerifiedInfo.contains(data.get("AddressVerification"))," "+addressVerifiedInfo+"  with valid  "+latitude +"  "+longitude);
+
+					//Clicking on Member's home address noted with a house icon
+					tow.clickOnManualEntryLinkOnTowDestination();
+					String previouslyUsedTowAddress = tow.getAddressFromPreviouslyUsedTowDestination();
+					tow.clickPreviouslyUsedTowDestination();
+					home.waitCloseAllBusyIconsResults();
+					String streetNumber = tow.getStreetNumber();
+					String streetName =tow.getStreetName();
+					String city = tow.getCityName();
+					String state = tow.getStateName();
+					addressVerifiedInfo = tow.getAddressVerifiedTextFromButton();
+					boolean addressMatchedFlag =( (previouslyUsedTowAddress.contains(streetNumber)) && previouslyUsedTowAddress.contains(streetName) && previouslyUsedTowAddress.contains(city) && previouslyUsedTowAddress.contains(state));
+					assertTrue(addressMatchedFlag,"When the home address is selected, the address information is populated into the correct fields ");
+					assertTrue(addressVerifiedInfo.contains(data.get("AddressVerification")),"valid lat/long is returned");
+
+
+		                home.leaveButton();
+		                home.clickOnConfirmationAlert();
+		                home.logout();
+    			}
+    			catch(Exception e)
+    			{
+    				ReportStatus.blnStatus=false;
+    			}
+    			ReportControl.fnEnableJoin();
+    			ReportStatus.fnUpdateResultStatus("CR","1949",ReportStatus.strMethodName,intCounter,browser);
+    			fnCloseTest();
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+    		e.printStackTrace();
+    		throw new RuntimeException(e);
+    	}
+    	ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+}

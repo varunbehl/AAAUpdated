@@ -1,0 +1,72 @@
+package com.aaa.rspweb.lib;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.rspweb.pages.RSPLoginPage;
+
+public class RSPLoginLib extends RSPCommonLib {
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterUserName
+     * description :: To Enter user Name
+     * date :: 09-Mar-2018
+     * author :: Jagadish
+     */
+
+    public void enterUserName(String userName) throws Throwable {
+        waitForVisibilityOfElement(RSPLoginPage.txtUserName, "User Name Text Field");
+        type(RSPLoginPage.txtUserName, userName, "User Name");
+
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterPassword
+     * description :: To Enter Password
+     * date :: 09-Mar-2018
+     * author :: Jagadish
+     */
+
+    public void enterPassword(String userName) throws Throwable {
+        waitForVisibilityOfElement(RSPLoginPage.txtPassword, "Password Text Field");
+        type(RSPLoginPage.txtPassword, userName, "Password");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSignInButton
+     * description :: To click on signin button
+     * date :: 09-Mar-2018
+     * author :: Jagadish
+     */
+
+    public void clickOnSignInButton() throws Throwable {
+        waitForVisibilityOfElement(RSPLoginPage.btnSignIn, "User Name Text Field");
+        click(RSPLoginPage.btnSignIn, "Clicked on signin button");
+
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginToRSP
+     * description :: Login to application
+     * date :: 09-Mar-2018
+     * author :: Jagadish
+     */
+
+    public void loginToRSP(String userName,String Password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(Password);
+        clickOnSignInButton();
+    }
+    
+}

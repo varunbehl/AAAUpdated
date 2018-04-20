@@ -1,0 +1,191 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRCDXMemberLookUp extends LoginLib {
+
+
+    @Parameters({"StartRow", "EndRow", "nextTestJoin"})
+    @Test()
+    public void cdxMemberLookUp(int StartRow, String EndRow, boolean nextTestJoin) throws Throwable {
+        try {
+            int intStartRow = StartRow;
+            int intEndRow = ReportControl.fnGetEndRowCunt(EndRow, "cdxMemberLookUp", TestData, "D3CallRecieving");
+            for (int intCounter = intStartRow; intCounter <= intEndRow; intCounter++) {
+                try {
+                    fnOpenTest();
+                    ReportStatus.fnDefaultReportStatus();
+                    ReportControl.intRowCount = intCounter;
+                    Hashtable<String, String> data = TestUtil.getDataByRowNo("cdxMemberLookUp", TestData, "D3CallRecieving", intCounter);
+
+                    this.reporter.initTestCaseDescription("1614:cdxMemberLookUp" + " From Iteration " + StartRow + " to " + EndRow);
+                    reporter.SuccessReport("Iteration Number : ", "**************Iteration Number::  " + intCounter + "   **************");
+                    CRHomeLib home = new CRHomeLib();
+                    CRMemberSearchLib memeber = new CRMemberSearchLib();
+
+                    navigateToApplication("CR");
+                    login(data.get("LoginName"), data.get("Password"));
+                    home.messageDialogBoxClose();
+                    home.verifyHomeScreen();
+                    //Enter CDX member number
+                    home.enterDataInOmniSearchBarOnHomePage(data.get("CdxMember"));
+
+                    //verify clubcode automatically updated
+                    String clubCode = memeber.verifyClubCodeForCdxmember();
+                    assertTrue(clubCode.equalsIgnoreCase(data.get("CityClubcode")), "Club code is updated automatically");
+                    //verify MemberId
+                    home.clickOnSearchButtonOfOmniSearchBarOnHomePage();
+                    assertTrue(memeber.memberNumber().equalsIgnoreCase(data.get("CdxMember")), "Member ID is matched");
+                    Thread.sleep(3000);
+                    memeber.memberNumClick();
+                    memeber.currentCallClose();
+                    //verify member fields are auto populated
+                    verifyMemberDetailsPopulated();
+
+                    //verify CDXAuthorization Level,Message,Code,Coverage are displayed
+                    assertTrue(memeber.verifyCdxAuthorizationLevel().equalsIgnoreCase("COD (C)"), "CDX Autorization Level is Displayed");
+                    assertTrue(memeber.verifyCdxAuthorizationMessage().equalsIgnoreCase("Member is expired or at/over entitlements limit (used 0 out of 4)"), "CDX Autorization Message is Displayed");
+                    assertTrue(memeber.verifyCdxAuthorizationCode(), "CDX Autorization Code is Displayed");
+                    assertTrue(memeber.verifyCdxMotorCycleCoverage().equalsIgnoreCase("No"), "CDX MotorCycle Coverage is Displayed");
+                    home.leaveButton();
+                    home.allErrorAlerts();
+                    //verify club code resets to local club code
+                    assertTrue(memeber.verifyClubCode().equalsIgnoreCase(data.get("ClubCode")), "Club code is updated automatically");
+                    memeber.verifyClubCode();
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+
+                    // Enter valid 9 digit cdx member number
+                    home.memberSearchTextBox(data.get("9DigitMemberID"));
+                    assertTrue(memeber.memberNumber().contains(data.get("9DigitMemberID")), "Member ID is matched with 9DigitMember Id");
+                    memeber.memberNumClick();
+                    memeber.currentCallClose();
+                    //verify member fields are auto populated
+                    verifyMemberDetailsPopulated();
+                    home.leaveButton();
+                    home.allErrorAlerts();
+                    //verify club code resets to local club code
+                    assertTrue(memeber.verifyClubCode().equalsIgnoreCase(data.get("ClubCode")), "Club code is updated automatically");
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+                    // Enter valid 10 digit phone number
+                    home.memberSearchTextBox(data.get("10DigitValidPhoneNumber"));
+                    Thread.sleep(10000);
+                    //list of phone numbers are not displayed here instead error message is displayed
+                    if (memeber.verifyErrorMessageForUnavailableService()) {
+                        reporter.failureReport("Members with entered Phone Number", "Members with entered Phone Number are not returned");
+                        home.allErrorAlerts();
+                    } else {
+                        memeber.memberNumClick();
+                        memeber.currentCallClose();
+                        assertTrue(memeber.getPhoneNumberFirstRecord().equalsIgnoreCase(data.get("10DigitValidPhoneNumber")), "Members with entered Phone Number are Returned");
+                    }
+                    home.leaveButton();
+                    home.allErrorAlerts();
+                    //verify club code resets to local club code
+                    assertTrue(memeber.verifyClubCode().equalsIgnoreCase(data.get("ClubCode")), "Club code is updated automatically");
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+
+                    //Error scenario checking for member number less than 7 digits
+                    home.memberSearchTextBox(data.get("LessThan7DigitNumber"));
+                    Thread.sleep(10000);
+                    //verify error message for less than 7Digit number
+                    if (memeber.verifyErrorMessageForCDXUnavailableService()) {
+                        reporter.failureReport("Invalid serach Criteria for 7digit", "Invalid serach Criteria for 7digit not Found");
+                        home.allErrorAlerts();
+                    }
+
+                    // Enter Invalid 10 digit phone number
+                    home.memberSearchTextBox(data.get("10DigitInValidPhoneNumber"));
+                    Thread.sleep(5000);
+                    assertTrue(memeber.emptySearchResults().contains("No matching records found"),"No matching records found is displayed");
+                    home.allErrorAlerts();
+                    home.leaveButton();
+                    home.allErrorAlerts();
+
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+
+                    //Enter valid last name
+                    home.memberSearchTextBox(data.get("ValidLastName"));
+                    //verify last name is wild carded
+                    memeber.verifyWildCardForLastName();
+                    memeber.memberNumClick();
+                    //verify member fields are auto populated
+                    verifyMemberDetailsPopulated();
+                    home.leaveButton();
+                    home.allErrorAlerts();
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+
+                    //Error scenario checking for member name does'nt exist
+                    home.memberSearchTextBox(data.get("LastNameDontExist"));
+                    memeber.emptySearchResults();
+                    home.leaveButton();
+                    home.allErrorAlerts();
+
+                    //Enter valid last name and first name
+                    home.memberSearchTextBox(data.get("LastNameFirstName"));
+                    //verify last name is wild carded
+                    memeber.verifyWildCardForLastName();
+                    memeber.memberNumClick();
+                    //verify member fields are auto populated
+                    verifyMemberDetailsPopulated();
+                    home.leaveButton();
+                    home.allErrorAlerts();
+                    memeber.enterDataInClubCode(data.get("CityClubcode"));
+
+                    //CDX City and State
+                    memeber.enterDataInClubCode(data.get("ClubcodeWithCityAndState"));
+                    home.memberSearchTextBox(data.get("CdxMember"));
+                    Thread.sleep(5000);
+                    memeber.memberNumClick();
+                    //verify member fields are auto populated
+                    verifyMemberDetailsPopulated();
+                    memeber.verifyCdxAuthorizationLevel();
+                    memeber.verifyCdxAuthorizationMessage();
+                    memeber.verifyCdxAuthorizationCode();
+                    memeber.verifyCdxMotorCycleCoverage();
+                    home.logout();
+                    System.out.println("Test completed");
+                } catch (Exception e) {
+                    ReportStatus.blnStatus = false;
+                }
+                ReportControl.fnEnableJoin();
+                ReportStatus.fnUpdateResultStatus("CR", "7777", ReportStatus.strMethodName, intCounter, browser);
+                fnCloseTest();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+    public void verifyMemberDetailsPopulated() throws Throwable {
+        CRMemberSearchLib memeber = new CRMemberSearchLib();
+        memeber.labelMemberShipNumberInMemberDetailsSection();
+        memeber.labelMemberSinceInMemberDetailsSection();
+        memeber.labelMemberLevelInMemberDetailsSection();
+        memeber.labelMemberTypeInMemberDetailsSection();
+        memeber.labelMemberExpirationInMemberDetailsSection();
+        memeber.labelMemberStatusInMemberDetailsSection();
+        memeber.memberCallsAllowedInMemberDetailsSection();
+        memeber.memberCallsRemainingInMemberDetailsSection();
+        memeber.memberCallsUsedInMemberDetailsSection();
+        memeber.memberCurrentCallsInMemberDetailsSection();
+        memeber.memberChargeableCallsInMemberDetailsSection();
+        memeber.labelMemberFirstNameInMemberDetailsSection();
+        memeber.labelMemberLastNameInMemberDetailsSection();
+        memeber.labelMemberZipCodeInMemberDetailsSection();
+        memeber.labelMemberStateInMemberDetailsSection();
+        memeber.labelMemberCityInMemberDetailsSection();
+    }
+}
+
+
